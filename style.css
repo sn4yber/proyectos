@@ -36,16 +36,11 @@ body {
     background-color: rgb(129, 44, 208); /* Color alternativo */
 }
 
-/* Estilo para las imágenes de las tarjetas como íconos */
 .card img {
-    width: 50px; /* Tamaño fijo para que se vean como íconos */
-    height: 50px;
-    margin-bottom: 10px; /* Espaciado debajo del ícono */
-    border-radius: 50%; /* Hace que las imágenes sean circulares */
-    object-fit: cover; /* Asegura que la imagen se ajuste bien dentro del círculo */
-    display: block;
-    margin-left: auto;
-    margin-right: auto; /* Centra la imagen horizontalmente */
+    max-width: 100%; /* Asegura que las imágenes sean responsivas */
+    height: auto;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 /* Video Card */
