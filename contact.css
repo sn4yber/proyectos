@@ -49,9 +49,15 @@ p {
 }
 
 .card img {
-    width: 100%; /* Imagen ocupa todo el ancho */
-    height: auto;
+    width: 50px; /* Tamaño fijo para que se vean como íconos */
+    height: 50px;
+    margin-bottom: 10px; /* Espaciado debajo del ícono */
     border-bottom: 1px solid rgb(200, 200, 200); /* Línea divisoria */
+    border-radius: 50%; /* Hace que las imágenes sean circulares */
+    object-fit: cover; /* Asegura que la imagen se ajuste bien dentro del círculo */
+    display: block;
+    margin-left: auto;
+    margin-right: auto; /* Centra la imagen horizontalmente */
 }
 
 .card-body {
@@ -98,6 +104,17 @@ p {
 
 .card ul li a:hover {
     text-decoration: underline;
+}
+
+/* Estilo para los íconos de redes sociales */
+.card ul li a i {
+    font-size: 24px; /* Tamaño del ícono */
+    margin-right: 10px; /* Espaciado entre el ícono y el texto */
+    color: rgb(0, 102, 204); /* Azul oscuro */
+}
+
+.card ul li a i:hover {
+    color: rgb(0, 153, 51); /* Cambia a verde al pasar el cursor */
 }
 
 /* Responsive Design */
