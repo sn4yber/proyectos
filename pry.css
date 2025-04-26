@@ -40,24 +40,3 @@
     color: #5c6370; /* Color gris */
     font-style: italic;
 }
-
-.java-code {
-    background-color: #2d2d2d; /* Fondo oscuro */
-    color: #f8f8f2; /* Texto claro */
-    font-family: "Courier New", Courier, monospace; /* Fuente monoespaciada */
-    padding: 15px;
-    border-radius: 5px;
-    overflow-x: auto; /* Habilita el scroll horizontal si es necesario */
-}
-
-.java-code .keyword {
-    color: #66d9ef; /* Color para palabras clave */
-}
-
-.java-code .string {
-    color: #a6e22e; /* Color para cadenas */
-}
-
-.java-code .comment {
-    color: #75715e; /* Color para comentarios */
-}
