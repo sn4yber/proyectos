@@ -1,0 +1,149 @@
+/* General */
+body {
+    background-color: rgb(198, 255, 248);
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar */
+.navbar {
+    background-color: rgb(230, 253, 255) !important; /* Lila claro */
+    color: rgb(0, 0, 0) !important; /* Texto en negro */
+    padding: 10px;
+    text-align: center;
+}
+
+.navbar a {
+    color: rgb(0, 0, 0) !important; /* Color de los enlaces en negro */
+}
+
+.navbar a:hover {
+    color: rgb(129, 44, 208) !important; /* Color lila oscuro al pasar el cursor */
+}
+
+/* Cards */
+.card {
+    text-align: center;
+    background-color: rgb(208, 0, 255); /* Color base */
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para un efecto de profundidad */
+    border-radius: 10px; /* Bordes redondeados */
+    overflow: hidden; /* Asegura que el contenido no se salga de la tarjeta */
+}
+
+.card:nth-child(odd) {
+    background-color: rgb(129, 44, 208); /* Color alternativo */
+}
+
+.card img {
+    max-width: 100%; /* Asegura que las imágenes sean responsivas */
+    height: auto;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+/* Video Card */
+.card video {
+    width: 100%; /* Asegura que el video ocupe todo el ancho disponible */
+    height: auto;
+}
+
+.card-body {
+    text-align: justify; /* Justifica el texto */
+    padding: 15px; /* Espaciado interno */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra el contenido horizontalmente */
+}
+
+.card-title {
+    text-align: center; /* Centra el título */
+    margin-bottom: 10px;
+    font-weight: bold; /* Resalta el título */
+    font-size: 1.5rem; /* Aumenta el tamaño del título */
+    color: rgb(0, 0, 0); /* Asegura que el texto sea negro */
+}
+
+.card-text {
+    text-align: justify; /* Justifica el texto */
+    margin: 0; /* Elimina márgenes adicionales */
+    font-weight: 600; /* Hace el texto más negrito */
+    font-size: 1.1rem; /* Aumenta ligeramente el tamaño del texto */
+    color: rgb(50, 50, 50); /* Un tono oscuro para mejor contraste */
+}
+
+/* Responsive Grid */
+.container {
+    display: grid; /* Usamos Grid Layout */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Columnas dinámicas */
+    gap: 20px; /* Espaciado uniforme entre las tarjetas */
+    padding: 20px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .card-title {
+        font-size: 1.2rem; /* Reduce el tamaño del título en pantallas pequeñas */
+    }
+
+    .card-text {
+        font-size: 1rem; /* Reduce el tamaño del texto en pantallas pequeñas */
+    }
+
+    .container {
+        grid-template-columns: 1fr; /* Una sola columna en pantallas pequeñas */
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        font-size: 0.9rem; /* Reduce el tamaño del texto del navbar */
+    }
+
+    .card-body {
+        padding: 10px; /* Reduce el padding interno en pantallas pequeñas */
+    }
+}
+
+/* Estilo para el bloque de código */
+.code-block {
+    background-color: #282c34; /* Fondo oscuro */
+    color: #abb2bf; /* Texto claro */
+    border: 1px solid #444; /* Borde gris oscuro */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 15px; /* Espaciado interno */
+    font-family: "Courier New", Courier, monospace; /* Fuente monoespaciada */
+    font-size: 14px; /* Tamaño de fuente */
+    overflow-x: auto; /* Scroll horizontal si el código es muy largo */
+    max-height: 300px; /* Altura máxima con scroll vertical */
+    margin: 0 auto; /* Centra horizontalmente */
+    text-align: left; /* Alinea el texto a la izquierda */
+    width: 80%; /* Ajusta el ancho del bloque */
+}
+
+/* Contenedor del bloque de código */
+.container.mt-5 {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    flex-direction: column; /* Asegura que los elementos estén en columna */
+}
+
+/* Resaltado de sintaxis */
+.code-block .keyword {
+    color: #c678dd; /* Color púrpura */
+    font-weight: bold;
+}
+
+.code-block .string {
+    color: #98c379; /* Color verde */
+}
+
+.code-block .comment {
+    color: #5c6370; /* Color gris */
+    font-style: italic;
+}
+
+
+
