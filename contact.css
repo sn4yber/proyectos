@@ -1,0 +1,117 @@
+/* General */
+body {
+    background-color: rgb(240, 248, 255); /* Fondo azul claro */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+h1 {
+    color: rgb(0, 102, 204); /* Azul oscuro */
+    margin-top: 20px;
+    font-size: 2.5rem;
+}
+
+p {
+    color: rgb(50, 50, 50); /* Gris oscuro */
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+/* Navbar */
+.navbar {
+    background-color: rgb(0, 102, 204); /* Azul oscuro */
+    color: white;
+    padding: 10px;
+}
+
+.navbar a {
+    color: white !important;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.navbar a:hover {
+    color: rgb(255, 255, 0); /* Amarillo */
+}
+
+/* Cards */
+.card {
+    background-color: white;
+    border: 1px solid rgb(200, 200, 200); /* Borde gris claro */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+    margin: 20px auto;
+    max-width: 400px;
+    overflow: hidden;
+    text-align: left;
+}
+
+.card img {
+    width: 100%; /* Imagen ocupa todo el ancho */
+    height: auto;
+    border-bottom: 1px solid rgb(200, 200, 200); /* Línea divisoria */
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    color: rgb(0, 102, 204); /* Azul oscuro */
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: rgb(80, 80, 80); /* Gris oscuro */
+    line-height: 1.5;
+    text-align: justify;
+}
+
+.card-text a {
+    color: rgb(0, 102, 204); /* Azul oscuro */
+    text-decoration: none;
+}
+
+.card-text a:hover {
+    text-decoration: underline;
+}
+
+/* Redes Sociales */
+.card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.card ul li {
+    margin: 5px 0;
+}
+
+.card ul li a {
+    color: rgb(0, 102, 204); /* Azul oscuro */
+    text-decoration: none;
+}
+
+.card ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .card {
+        max-width: 90%; /* Ajusta el ancho en pantallas pequeñas */
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+}
+
