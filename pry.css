@@ -1,0 +1,42 @@
+.card video {
+    width: 100%; /* Asegura que el video ocupe todo el ancho disponible */
+    height: auto;
+}
+
+.code-block {
+    background-color: #282c34; /* Fondo oscuro */
+    color: #abb2bf; /* Texto claro */
+    border: 1px solid #444; /* Borde gris oscuro */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 15px; /* Espaciado interno */
+    font-family: "Courier New", Courier, monospace; /* Fuente monoespaciada */
+    font-size: 14px; /* Tamaño de fuente */
+    overflow-x: auto; /* Scroll horizontal si el código es muy largo */
+    max-height: 300px; /* Altura máxima con scroll vertical */
+    margin: 0 auto; /* Centra horizontalmente */
+    text-align: left; /* Alinea el texto a la izquierda */
+    width: 80%; /* Ajusta el ancho del bloque */
+}
+
+/* Contenedor del bloque de código */
+.container.mt-5 {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    flex-direction: column; /* Asegura que los elementos estén en columna */
+}
+
+/* Resaltado de sintaxis */
+.code-block .keyword {
+    color: #c678dd; /* Color púrpura */
+    font-weight: bold;
+}
+
+.code-block .string {
+    color: #98c379; /* Color verde */
+}
+
+.code-block .comment {
+    color: #5c6370; /* Color gris */
+    font-style: italic;
+}
