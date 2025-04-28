@@ -1,3 +1,16 @@
+body {
+    background: linear-gradient(to bottom, rgb(171, 251, 242), rgb(0, 0, 0)); /* Degradado de azul claro a negro */
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    color: rgb(255, 255, 255); /* Asegura que el texto sea visible sobre el fondo oscuro */
+}
+
+
+
+
+
+
 .card video {
     width: 100%; /* Asegura que el video ocupe todo el ancho disponible */
     height: auto;

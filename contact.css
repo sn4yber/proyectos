@@ -1,16 +1,41 @@
 /* General */
 body {
-    background-color: rgb(240, 248, 255); /* Fondo azul claro */
-    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, rgb(171, 251, 242), rgb(0, 0, 0)); /* Degradado de azul claro a negro */
+    text-align: center;
     margin: 0;
     padding: 0;
-    text-align: center;
+    color: rgb(255, 255, 255); /* Asegura que el texto sea visible sobre el fondo oscuro */
 }
 
 h1 {
-    color: rgb(0, 102, 204); /* Azul oscuro */
+    color: #00ffff; /* Color cian */
+    font-size: 3rem; /* Tamaño del texto */
+    text-shadow: 
+        -1px -1px 2px #000, /* Sombra negra hacia arriba-izquierda */
+        1px -1px 2px #000,  /* Sombra negra hacia arriba-derecha */
+        -1px 1px 2px #000,  /* Sombra negra hacia abajo-izquierda */
+        1px 1px 2px #000,   /* Sombra negra hacia abajo-derecha */
+        0 0 5px #00ffff,    /* Efecto neón cian */
+        0 0 10px #00ffff, 
+        0 0 20px #00ffff, 
+        0 0 30px #00cccc, 
+        0 0 40px #00cccc; /* Más brillo cian */
     margin-top: 20px;
-    font-size: 2.5rem;
+}
+
+.navbar {
+    background-color: rgb(230, 253, 255) !important; /* Lila claro */
+    color: rgb(0, 0, 0) !important; /* Texto en negro */
+    padding: 10px;
+    text-align: center;
+}
+
+.navbar a {
+    color: rgb(0, 0, 0) !important; /* Color de los enlaces en negro */
+}
+
+.navbar a:hover {
+    color: rgb(129, 44, 208) !important; /* Color lila oscuro al pasar el cursor */
 }
 
 p {

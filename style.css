@@ -1,9 +1,26 @@
 /* General */
 body {
-    background-color: rgb(198, 255, 248);
+    background: linear-gradient(to bottom, rgb(171, 251, 242), rgb(0, 0, 0)); /* Degradado de azul claro a negro */
     text-align: center;
     margin: 0;
     padding: 0;
+    color: rgb(255, 255, 255); /* Asegura que el texto sea visible sobre el fondo oscuro */
+}
+
+h1 {
+    color: #00ffff; /* Color cian */
+    font-size: 3rem; /* Tamaño del texto */
+    text-shadow: 
+        -1px -1px 2px #000, /* Sombra negra hacia arriba-izquierda */
+        1px -1px 2px #000,  /* Sombra negra hacia arriba-derecha */
+        -1px 1px 2px #000,  /* Sombra negra hacia abajo-izquierda */
+        1px 1px 2px #000,   /* Sombra negra hacia abajo-derecha */
+        0 0 5px #00ffff,    /* Efecto neón cian */
+        0 0 10px #00ffff, 
+        0 0 20px #00ffff, 
+        0 0 30px #00cccc, 
+        0 0 40px #00cccc; /* Más brillo cian */
+    margin-top: 20px;
 }
 
 /* Navbar */
