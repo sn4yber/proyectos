@@ -1,164 +1,177 @@
-/* General */
 body {
-    background: linear-gradient(to bottom, rgb(171, 251, 242), rgb(0, 0, 0)); /* Degradado de azul claro a negro */
+    background: #444 url('fnd.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
     text-align: center;
     margin: 0;
     padding: 0;
-    color: rgb(255, 255, 255); /* Asegura que el texto sea visible sobre el fondo oscuro */
+    color: rgb(255, 255, 255);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to bottom, rgba(0,255,255,0.10), rgba(0,255,255,0.03)), linear-gradient(to bottom, rgba(68,68,68,0.98), rgba(0,0,0,0.93));
+    z-index: 0;
+    pointer-events: none;
+}
+
+#main-content, .container, nav, h1, p, .card, .card-body {
+    position: relative;
+    z-index: 1;
 }
 
 h1 {
-    color: #00ffff; /* Color cian */
-    font-size: 3rem; /* Tamaño del texto */
-    text-shadow: 
-        -1px -1px 2px #000, /* Sombra negra hacia arriba-izquierda */
-        1px -1px 2px #000,  /* Sombra negra hacia arriba-derecha */
-        -1px 1px 2px #000,  /* Sombra negra hacia abajo-izquierda */
-        1px 1px 2px #000,   /* Sombra negra hacia abajo-derecha */
-        0 0 5px #00ffff,    /* Efecto neón cian */
-        0 0 10px #00ffff, 
-        0 0 20px #00ffff, 
-        0 0 30px #00cccc, 
-        0 0 40px #00cccc; /* Más brillo cian */
+    color: #00ffff;
+    font-size: 3rem;
+    text-shadow: -1px -1px 2px #000, 1px -1px 2px #000, -1px 1px 2px #000, 1px 1px 2px #000, 0 0 5px #aa00ff, 0 0 10px #a600ff, 0 0 20px #ea00ff, 0 0 30px #00cccc, 0 0 40px #7a00cc;
     margin-top: 20px;
 }
 
-/* Navbar */
 .navbar {
-    background-color: rgb(230, 253, 255) !important; /* Lila claro */
-    color: rgb(0, 0, 0) !important; /* Texto en negro */
+    background: rgba(30,30,30,0.7) !important;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+    color: #fff !important;
     padding: 10px;
     text-align: center;
+    border: none;
+    border-radius: 0 0 18px 18px;
+    z-index: 1000;
 }
 
-.navbar a {
-    color: rgb(0, 0, 0) !important; /* Color de los enlaces en negro */
+.navbar a, .navbar-brand {
+    color: #fff !important;
+    text-shadow: 0 1px 8px #000;
 }
 
 .navbar a:hover {
-    color: rgb(129, 44, 208) !important; /* Color lila oscuro al pasar el cursor */
+    color: #00ffff !important;
 }
 
-/* Cards */
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-collapse {
+    background: transparent !important;
+}
+
 .card {
     text-align: center;
-    background-color: rgb(208, 0, 255); /* Color base */
+    background-color: rgb(208, 0, 255);
     margin: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para un efecto de profundidad */
-    border-radius: 10px; /* Bordes redondeados */
-    overflow: hidden; /* Asegura que el contenido no se salga de la tarjeta */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .card:nth-child(odd) {
-    background-color: rgb(129, 44, 208); /* Color alternativo */
+    background-color: rgb(129, 44, 208);
 }
 
 .card img {
-    max-width: 100%; /* Asegura que las imágenes sean responsivas */
+    max-width: 100%;
     height: auto;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
 
-/* Video Card */
 .card video {
-    width: 100%; /* Asegura que el video ocupe todo el ancho disponible */
+    width: 100%;
     height: auto;
 }
 
 .card-body {
-    text-align: justify; /* Justifica el texto */
-    padding: 15px; /* Espaciado interno */
+    text-align: justify;
+    padding: 15px;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centra el contenido horizontalmente */
+    align-items: center;
 }
 
 .card-title {
-    text-align: center; /* Centra el título */
+    text-align: center;
     margin-bottom: 10px;
-    font-weight: bold; /* Resalta el título */
-    font-size: 1.5rem; /* Aumenta el tamaño del título */
-    color: rgb(0, 0, 0); /* Asegura que el texto sea negro */
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: rgb(0, 0, 0);
 }
 
 .card-text {
-    text-align: justify; /* Justifica el texto */
-    margin: 0; /* Elimina márgenes adicionales */
-    font-weight: 600; /* Hace el texto más negrito */
-    font-size: 1.1rem; /* Aumenta ligeramente el tamaño del texto */
-    color: rgb(50, 50, 50); /* Un tono oscuro para mejor contraste */
+    text-align: justify;
+    margin: 0;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: rgb(50, 50, 50);
 }
 
-/* Responsive Grid */
 .container {
-    display: grid; /* Usamos Grid Layout */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Columnas dinámicas */
-    gap: 20px; /* Espaciado uniforme entre las tarjetas */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
     padding: 20px;
 }
 
-/* Media Queries */
 @media (max-width: 768px) {
     .card-title {
-        font-size: 1.2rem; /* Reduce el tamaño del título en pantallas pequeñas */
+        font-size: 1.2rem;
     }
-
     .card-text {
-        font-size: 1rem; /* Reduce el tamaño del texto en pantallas pequeñas */
+        font-size: 1rem;
     }
-
     .container {
-        grid-template-columns: 1fr; /* Una sola columna en pantallas pequeñas */
+        grid-template-columns: 1fr;
     }
 }
 
 @media (max-width: 480px) {
     .navbar {
-        font-size: 0.9rem; /* Reduce el tamaño del texto del navbar */
+        font-size: 0.9rem;
     }
-
     .card-body {
-        padding: 10px; /* Reduce el padding interno en pantallas pequeñas */
+        padding: 10px;
     }
 }
 
-/* Estilo para el bloque de código */
 .code-block {
-    background-color: #282c34; /* Fondo oscuro */
-    color: #abb2bf; /* Texto claro */
-    border: 1px solid #444; /* Borde gris oscuro */
-    border-radius: 5px; /* Bordes redondeados */
-    padding: 15px; /* Espaciado interno */
-    font-family: "Courier New", Courier, monospace; /* Fuente monoespaciada */
-    font-size: 14px; /* Tamaño de fuente */
-    overflow-x: auto; /* Scroll horizontal si el código es muy largo */
-    max-height: 300px; /* Altura máxima con scroll vertical */
-    margin: 0 auto; /* Centra horizontalmente */
-    text-align: left; /* Alinea el texto a la izquierda */
-    width: 80%; /* Ajusta el ancho del bloque */
+    background-color: #282c34;
+    color: #abb2bf;
+    border: 1px solid #444;
+    border-radius: 5px;
+    padding: 15px;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 14px;
+    overflow-x: auto;
+    max-height: 300px;
+    margin: 0 auto;
+    text-align: left;
+    width: 80%;
 }
 
-/* Contenedor del bloque de código */
 .container.mt-5 {
     display: flex;
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center; /* Centra verticalmente */
-    flex-direction: column; /* Asegura que los elementos estén en columna */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
-/* Resaltado de sintaxis */
 .code-block .keyword {
-    color: #c678dd; /* Color púrpura */
+    color: #c678dd;
     font-weight: bold;
 }
 
 .code-block .string {
-    color: #98c379; /* Color verde */
+    color: #98c379;
 }
 
 .code-block .comment {
-    color: #5c6370; /* Color gris */
+    color: #5c6370;
     font-style: italic;
 }
 

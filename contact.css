@@ -1,72 +1,63 @@
 /* General */
 body {
-    background: linear-gradient(to bottom, rgb(171, 251, 242), rgb(0, 0, 0)); /* Degradado de azul claro a negro */
+    background: #444 url('fnd.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
     text-align: center;
     margin: 0;
     padding: 0;
-    color: rgb(255, 255, 255); /* Asegura que el texto sea visible sobre el fondo oscuro */
+    color: #fff;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-h1 {
-    color: #00ffff; /* Color cian */
-    font-size: 3rem; /* Tamaño del texto */
-    text-shadow: 
-        -1px -1px 2px #000, /* Sombra negra hacia arriba-izquierda */
-        1px -1px 2px #000,  /* Sombra negra hacia arriba-derecha */
-        -1px 1px 2px #000,  /* Sombra negra hacia abajo-izquierda */
-        1px 1px 2px #000,   /* Sombra negra hacia abajo-derecha */
-        0 0 5px #00ffff,    /* Efecto neón cian */
-        0 0 10px #00ffff, 
-        0 0 20px #00ffff, 
-        0 0 30px #00cccc, 
-        0 0 40px #00cccc; /* Más brillo cian */
-    margin-top: 20px;
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to bottom, rgba(0,255,255,0.10), rgba(0,255,255,0.03)), linear-gradient(to bottom, rgba(68,68,68,0.98), rgba(0,0,0,0.93));
+    z-index: 0;
+    pointer-events: none;
+}
+
+#main-content, .container, nav, h1, p, .card, .card-body {
+    position: relative;
+    z-index: 1;
+}
+
+h1, p, .card-title, .card-text, .navbar, .navbar a, .navbar-brand {
+    color: #fff !important;
 }
 
 .navbar {
-    background-color: rgb(230, 253, 255) !important; /* Lila claro */
-    color: rgb(0, 0, 0) !important; /* Texto en negro */
+    background: rgba(30,30,30,0.7) !important;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+    color: #fff !important;
     padding: 10px;
     text-align: center;
+    border: none;
+    border-radius: 0 0 18px 18px;
+    z-index: 1000;
 }
 
-.navbar a {
-    color: rgb(0, 0, 0) !important; /* Color de los enlaces en negro */
-}
-
-.navbar a:hover {
-    color: rgb(129, 44, 208) !important; /* Color lila oscuro al pasar el cursor */
-}
-
-p {
-    color: rgb(50, 50, 50); /* Gris oscuro */
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-}
-
-/* Navbar */
-.navbar {
-    background-color: rgb(0, 102, 204); /* Azul oscuro */
-    color: white;
-    padding: 10px;
-}
-
-.navbar a {
-    color: white !important;
-    text-decoration: none;
-    margin: 0 10px;
+.navbar a, .navbar-brand {
+    color: #fff !important;
+    text-shadow: 0 1px 8px #000;
 }
 
 .navbar a:hover {
-    color: rgb(255, 255, 0); /* Amarillo */
+    color: #00ffff !important;
 }
 
-/* Cards */
 .card {
-    background-color: white;
-    border: 1px solid rgb(200, 200, 200); /* Borde gris claro */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+    background: rgba(30, 30, 30, 0.95);
+    color: #fff;
+    border: 1px solid #444;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.3);
     margin: 20px auto;
     max-width: 400px;
     overflow: hidden;
@@ -74,15 +65,15 @@ p {
 }
 
 .card img {
-    width: 50px; /* Tamaño fijo para que se vean como íconos */
+    width: 50px;
     height: 50px;
-    margin-bottom: 10px; /* Espaciado debajo del ícono */
-    border-bottom: 1px solid rgb(200, 200, 200); /* Línea divisoria */
-    border-radius: 50%; /* Hace que las imágenes sean circulares */
-    object-fit: cover; /* Asegura que la imagen se ajuste bien dentro del círculo */
+    margin-bottom: 10px;
+    border-bottom: 1px solid #444;
+    border-radius: 50%;
+    object-fit: cover;
     display: block;
     margin-left: auto;
-    margin-right: auto; /* Centra la imagen horizontalmente */
+    margin-right: auto;
 }
 
 .card-body {
@@ -91,20 +82,20 @@ p {
 
 .card-title {
     font-size: 1.5rem;
-    color: rgb(0, 102, 204); /* Azul oscuro */
+    color: #00ffff !important;
     margin-bottom: 10px;
     text-align: center;
 }
 
 .card-text {
     font-size: 1rem;
-    color: rgb(80, 80, 80); /* Gris oscuro */
+    color: #fff !important;
     line-height: 1.5;
     text-align: justify;
 }
 
 .card-text a {
-    color: rgb(0, 102, 204); /* Azul oscuro */
+    color: #00ffff;
     text-decoration: none;
 }
 
@@ -112,7 +103,6 @@ p {
     text-decoration: underline;
 }
 
-/* Redes Sociales */
 .card ul {
     list-style: none;
     padding: 0;
@@ -123,7 +113,7 @@ p {
 }
 
 .card ul li a {
-    color: rgb(0, 102, 204); /* Azul oscuro */
+    color: #00ffff;
     text-decoration: none;
 }
 
@@ -131,27 +121,23 @@ p {
     text-decoration: underline;
 }
 
-/* Estilo para los íconos de redes sociales */
 .card ul li a i {
-    font-size: 24px; /* Tamaño del ícono */
-    margin-right: 10px; /* Espaciado entre el ícono y el texto */
-    color: rgb(0, 102, 204); /* Azul oscuro */
+    font-size: 24px;
+    margin-right: 10px;
+    color: #00ffff;
 }
 
 .card ul li a i:hover {
-    color: rgb(0, 153, 51); /* Cambia a verde al pasar el cursor */
+    color: #00ff99;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
     .card {
-        max-width: 90%; /* Ajusta el ancho en pantallas pequeñas */
+        max-width: 90%;
     }
-
     h1 {
         font-size: 2rem;
     }
-
     p {
         font-size: 1rem;
     }
