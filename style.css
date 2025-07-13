@@ -6,7 +6,12 @@ body {
     margin: 0;
     padding: 0;
     color: #111;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+.fredericka-the-great-regular {
+  font-family: "Fredericka the Great", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 }
 
 body::before {
@@ -16,7 +21,7 @@ body::before {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: radial-gradient(circle at 60% 40%, #b378eb 0%, #e0eafc 60%, #cfdef3 100%);
+    background: radial-gradient(circle at 60% 40%, #78e3eb 0%, #b357ff7e 60%, #cfdef3 100%);
     opacity: 0.85;
     z-index: 0;
     pointer-events: none;
@@ -28,11 +33,24 @@ body::before {
 }
 
 h1 {
-    color: #00ffff;
+    color: #00172c8f;
     font-size: 3rem;
     text-shadow: -1px -1px 2px #000, 1px -1px 2px #000, -1px 1px 2px #000, 1px 1px 2px #000, 0 0 5px #aa00ff, 0 0 10px #a600ff, 0 0 20px #ea00ff, 0 0 30px #00cccc, 0 0 40px #7a00cc;
     margin-top: 20px;
+    animation: glowTitle 2s ease-in-out infinite alternate;
 }
+
+@keyframes glowTitle {
+    0% {
+        text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff;
+        transform: scale(1);
+    }
+    100% {
+        text-shadow: 0 0 30px #00ffff, 0 0 60px #00ffff, 0 0 80px #00ffff, 0 0 100px #00ffff;
+        transform: scale(1.05);
+    }
+}
+
 
 .navbar {
     background: rgba(206, 176, 255, 0) !important;
