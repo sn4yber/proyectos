@@ -6,12 +6,7 @@ body {
     margin: 0;
     padding: 0;
     color: #111;
-.fredericka-the-great-regular {
-  font-family: "Fredericka the Great", serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
+font-family: fantasy;
 }
 
 body::before {
