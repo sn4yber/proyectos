@@ -1,11 +1,11 @@
 body {
-    background: #444 url('fnd.jpg') no-repeat center center fixed;
-    background-size: cover;
+    background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%) fixed;
+    /* Fondo suave azul-lila, sin imagen, amigable y moderno */
     position: relative;
     text-align: center;
     margin: 0;
     padding: 0;
-    color: rgb(255, 255, 255);
+    color: #111;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
@@ -16,7 +16,8 @@ body::before {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(to bottom, rgba(0,255,255,0.10), rgba(0,255,255,0.03)), linear-gradient(to bottom, rgba(68,68,68,0.98), rgba(0,0,0,0.93));
+    background: radial-gradient(circle at 60% 40%, #b378eb 0%, #e0eafc 60%, #cfdef3 100%);
+    opacity: 0.85;
     z-index: 0;
     pointer-events: none;
 }
@@ -34,10 +35,10 @@ h1 {
 }
 
 .navbar {
-    background: rgba(30,30,30,0.7) !important;
+    background: rgba(206, 176, 255, 0) !important;
     backdrop-filter: blur(8px);
     box-shadow: 0 2px 12px rgba(0,0,0,0.18);
-    color: #fff !important;
+    color: #0e0d0d00 !important;
     padding: 10px;
     text-align: center;
     border: none;
@@ -64,7 +65,7 @@ h1 {
 
 .card {
     text-align: center;
-    background-color: rgb(208, 0, 255);
+    background-color: rgba(208, 0, 255, 0);
     margin: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
@@ -72,7 +73,7 @@ h1 {
 }
 
 .card:nth-child(odd) {
-    background-color: rgb(129, 44, 208);
+    background-color: rgba(129, 44, 208, 0);
 }
 
 .card img {
@@ -100,7 +101,7 @@ h1 {
     margin-bottom: 10px;
     font-weight: bold;
     font-size: 1.5rem;
-    color: rgb(0, 0, 0);
+    color: #111;
 }
 
 .card-text {
@@ -108,7 +109,7 @@ h1 {
     margin: 0;
     font-weight: 600;
     font-size: 1.1rem;
-    color: rgb(50, 50, 50);
+    color: #111;
 }
 
 .container {
