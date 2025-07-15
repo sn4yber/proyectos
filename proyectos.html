@@ -30,225 +30,62 @@
     </nav>
 
     <div class="container mt-5">
-        <!-- Video Card -->
-        <div class="card mx-auto" style="max-width: 100%;">
-            <video class="img-fluid rounded-top" autoplay loop muted style="width: 100%; height: auto;">
-                <source src="Video de WhatsApp 2025-04-19 a las 11.37.01_8ae3be53.mp4" type="video/mp4">
-                Tu navegador no soporta la reproducción de videos.
-            </video>
-            <div class="card-body">
-                <h5 class="card-title">Mi primer proyecto con Arduino</h5>
-                <p class="card-text">Este es un video de mi primer proyecto con un microcontrolador Arduino. Aprendí a programar y controlar dispositivos electrónicos básicos. ¡Fue una experiencia increíble lo que hace el código y el proyecto es que el sensor de ultrasonido detecta el movimiento y manda la señal al Arduino para que mueva el servomotor!</p>
-                <img src="#" class="img-fluid rounded mt-3" alt="Imagen de mi proyecto con Arduino" style="width: 50%; height: auto;">
-            </div>
-        </div>
 
-        <!-- Video Card 2 -->
-        <div class="card mx-auto mt-5" style="max-width: 100%;">
-            <video class="img-fluid rounded-top" autoplay loop muted style="width: 100%; height: auto;">
-                <source src="resultado.mp4" type="video/mp4">
-                Tu navegador no soporta la reproducción de videos.
-            </video>
-            <div class="card-body">
-                <h5 class="card-title">Proyecto: Video de resultado</h5>
-                <p class="card-text">Este es un video de resultado del  proyecto realizado y entrgado 
-                    Aquí puedes ver el funcionamiento final y los logros alcanzados en el desarrollo.</p>
+        <!-- Collage mural de cards (videos + inventario) -->
+        <div class="cards-collage">
+            <!-- Card Inventario -->
+            <div class="card">
+                <img src="inventario.png" class="img-fluid rounded-top" alt="Imagen del sistema de inventario">
+                <div class="card-body">
+                    <h5 class="card-title">Proyecto: Sistema de Inventario</h5>
+                    <p class="card-text">Este proyecto es un sistema de inventario desarrollado para gestionar productos y existencias de manera eficiente. Permite registrar, actualizar y consultar información de inventario en tiempo real, facilitando el control y la organización de recursos en una empresa o negocio.</p>
                     <p>
-                        este proyecto tuvo como finalidad mostrar el funcionamiento de los sensores 
-                        y la interacción con el microcontrolador, demostrando la capacidad de Arduino para controlar dispositivos electrónicos de manera efectiva
-                        este proyecto se escalar a mmayor medidida dios mediante para monitoriear la ocupacion de autobuses en laciudad de cartagena .
+                        El sistema fue diseñado con una interfaz intuitiva y funcionalidades clave como búsqueda, filtrado y reportes automáticos. Es una solución escalable que puede adaptarse a diferentes necesidades empresariales.
                     </p>
-                
+                    <img src="code.png" class="img-fluid rounded mt-3" alt="Código del sistema de inventario" style="width: 100%; height: auto;">
+                </div>
+            </div>
+            <!-- Card Video 1 -->
+            <div class="card">
+                <video class="img-fluid rounded-top" autoplay loop muted>
+                    <source src="Video de WhatsApp 2025-04-19 a las 11.37.01_8ae3be53.mp4" type="video/mp4">
+                    Tu navegador no soporta la reproducción de videos.
+                </video>
+                <div class="card-body">
+                    <h5 class="card-title">Mi primer proyecto con Arduino</h5>
+                    <p class="card-text">Este es un video de mi primer proyecto con un microcontrolador Arduino. Aprendí a programar y controlar dispositivos electrónicos básicos. ¡Fue una experiencia increíble lo que hace el código y el proyecto es que el sensor de ultrasonido detecta el movimiento y manda la señal al Arduino para que mueva el servomotor!</p>
+                   
+            </div>
+            <!-- Card Video 2 -->
+            <div class="card">
+                <video class="img-fluid rounded-top" autoplay loop muted>
+                    <source src="resultado.mp4" type="video/mp4">
+                    Tu navegador no soporta la reproducción de videos.
+                </video>
+                <div class="card-body">
+                    <h5 class="card-title">Proyecto: Video de resultado</h5>
+                    <p class="card-text">Este es un video de resultado del  proyecto realizado y entrgado 
+                        Aquí puedes ver el funcionamiento final y los logros alcanzados en el desarrollo.</p>
+                        <p>
+                            este proyecto tuvo como finalidad mostrar el funcionamiento de los sensores 
+                            y la interacción con el microcontrolador, demostrando la capacidad de Arduino para controlar dispositivos electrónicos de manera efectiva
+                            este proyecto se escalar a mmayor medidida dios mediante para monitoriear la ocupacion de autobuses en laciudad de cartagena .
+                        </p>
+                </div>
             </div>
         </div>
 
-        <!-- Card con imagen prfinal.jpg -->
+        <!-- Card normal fuera del mural -->
         <div class="card mx-auto mt-5" style="max-width: 30rem;">
             <img src="prfinal.jpg" class="card-img-top" alt="Imagen del proyecto final">
             <div class="card-body">
                 <h5 class="card-title">Proyecto Final</h5>
                 <p class="card-text">Esta imagen muestra el resultado final de uno de mis proyectos destacados. El proceso incluyó diseño, desarrollo y pruebas para lograr un producto funcional y visualmente atractivo.</p>
+                <img src="developer.png" class="img-fluid rounded mt-3" alt="Código del proyecto final" style="width: 100%; height: auto;">
             </div>
         </div>
 
-        <!-- Bloque de código Java -->
-        <div class="container mt-5">
-            <h5 class="card-title">Este es un proyecto de CRUD en Java</h5>
-            <p class="card-text">Este es un ejemplo de código Java que es un sistema de cursos de universidad. Se conecta a una base de datos PostgreSQL y realiza operaciones CRUD (Crear, Leer, Actualizar, Eliminar) en una tabla llamada "cursos".</p>
-            <pre class="code-block">
-<code>
-package org.example.sna;
-
-import java.sql.*;
-import java.util.Scanner;
-
-public class App {
-    public static void main(String[] args) {
-        String URL = "jdbc:postgresql://localhost:5432/postgres";
-        String USER = "postgres";
-        String PASSWORD = "456789";
-
-        Scanner scanner = new Scanner(System.in);
-
-        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD)) {
-            System.out.println("Conectado a la base de datos.");
-        } catch (SQLException e) {
-            System.out.println("Error al conectar: " + e.getMessage());
-        }
-    }
-}
-int option;
-            do {
-                System.out.println("\n--- Menú ---");
-                System.out.println("1. Listar todos los cursos");
-                System.out.println("2. Buscar curso por ID");
-                System.out.println("3. Actualizar curso");
-                System.out.println("4. Eliminar curso");
-                System.out.println("5. Insertar curso");
-                System.out.println("6. Salir");
-                System.out.print("Seleccione una opción: ");
-
-                option = scanner.nextInt();
-                scanner.nextLine();
-
-                switch (option) {
-                    case 1:
-                        System.out.println("Listando cursos...");
-
-                        // Consulta SQL para obtener todos los cursos
-                        String query = "SELECT * FROM cursos";  // Consulta básica
-                        try (PreparedStatement stmt = conn.prepareStatement(query);
-                             ResultSet rs = stmt.executeQuery()) {
-
-                            // Verificamos si el ResultSet tiene resultados
-                            boolean hayCursos = false;
-                            while (rs.next()) {
-                                int id = rs.getInt("id");
-                                String nombre = rs.getString("nombre");
-                                int creditos = rs.getInt("creditos");
-                                int idProfesor = rs.getInt("id_profesor");
-
-                                // Mostrar cada curso en consola
-                                System.out.println("ID: " + id + ", Nombre: " + nombre +
-                                        ", Créditos: " + creditos + ", ID Profesor: " + idProfesor);
-                                hayCursos = true;
-                            }
-
-                            // Si no hay cursos, mostrar un mensaje
-                            if (!hayCursos) {
-                                System.out.println("No se encontraron cursos.");
-                            }
-
-                        } catch (SQLException e) {
-                            System.err.println("Error al listar cursos: " + e.getMessage());
-                        }
-                        break;
-
-
-                    case 2:
-                        System.out.print("Ingrese el ID del curso: ");
-                        int idBuscar = scanner.nextInt();
-                        scanner.nextLine();
-                        try (PreparedStatement stmt = conn.prepareStatement("SELECT * FROM cursos WHERE id = ?")) {
-                            stmt.setInt(1, idBuscar);
-                            try (ResultSet rs = stmt.executeQuery()) {
-                                if (rs.next()) {
-                                    System.out.println("ID: " + rs.getInt("id") +
-                                            ", Nombre: " + rs.getString("nombre") +
-                                            ", Créditos: " + rs.getInt("creditos") +
-                                            ", ID Profesor: " + rs.getInt("id_profesor"));
-                                } else {
-                                    System.out.println("Curso no encontrado.");
-                                }
-                            }
-                        } catch (SQLException e) {
-                            System.err.println("Error al buscar curso: " + e.getMessage());
-                        }
-                        break;
-
-                    case 3:
-                        System.out.print("ID del curso a actualizar: ");
-                        int idActualizar = scanner.nextInt();
-                        scanner.nextLine();
-                        System.out.print("Nuevo nombre: ");
-                        String nuevoNombre = scanner.nextLine();
-                        System.out.print("Nuevos créditos: ");
-                        int nuevosCreditos = scanner.nextInt();
-                        System.out.print("Nuevo ID del profesor: ");
-                        int nuevoProfesor = scanner.nextInt();
-                        scanner.nextLine();
-
-                        try (PreparedStatement stmt = conn.prepareStatement(
-                                "UPDATE cursos SET nombre = ?, creditos = ?, id_profesor = ? WHERE id = ?")) {
-                            stmt.setString(1, nuevoNombre);
-                            stmt.setInt(2, nuevosCreditos);
-                            stmt.setInt(3, nuevoProfesor);
-                            stmt.setInt(4, idActualizar);
-
-                            int filas = stmt.executeUpdate();
-                            System.out.println("Curso actualizado. Filas afectadas: " + filas);
-                        } catch (SQLException e) {
-                            System.err.println("Error al actualizar curso: " + e.getMessage());
-                        }
-                        break;
-
-                    case 4:
-                        System.out.print("ID del curso a eliminar: ");
-                        int idEliminar = scanner.nextInt();
-                        scanner.nextLine();
-                        try (PreparedStatement stmt = conn.prepareStatement("DELETE FROM cursos WHERE id = ?")) {
-                            stmt.setInt(1, idEliminar);
-                            int filas = stmt.executeUpdate();
-                            System.out.println("Curso eliminado. Filas afectadas: " + filas);
-                        } catch (SQLException e) {
-                            System.err.println("Error al eliminar curso: " + e.getMessage());
-                        }
-                        break;
-
-                    case 5:
-                        System.out.print("Nombre del curso: ");
-                        String nombre = scanner.nextLine();
-                        System.out.print("Créditos: ");
-                        int creditos = scanner.nextInt();
-                        System.out.print("ID del profesor: ");
-                        int idProfesor = scanner.nextInt();
-                        scanner.nextLine();
-
-                        try (PreparedStatement stmt = conn.prepareStatement(
-                                "INSERT INTO cursos (nombre, creditos, id_profesor) VALUES (?, ?, ?)")) {
-                            stmt.setString(1, nombre);
-                            stmt.setInt(2, creditos);
-                            stmt.setInt(3, idProfesor);
-
-                            int filas = stmt.executeUpdate();
-                            System.out.println("Curso insertado. Filas afectadas: " + filas);
-                        } catch (SQLException e) {
-                            System.err.println("Error al insertar curso: " + e.getMessage());
-                        }
-                        break;
-
-                    case 6:
-                        System.out.println("Saliendo del sistema...");
-                        break;
-
-                    default:
-                        System.out.println("Opción no válida.");
-                }
-
-            } while (option != 6);
-
-        } catch (SQLException e) {
-            System.err.println("Error al conectar con la base de datos: " + e.getMessage());
-        }
-
-        scanner.close();
-    }
-}
-</code>
-            </pre>
-        </div>
-    </div>
-
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
