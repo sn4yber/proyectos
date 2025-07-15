@@ -276,7 +276,7 @@ h1 {
         margin: 8px auto;
     }
     .card img {
-        height: 120px;
+        height: auto;
     }
     .card-title {
         font-size: 1.1rem;
