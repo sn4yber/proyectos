@@ -49,7 +49,7 @@ body {
 .logo {
     font-weight: 700;
     font-size: 1.5rem;
-    color: var(--primary);
+    color: var(--text-primary);
     text-decoration: none;
     transition: transform 0.3s ease;
 }
