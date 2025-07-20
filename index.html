@@ -1,173 +1,188 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SN4STYLE</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>SN4YBER - Blog Personal</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="a69604277ddec20763d6d854a805ac9d.jpg" type="image/x-icon">
-    
 </head>
-
 <body>
-    <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">SN4STYLE</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="proyectos.html">Proyectos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contacto.html">Contacto</a>
-                    </li>
-                </ul>
-            </div>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">SN4YBER</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#sobre-mi">Sobre Mí</a></li>
+                <li><a href="proyectos.html">Proyectos</a></li>
+                <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
         </div>
     </nav>
 
-    <h1>blog personal by SN4</h1>
+    <div class="container">
+        <section class="hero" id="inicio">
+            <div class="profile-image">SN</div>
+            <h1>Snayber Madrid</h1>
+            <p class="subtitle">Estudiante de Ingeniería de Sistemas | desarrollador fullstack en progreso</p>
+            <p style="margin-bottom: 2rem; color: var(--text-secondary);">
+                ¡Hola! Este blog es un espacio donde comparto mis pensamientos, metas, proyectos y experiencias personales. 
+                Gracias por visitarme y acompañarme en este viaje tecnológico.
+            </p>
+            <a href="#sobre-mi" class="cta-button">Conocer más sobre mí</a>
+        </section>
 
-    <p> Este blog es un espacio donde comparto mis pensamientos, metas, proyectos y experiencias personales. ¡Gracias por visitarme!</p>
-
-    <!-- Stack tecnológico -->
-    <section style="margin: 2rem auto; max-width: 700px; background: rgba(30, 30, 30, 0); border-radius: 16px; box-shadow: 0 4px 24px rgba(0,0,0,0.3); padding: 1.5rem; color: #0c0c0c; position:relative; z-index:2;">
-        <h2 style="color:#000000; text-align:center;">⚙️ Tecnologías que manejo</h2>
-        <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center; margin-bottom:1rem;">
-            <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white" alt="HTML5"/>
-            <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white" alt="CSS3"/>
-            <img src="https://img.shields.io/badge/Java-007396?style=flat&logo=java&logoColor=white" alt="Java"/>
-            <img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white" alt="Python"/>
-            <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white" alt="PostgreSQL"/>
-            <img src="https://img.shields.io/badge/JDBC-430098?style=flat&logo=oracle&logoColor=white" alt="JDBC"/>
-            <img src="https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white" alt="Git"/>
-            <img src="https://img.shields.io/badge/Manejo%20de%20Sistemas%20Operativos-22223B?style=flat&logo=linux&logoColor=white" alt="Manejo de Sistemas Operativos"/>
-        </div>
-        <h3 style="color:#000000; margin-top:1.5rem;">🔄 Tecnologías que estoy aprendiendo</h3>
-        <ul style="text-align:left; max-width:500px; margin:0 auto;">
-            <li>Java avanzado</li>
-            <li>Arquitectura backend</li>
-            <li>Buenas prácticas con Maven</li>
-            <li>Spring Boot (en proceso)</li>
-            <li>laravel y PHP</li>
-            <li>manejo avanzado de la terminal y uso linux con entornos de escritorio avanzado como hyprland</li>
-            <li>javascript desde 0 y avanzado</li>
-        </ul>
-    </section>
-
-    <!-- Aprendizajes futuros / cursos inscritos -->
-    <section style="margin: 2rem auto; max-width: 700px; background: rgba(30, 30, 30, 0); border-radius: 16px; box-shadow: 0 4px 24px rgba(0,0,0,0.3); padding: 1.5rem; color: #000000; position:relative; z-index:2;">
-        <h2 style="color:#000000; text-align:center;">💻 Curso próximo</h2>
-        <p style="text-align:center; font-size:1.1rem;">Desarrollo Backend con Java – Universidad Tecnológica de Bolívar<br>
-        
-    </section>
-
-    <!-- DevBlog -->
-    <section style="margin: 2rem auto; max-width: 700px; background: rgba(30, 30, 30, 0); border-radius: 16px; box-shadow: 0 4px 24px rgba(0,0,0,0.3); padding: 1.5rem; color: #000000; position:relative; z-index:2;">
-        <h2 style="color:#000000; text-align:center;">🧠 DevBlog</h2>
-        <ul style="text-align:left; max-width:600px; margin:0 auto;">
-            <li>aprendiendo nuevo lenguaje de programación: JavaScript eh visto lo basico tipos de datos ,operadores , estructuras de datos 
-                (arrays , sets , maps ), bucles (for ,while y entre otros), funciones y objetos.👨🏾‍💻📌</li>
-        </ul>
-    </section>
-
-    <div class="cards-collage">
-        <div class="card">
-            <img src="katana.png" class="img-fluid rounded-start" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Sobre mí</h5>
-                <p class="card-text">
-                    Hola! Soy Snayber Madrid, estudiante de Ingeniería de Sistemas con pasión por crear soluciones tecnológicas útiles y con significado.<br>
-                    Disfruto programar tanto sistemas bien estructurados en backend como interfaces limpias en frontend.<br>
-                    Trabajo con tecnologías como <b>Java, Python, PostgreSQL, Arduino, HTML/CSS</b> y más, integrando ideas creativas con bases sólidas.<br>
-                    Me gusta que cada proyecto tenga un propósito real: desde automatizar tareas cotidianas hasta desarrollar herramientas que conecten con las personas a un nivel más emocional.<br>
-                    Para mí, la programación no es solo código, es una forma de expresar y resolver.
+        <div class="cards-grid">
+            <div class="card" id="sobre-mi">
+                <div class="card-icon">👨‍💻</div>
+                <h3>Sobre Mí</h3>
+                <p>
+                    Soy estudiante de Ingeniería de Sistemas en la Universidad Rafael nuñez con pasión por crear 
+                    soluciones tecnológicas útiles y con significado. Disfruto programar tanto sistemas bien estructurados 
+                    en backend como interfaces limpias en frontend.
                 </p>
             </div>
-        </div>
-        <div class="card">
-            <img src="desarrollo.png" class="img-fluid rounded-start" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">🎯 Metas</h5>
-                <ul class="card-text">
-                    <li>Convertirme en un desarrollador full-stack sólido, capaz de crear soluciones completas, desde la base de datos hasta la interfaz de usuario.</li>
-                    <li>Liderar proyectos tecnológicos que resuelvan problemas reales y tengan impacto en mi comunidad o en la vida cotidiana.</li>
-                    <li>Dominar frameworks modernos como Spring Boot, React y herramientas de automatización y despliegue (CI/CD).</li>
-                    <li>Construir un portafolio técnico que hable por mí, lleno de proyectos que reflejen mi crecimiento, creatividad y compromiso.</li>
-                    <li>Nunca dejar de aprender: la tecnología evoluciona, y yo también.</li>
-                </ul>
+
+            <div class="card" id="proyectos">
+                <div class="card-icon">🚀</div>
+                <h3>Mis Proyectos</h3>
+                <p>
+                    Me gusta que cada proyecto tenga un propósito real: desde automatizar tareas cotidianas hasta desarrollar 
+                    herramientas que conecten con las personas a un nivel más emocional. Para mí, la programación no es solo código, 
+                    es una forma de expresar y resolver.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🎯</div>
+                <h3>Mi Filosofía</h3>
+                <p>
+                    Trabajo integrando ideas creativas con bases sólidas. Cada línea de código que escribo busca no solo 
+                    funcionar correctamente, sino también aportar valor real a las personas que usarán mis aplicaciones.
+                </p>
+            </div>
+
+            <div class="card" id="contacto">
+                <div class="card-icon">📧</div>
+                <h3>Conectemos</h3>
+                <p>
+                    Siempre estoy abierto a nuevas oportunidades, colaboraciones y conversaciones sobre tecnología. 
+                    ¡No dudes en contactarme!
+                </p>
+                <div class="contact-grid">
+                    <a href="#" class="contact-item">
+                        <div class="contact-icon">@</div>
+                        <span>Email</span>
+                    </a>
+                    <a href="https://github.com/sn4yber" class="contact-item" target="_blank">
+                        <div class="contact-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </div>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://www.instagram.com/sn4yber_0x/" class="contact-item" target="_blank">
+                        <div class="contact-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </div>
+                        <span>Instagram</span>
+                    </a>
+                    <a href="https://wa.me/573205382409" class="contact-item" target="_blank">
+                        <div class="contact-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+                            </svg>
+                        </div>
+                        <span>WhatsApp</span>
+                    </a>
+                </div>
             </div>
         </div>
-       
-        <div class="card">
-            <img src="filosofia.png" class="img-fluid rounded-start" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">💡 Valores</h5>
-                <ul class="card-text">
-                    <li><b>Pasión:</b> Disfruto programar tanto como aprender. Cada proyecto es una oportunidad para crecer y expresarme.</li>
-                    <li><b>Compromiso:</b> Me gusta terminar lo que empiezo y hacerlo bien. No me rindo fácil, incluso si hay errores, bugs o trasnochos.</li>
-                    <li><b>Curiosidad:</b> Siempre estoy explorando nuevas tecnologías, formas de resolver problemas o maneras de conectar lo que sé con lo que quiero aprender.</li>
-                    <li><b>Autenticidad:</b> Me gusta que lo que creo tenga mi sello, mi estilo. No busco ser perfecto, busco ser genuino.</li>
-                    <li><b>Colaboración:</b> Creo que los mejores proyectos no se hacen solos. Me gusta compartir, ayudar y construir en equipo.</li>
-                </ul>
+
+        <section class="tech-stack" id="habilidades">
+            <h3>Stack Tecnológico</h3>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <div class="icon">☕</div>
+                    <div>Java</div>
+                </div>
+                <div class="tech-item">
+                    <div class="icon">🐍</div>
+                    <div>Python</div>
+                </div>
+                <div class="tech-item">
+                    <div class="icon">🐘</div>
+                    <div>PostgreSQL</div>
+                </div>
+                <div class="tech-item">
+                    <div class="icon">🤖</div>
+                    <div>Arduino</div>
+                </div>
+                <div class="tech-item">
+                    <div class="icon">🌐</div>
+                    <div>HTML/CSS</div>
+                </div>
+                <div class="tech-item">
+                    <div class="icon">⚡</div>
+                    <div>JavaScript</div>
+                </div>
+
+                <div class="tech-item">
+                    <div class="icon">🐧</div>
+                    <div>manejo de sistemas operativos</div>
+                </div>
+
+                <div class="tech-item">
+                    <div class="icon">💻</div>
+                    <div> control de versiones git</div> 
+                </div>
             </div>
-        </div>
+            
+            <div style="margin-top: 3rem;">
+                <h4 style="margin-bottom: 2rem; text-align: center;">Nivel de Habilidades</h4>
+                <div class="skill-bar">
+                    <div class="skill-name">
+                        <span>Backend Development</span>
+                        <span>59%</span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-fill" style="width: 59%;"></div>
+                    </div>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-name">
+                        <span>Frontend Development</span>
+                        <span>75%</span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-fill" style="width: 75%;"></div>
+                    </div>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-name">
+                        <span>Database Design</span>
+                        <span>65</span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-fill" style="width: 65%;"></div>
+                    </div>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-name">
+                        <span>Problem Solving</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-fill" style="width: 90%;"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 
-    <style>
-    @media (max-width: 991px) {
-        .navbar-collapse {
-            background: rgba(30, 30, 30, 0) !important;
-            border-radius: 0 0 18px 18px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.18);
-            padding: 1rem 0.5rem;
-        }
-        .navbar-nav .nav-link {
-            color: #000000 !important;
-            font-size: 1.1rem;
-            padding: 0.8rem 1rem;
-            border-bottom: 1px solid #33333300;
-            text-align: center;
-        }
-        .navbar-nav .nav-link:last-child {
-            border-bottom: none;
-        }
-        .navbar-toggler {
-            border: none;
-            background: #22222200 !important;
-            border-radius: 8px;
-        }
-    }
-    @media (max-width: 600px) {
-        section[style*="max-width: 700px"] {
-            max-width: 98vw !important;
-            padding: 0.7rem !important;
-            border-radius: 10px !important;
-        }
-        section[style*="max-width: 700px"] h2,
-        section[style*="max-width: 700px"] h3 {
-            font-size: 1.2rem !important;
-        }
-        section[style*="max-width: 700px"] ul,
-        section[style*="max-width: 700px"] div {
-            max-width: 100% !important;
-            font-size: 0.98rem !important;
-        }
-        section[style*="max-width: 700px"] img {
-            max-width: 90vw !important;
-            height: 28px !important;
-        }
-    }
-    </style>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
 </body>
 </html>
-
-
