@@ -9,10 +9,10 @@
     --primary-dark: #4f46e5;
     --secondary: #ab06d4;
     --accent: #0bf5e9;
-    --text-primary: #000000;
-    --text-secondary: #6b7280;
+    --text-primary: #faf8f8;
+    --text-secondary: #e0e0e0;
     --background: #ffffff00;
-    --surface: #f8fafc;
+    --surface: #f8fafc00;
     --border: #e5e7eb;
     --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
 }
@@ -21,9 +21,10 @@ body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
     color: var(--text-primary);
-    background: url('back.jpg') no-repeat center center fixed;
+    background: url('data:image/svg+xml;utf8,<svg width="100%25" height="100%25" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="1440" height="900" fill="url(%23paint0_linear)"/><ellipse opacity="0.3" cx="1200" cy="200" rx="300" ry="150" fill="%236366f1"/><ellipse opacity="0.2" cx="300" cy="700" rx="350" ry="180" fill="%23ab06d4"/><ellipse opacity="0.15" cx="900" cy="800" rx="400" ry="120" fill="%230bf5e9"/><defs><linearGradient id="paint0_linear" x1="0" y1="0" x2="1440" y2="900" gradientUnits="userSpaceOnUse"><stop stop-color="%230a0a0a"/><stop offset="1" stop-color="%23222222"/></linearGradient></defs></svg>') no-repeat center center fixed;
     background-size: cover;
     min-height: 100vh;
+    image-rendering: auto;
 }
 
 @media (max-width: 768px) {
