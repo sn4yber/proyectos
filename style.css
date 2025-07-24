@@ -21,8 +21,16 @@ body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
     color: var(--text-primary);
-    background: linear-gradient(135deg, #ffffff 0%, #e57bffad 100%);
+    background: url('back.jpg') no-repeat center center fixed;
+    background-size: cover;
     min-height: 100vh;
+}
+
+@media (max-width: 768px) {
+    body {
+        background-attachment: scroll;
+        background-position: center top;
+    }
 }
 
 /* Navbar */
