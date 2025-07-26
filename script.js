@@ -139,3 +139,72 @@ document.querySelectorAll('.contact-item').forEach(item => {
         }
     });
 });
+
+// Carrusel simple para las cards principales
+function initCarousel() {
+    const cardsCarousel = document.querySelector('.cards-carousel');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    
+    if (!cardsCarousel) return;
+
+    const cards = cardsCarousel.querySelectorAll('.card');
+    let currentIndex = 0;
+    const totalCards = cards.length;
+
+    function updateCarousel() {
+        cards.forEach((card, index) => {
+            card.classList.remove('active');
+            if (index === currentIndex) {
+                card.classList.add('active');
+            }
+        });
+
+        // Hacer scroll a la card activa
+        const activeCard = cards[currentIndex];
+        if (activeCard) {
+            activeCard.scrollIntoView({
+                behavior: 'smooth',
+                block: 'nearest',
+                inline: 'center'
+            });
+        }
+
+        // Actualizar estado de botones
+        prevBtn.disabled = currentIndex === 0;
+        nextBtn.disabled = currentIndex === totalCards - 1;
+    }
+
+    function nextCard() {
+        if (currentIndex < totalCards - 1) {
+            currentIndex++;
+            updateCarousel();
+        }
+    }
+
+    function prevCard() {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateCarousel();
+        }
+    }
+
+    // Event listeners para botones
+    prevBtn.addEventListener('click', prevCard);
+    nextBtn.addEventListener('click', nextCard);
+
+    // Navegación con teclado
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+            prevCard();
+        } else if (e.key === 'ArrowRight') {
+            nextCard();
+        }
+    });
+
+    // Inicializar el carrusel
+    updateCarousel();
+}
+
+// Inicializar cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', initCarousel);
