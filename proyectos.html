@@ -5,89 +5,261 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyectos - SN4STYLE</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
     <link rel="stylesheet" href="pry.css">
     <link rel="icon" href="a69604277ddec20763d6d854a805ac9d.jpg" type="image/x-icon">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <!-- Navbar mejorada -->
+    <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">PROYECTOS</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand" href="index.html">
+                <span class="brand-text">SN4STYLE</span>
+                <span class="brand-subtitle">Proyectos</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Inicio</a>
+                        <a class="nav-link" href="index.html">
+                            <i class="fas fa-home"></i>
+                            <span>Inicio</span>
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="proyectos.html">Proyectos</a>
+                        <a class="nav-link active" href="proyectos.html">
+                            <i class="fas fa-code"></i>
+                            <span>Proyectos</span>
+                        </a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div class="container mt-5">
-
-        <!-- Collage mural de cards (videos + inventario) -->
-        <div class="cards-collage">
-            <!-- Card Inventario -->
-            <div class="card">
-                <img src="inventario.png" class="img-fluid rounded-top" alt="Imagen del sistema de inventario">
-                <div class="card-body">
-                    <h5 class="card-title">Proyecto: Sistema de Inventario</h5>
-                    <p class="card-text">Este proyecto es un sistema de inventario desarrollado para gestionar productos y existencias de manera eficiente. Permite registrar, actualizar y consultar información de inventario en tiempo real, facilitando el control y la organización de recursos en una empresa o negocio.</p>
-                    <p>
-                        El sistema fue diseñado con una interfaz intuitiva y funcionalidades clave como búsqueda, filtrado y reportes automáticos. Es una solución escalable que puede adaptarse a diferentes necesidades empresariales.
-                    </p>
-                    <img src="code.png" class="img-fluid rounded mt-3" alt="Código del sistema de inventario" style="width: 100%; height: auto;">
-                    <a href="https://github.com/sn4yber" target="_blank" style="color:#00ffff; font-weight:bold;"><i class="fab fa-github"></i> github.com/sn4style</a>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Mis Proyectos</h1>
+                <p class="hero-subtitle">Explorando la innovación a través del código y la creatividad</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">4+</span>
+                        <span class="stat-label">Proyectos</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">Arduino</span>
+                        <span class="stat-label">IoT</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">Web</span>
+                        <span class="stat-label">Development</span>
+                    </div>
                 </div>
             </div>
-            <!-- Card Video 1 -->
-            <div class="card">
-                <video class="img-fluid rounded-top" autoplay loop muted>
-                    <source src="Video de WhatsApp 2025-04-19 a las 11.37.01_8ae3be53.mp4" type="video/mp4">
-                    Tu navegador no soporta la reproducción de videos.
-                </video>
-                <div class="card-body">
-                    <h5 class="card-title">Mi primer proyecto con Arduino</h5>
-                    <p class="card-text">Este es un video de mi primer proyecto con un microcontrolador Arduino. Aprendí a programar y controlar dispositivos electrónicos básicos. ¡Fue una experiencia increíble lo que hace el código y el proyecto es que el sensor de ultrasonido detecta el movimiento y manda la señal al Arduino para que mueva el servomotor!</p>
-                   
+        </div>
+        <div class="hero-bg-animation"></div>
+    </section>
+
+    <!-- Proyectos Timeline -->
+    <section class="projects-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Portfolio de Proyectos</h2>
+                <div class="section-line"></div>
             </div>
-            <!-- Card Video 2 -->
-            <div class="card">
-                <video class="img-fluid rounded-top" autoplay loop muted>
-                    <source src="resultado.mp4" type="video/mp4">
-                    Tu navegador no soporta la reproducción de videos.
-                </video>
-                <div class="card-body">
-                    <h5 class="card-title">Proyecto: Video de resultado</h5>
-                    <p class="card-text">Este es un video de resultado del  proyecto realizado y entrgado 
-                        Aquí puedes ver el funcionamiento final y los logros alcanzados en el desarrollo.</p>
-                        <p>
-                            este proyecto tuvo como finalidad mostrar el funcionamiento de los sensores 
-                            y la interacción con el microcontrolador, demostrando la capacidad de Arduino para controlar dispositivos electrónicos de manera efectiva
-                            este proyecto se escalar a mmayor medidida dios mediante para monitoriear la ocupacion de autobuses en laciudad de cartagena .
+
+            <!-- Proyecto 1: Sistema de Inventario -->
+            <div class="project-item" data-project="1">
+                <div class="project-number">01</div>
+                <div class="project-content">
+                    <div class="project-media">
+                        <div class="media-container">
+                            <img src="inventario.png" alt="Sistema de Inventario" class="project-image">
+                            <div class="media-overlay">
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </div>
+                        <div class="code-preview">
+                            <img src="code.png" alt="Código del sistema" class="code-image">
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-category">Web Development</div>
+                        <h3 class="project-title">Sistema de Inventario</h3>
+                        <p class="project-description">
+                            Sistema completo para gestión de inventarios desarrollado con tecnologías web modernas. 
+                            Incluye funcionalidades de registro, actualización y consulta en tiempo real, 
+                            con una interfaz intuitiva y reportes automáticos. 
                         </p>
+                        <div class="project-features">
+                            <span class="feature-tag">Real-time</span>
+                            <span class="feature-tag">Responsive</span>
+                            <span class="feature-tag">java</span>
+                            <span class="feature-tag">api con spring boot/jdbc</span>
+                            <span class="feature-tag">dom con frontend /html/css/js</span>
+                            <span class="feature-tag">Reportes</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/sn4yber" target="_blank" class="project-link github-link">
+                                <i class="fab fa-github"></i>
+                                <span>Ver Código</span>
+                            </a>
+                            <a href="https://reserverbr.netlify.app/" class="project-link demo-link">
+                                <i class="fas fa-external-link-alt"></i>
+                                <span>Demo Live</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+
+            <div class="project-item" data-project="1">
+                <div class="project-number">01</div>
+                <div class="project-content">
+                    <div class="project-media">
+                        <div class="media-container">
+                            <img src="appbr.png" alt="Sistema de Inventario" class="project-image">
+                            <div class="media-overlay">
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </div>
+                        <div class="code-preview">
+                            <img src="folleto.jpeg" alt="Código del sistema" class="code-image">
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-category">Web Development full stack saas </div>
+                        <h3 class="project-title">Sistema de reservas</h3>
+                        <p class="project-description">
+                           un sistema que permite alos clientes registrar su turno de manera online 
+                           y que se le avise al administrador para que pueda confirmar el turno es 100% responsive con todos los dispositivos, 
+                           el sistema esta en mi catalogo de sofware asaService
+                        </p>
+                        <div class="project-features">
+                            <span class="feature-tag">Real-time</span>
+                            <span class="feature-tag">Responsive</span>
+                            <span class="feature-tag">api con node js </span>
+                            <span class="feature-tag">dom con frontend /html/css/js</span>
+                            <span class="feature-tag">Aplicación de software como servicio Para agendas</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/sn4yber" target="_blank" class="project-link github-link">
+                                <i class="fab fa-github"></i>
+                                <span>Ver Código</span>
+                            </a>
+                            <a href="https://reserverbr.netlify.app/" class="project-link demo-link">
+                                <i class="fas fa-external-link-alt"></i>
+                                <span>Demo Live</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Card normal fuera del mural -->
-        <div class="card mx-auto mt-5" style="max-width: 30rem;">
-            <img src="prfinal.jpg" class="card-img-top" alt="Imagen del proyecto final">
-            <div class="card-body">
-                <h5 class="card-title">Proyecto Final</h5>
-                <p class="card-text">Esta imagen muestra el resultado final de uno de mis proyectos destacados. El proceso incluyó diseño, desarrollo y pruebas para lograr un producto funcional y visualmente atractivo.</p>
-                <img src="developer.png" class="img-fluid rounded mt-3" alt="Código del proyecto final" style="width: 100%; height: auto;">
+            <!-- Proyecto 2: Arduino Ultrasonido -->
+            <div class="project-item reverse" data-project="2">
+                <div class="project-number">02</div>
+                <div class="project-content">
+                    <div class="project-media">
+                        <div class="media-container">
+                            <video class="project-video" autoplay loop muted>
+                                <source src="Video de WhatsApp 2025-04-19 a las 11.37.01_8ae3be53.mp4" type="video/mp4">
+                            </video>
+                            <div class="media-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-category">IoT & Arduino</div>
+                        <h3 class="project-title">Sensor Ultrasónico con Servomotor</h3>
+                        <p class="project-description">
+                            Mi primer proyecto con microcontrolador Arduino. El sistema utiliza un sensor ultrasónico 
+                            para detectar movimiento y controlar un servomotor de manera automática. 
+                            Una introducción perfecta al mundo de la programación de hardware.
+                        </p>
+                        <div class="project-features">
+                            <span class="feature-tag">Arduino</span>
+                            <span class="feature-tag">Sensor HC-SR04</span>
+                            <span class="feature-tag">Servomotor</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/sn4yber" target="_blank" class="project-link github-link">
+                                <i class="fab fa-github"></i>
+                                <span>Ver Código</span>
+                            </a>
+                            <a href="#" class="project-link info-link">
+                                <i class="fas fa-info-circle"></i>
+                                <span>Más Info</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Proyecto 3: Monitoreo de Ocupación -->
+            <div class="project-item" data-project="3">
+                <div class="project-number">03</div>
+                <div class="project-content">
+                    <div class="project-media">
+                        <div class="media-container">
+                            <video class="project-video" autoplay loop muted>
+                                <source src="resultado.mp4" type="video/mp4">
+                            </video>
+                            <div class="media-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-category">IoT & Smart City</div>
+                        <h3 class="project-title">Sistema de Monitoreo de Ocupación</h3>
+                        <p class="project-description">
+                            Proyecto avanzado que demuestra la interacción entre sensores y microcontroladores. 
+                            Diseñado como prototipo escalable para monitorear la ocupación de autobuses 
+                            en la ciudad de Cartagena, contribuyendo a mejorar el transporte público.
+                        </p>
+                        <div class="project-features">
+                            <span class="feature-tag">Smart City</span>
+                            <span class="feature-tag">Escalable project</span>
+                            <span class="feature-tag">Transporte</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/sn4yber" target="_blank" class="project-link github-link">
+                                <i class="fab fa-github"></i>
+                                <span>Ver Código</span>
+                            </a>
+                            <a href="#" class="project-link demo-link">
+                                <i class="fas fa-rocket"></i>
+                                <span>Prototipo</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">¿Interesado en colaborar?</h2>
+                <p class="cta-text">Siempre estoy abierto a nuevos proyectos y oportunidades de aprendizaje</p>
+                <a href="https://github.com/sn4yber" target="_blank" class="cta-button">
+                    <i class="fab fa-github"></i>
+                    <span>Ver más en GitHub</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
             </div>
         </div>
+    </section>
 
-    
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
