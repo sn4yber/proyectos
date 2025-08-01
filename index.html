@@ -3,117 +3,364 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SN4YBER - Blog Personal</title>
+    <title>SN4YBER - Portfolio Digital</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="a69604277ddec20763d6d854a805ac9d.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar">
+    <!-- Floating Navigation -->
+    <nav class="floating-nav">
         <div class="nav-container">
-            <a href="index.html" class="logo">SN4YBER</a>
-            <ul class="nav-links">
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="#sobre-mi">Sobre Mí</a></li>
-                <li><a href="proyectos.html">Proyectos</a></li>
-                <li><a href="#habilidades">Habilidades</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
+            <a href="#inicio" class="nav-logo">SN4YBER</a>
+            <div class="nav-menu">
+                <a href="#inicio" class="nav-link active">Inicio</a>
+                <a href="#sobre-mi" class="nav-link">Sobre Mí</a>
+                <a href="proyectos.html" class="nav-link">Proyectos</a>
+                <a href="#habilidades" class="nav-link">Skills</a>
+                <a href="#contacto" class="nav-link">Contacto</a>
+            </div>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
 
-    <div class="container">
-        <section class="hero" id="inicio">
-            <div class="profile-image">SN4</div>
-            <h1>Snayber Madrid</h1>
-            <p class="subtitle">Estudiante de Ingeniería de Sistemas | desarrollador fullstack en progreso</p>
-            <p style="margin-bottom: 2rem; color: var(--text-secondary);">
-                ¡Hola! Este blog es un espacio donde comparto mis pensamientos, metas, proyectos y experiencias personales. 
-                Gracias por visitarme y acompañarme en este viaje tecnológico.
+    <!-- Hero Section with Parallax -->
+    <section class="hero-section" id="inicio">
+        <div class="hero-bg">
+            <div class="floating-shape shape-1"></div>
+            <div class="floating-shape shape-2"></div>
+            <div class="floating-shape shape-3"></div>
+            <div class="floating-shape shape-4"></div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="hero-avatar">
+                <div class="avatar-ring"></div>
+                <div class="avatar-inner">SN4</div>
+                <div class="avatar-pulse"></div>
+            </div>
+            
+            <h1 class="hero-title">
+                <span class="title-line">Snayber</span>
+                <span class="title-line gradient-text">Madrid</span>
+            </h1>
+            
+            <p class="hero-subtitle typing-text">
+                Estudiante de Ingeniería de Sistemas | Desarrollador Fullstack en Progreso
             </p>
-            <a href="#sobre-mi" class="cta-button">Conocer más sobre mí</a>
-        </section>
-
-        <div class="cards-carousel">
-            <div class="card" id="sobre-mi">
-                <div class="card-icon">👨‍💻</div>
-                <h3>Sobre Mí</h3>
-                <p>
-                    Soy estudiante de Ingeniería de Sistemas en la Universidad Rafael nuñez con pasión por crear 
-                    soluciones tecnológicas útiles y con significado. Disfruto programar tanto sistemas bien estructurados 
-                    en backend como interfaces limpias en frontend.
-                </p>
+            
+            <div class="hero-description">
+                <p>Transformando ideas en código, creando experiencias digitales que conectan y resuelven problemas reales.</p>
             </div>
-
-            <div class="card" id="proyectos">
-                <div class="card-icon">🚀</div>
-                <h3>Mis Proyectos</h3>
-                <p>
-                    Me gusta que cada proyecto tenga un propósito real: desde automatizar tareas cotidianas hasta desarrollar 
-                    herramientas que conecten con las personas a un nivel más emocional. Para mí, la programación no es solo código, 
-                    es una forma de expresar y resolver.
-                </p>
+            
+            <div class="hero-actions">
+                <button class="cta-primary" onclick="scrollToSection('sobre-mi')">
+                    <span>Explorar mi trabajo</span>
+                    <div class="cta-arrow">→</div>
+                </button>
+                <button class="cta-secondary" onclick="scrollToSection('contacto')">
+                    <span>Conectemos</span>
+                </button>
             </div>
-
-            <div class="card">
-                <div class="card-icon">🎯</div>
-                <h3>Mi Filosofía</h3>
-                <p>
-                    Trabajo integrando ideas creativas con bases sólidas. Cada línea de código que escribo busca no solo 
-                    funcionar correctamente, sino también aportar valor real a las personas que usarán mis aplicaciones.
-                </p>
-            </div>
-
-
-            <div class="card">
-                <div class="card-icon">🧠</div>
-                <h3>habilidades blandas </h3>
-                <p>
-                    Soy alguien que no solo escribe código, también escucho, me adapto y resuelvo. Me gusta aprender de los demás,
-                     compartir lo que sé y mantener una comunicación clara, incluso cuando las cosas se complican. Trabajo bien bajo presión, 
-                    me enfoco en soluciones prácticas, y siempre estoy buscando mejorar — como persona y como profesional. 
-                </p>
-
-                <strong>Empatía, adaptabilidad, comunicación, pensamiento crítico y compromiso real.</strong>
+            
+            <div class="scroll-indicator">
+                <div class="scroll-line"></div>
+                <span>Scroll para descubrir</span>
             </div>
         </div>
+    </section>
 
-        <div class="carousel-nav">
-            <button class="carousel-btn" id="prev-btn">← Anterior</button>
-            <button class="carousel-btn" id="next-btn">Siguiente →</button>
+    <!-- About Section -->
+    <section class="about-section" id="sobre-mi">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">01. Sobre mí</span>
+                <h2 class="section-title">Construyendo el futuro con código</h2>
+            </div>
+            
+            <div class="about-grid">
+                <div class="about-text">
+                    <div class="text-block">
+                        <h3>Mi Historia</h3>
+                        <p>Soy estudiante de Ingeniería de Sistemas en la Universidad Rafael Núñez con una pasión ardiente por crear soluciones tecnológicas que realmente importen. Mi enfoque va más allá del código: busco entender problemas, conectar con personas y construir experiencias que marquen la diferencia.</p>
+                    </div>
+                    
+                    <div class="text-block">
+                        <h3>Mi Filosofía</h3>
+                        <p>Creo en la programación como una forma de arte donde la creatividad se fusiona con la lógica. Cada proyecto es una oportunidad de aprender, innovar y dejar una huella positiva en el mundo digital.</p>
+                    </div>
+                    
+                    <div class="skills-preview">
+                        <h3>Fortalezas Clave</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Problem Solving</span>
+                            <span class="skill-tag">Adaptabilidad</span>
+                            <span class="skill-tag">Comunicación</span>
+                            <span class="skill-tag">Pensamiento Crítico</span>
+                            <span class="skill-tag">Trabajo en Equipo</span>
+                            <span class="skill-tag">Innovación</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-visual">
+                    <div class="stats-container">
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="90">0</div>
+                            <div class="stat-label">Problem Solving</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="75">0</div>
+                            <div class="stat-label">Frontend Dev</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="70">0</div>
+                            <div class="stat-label">Backend Dev</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="65">0</div>
+                            <div class="stat-label">Database Design</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="cards-grid">
-            <div class="card" id="contacto">
-                <div class="card-icon">📧</div>
-                <h3>Conectemos</h3>
-                <p>
-                    Siempre estoy abierto a nuevas oportunidades, colaboraciones y conversaciones sobre tecnología. 
-                    ¡No dudes en contactarme!
-                </p>
-                <div class="contact-grid">
-                    <a href="#" class="contact-item">
-                        <div class="contact-icon">@</div>
-                        <span>Email</span>
-                    </a>
-                    <a href="https://github.com/sn4yber" class="contact-item" target="_blank">
+    <!-- Projects Section -->
+    <section class="projects-section" id="proyectos">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">02. Proyectos</span>
+                <h2 class="section-title">Código con propósito</h2>
+                <p class="section-description">Cada proyecto cuenta una historia, resuelve un problema y conecta con las personas.</p>
+            </div>
+            
+            <div class="projects-showcase">
+                <div class="project-highlight">
+                    <div class="project-visual">
+                        <div class="project-mockup">
+                            <div class="mockup-header">
+                                <div class="mockup-dots">
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </div>
+                            <div class="mockup-content">
+                                <div class="code-lines">
+                                    <div class="code-line"></div>
+                                    <div class="code-line short"></div>
+                                    <div class="code-line"></div>
+                                    <div class="code-line medium"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-info">
+                        <h3>Portfolio Personal</h3>
+                        <p>Un espacio digital que refleja mi identidad como desarrollador, construido con tecnologías modernas y diseño centrado en la experiencia del usuario.</p>
+                        
+                        <div class="project-tech">
+                            <span class="tech-badge">HTML5</span>
+                            <span class="tech-badge">CSS3</span>
+                            <span class="tech-badge">JavaScript</span>
+                            <span class="tech-badge">Responsive</span>
+                        </div>
+                        
+                        <div class="project-links">
+                            <a href="https://github.com/sn4yber" class="project-link" target="_blank">
+                                <span>Ver Código</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills-section" id="habilidades">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">03. Habilidades</span>
+                <h2 class="section-title">Stack Tecnológico</h2>
+            </div>
+            
+            <div class="tech-ecosystem">
+                <div class="tech-category">
+                    <h3>Frontend</h3>
+                    <div class="tech-items">
+                        <div class="tech-orb" data-skill="HTML5">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" />
+                            <span class="tech-label">HTML5</span>
+                        </div>
+                        <div class="tech-orb" data-skill="CSS3">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" />
+                            <span class="tech-label">CSS3</span>
+                        </div>
+                        <div class="tech-orb" data-skill="JavaScript">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" />
+                            <span class="tech-label">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tech-category">
+                    <h3>Backend</h3>
+                    <div class="tech-items">
+                        <div class="tech-orb" data-skill="Java">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" />
+                            <span class="tech-label">Java</span>
+                        </div>
+                        <div class="tech-orb" data-skill="Python">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />
+                            <span class="tech-label">Python</span>
+                        </div>
+                        <div class="tech-orb" data-skill="Node.js">
+                            <img src="Node.js.png" alt="Node.js" />
+                            <span class="tech-label">Node.js</span>
+                        </div>
+                        <div class="tech-orb" data-skill="Spring Boot">
+                            <img src="Spring.png" alt="Spring Boot" />
+                            <span class="tech-label">Spring</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tech-category">
+                    <h3>Herramientas</h3>
+                    <div class="tech-items">
+                        <div class="tech-orb" data-skill="PostgreSQL">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" />
+                            <span class="tech-label">PostgreSQL</span>
+                        </div>
+                        <div class="tech-orb" data-skill="Git">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" />
+                            <span class="tech-label">Git</span>
+                        </div>
+                        <div class="tech-orb" data-skill="Linux">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" />
+                            <span class="tech-label">Linux</span>
+                        </div>
+                        <div class="tech-orb" data-skill="Arduino">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg" alt="Arduino" />
+                            <span class="tech-label">Arduino</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="skills-progress">
+                <div class="progress-item">
+                    <div class="progress-info">
+                        <span>Problem Solving</span>
+                        <span class="progress-value">90%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="90"></div>
+                    </div>
+                </div>
+                
+                <div class="progress-item">
+                    <div class="progress-info">
+                        <span>Frontend Development</span>
+                        <span class="progress-value">75%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="75"></div>
+                    </div>
+                </div>
+                
+                <div class="progress-item">
+                    <div class="progress-info">
+                        <span>Backend Development</span>
+                        <span class="progress-value">70%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="70"></div>
+                    </div>
+                </div>
+                
+                <div class="progress-item">
+                    <div class="progress-info">
+                        <span>Database Design</span>
+                        <span class="progress-value">65%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="65"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contacto">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">04. Contacto</span>
+                <h2 class="section-title">Construyamos algo increíble juntos</h2>
+                <p class="section-description">¿Tienes una idea? ¿Un proyecto? ¿Solo quieres charlar sobre tecnología? ¡Conectemos!</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
                         <div class="contact-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            </svg>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>snayber.madrid@ejemplo.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                            </svg>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Ubicación</h4>
+                            <p>Cartagena, Colombia</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="social-links">
+                    <a href="https://github.com/sn4yber" class="social-link" target="_blank">
+                        <div class="social-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                             </svg>
                         </div>
                         <span>GitHub</span>
                     </a>
-                    <a href="https://www.instagram.com/sn4yber_0x/" class="contact-item" target="_blank">
-                        <div class="contact-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    
+                    <a href="https://www.instagram.com/sn4yber_0x/" class="social-link" target="_blank">
+                        <div class="social-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                             </svg>
                         </div>
                         <span>Instagram</span>
                     </a>
-                    <a href="https://wa.me/573205382409" class="contact-item" target="_blank">
-                        <div class="contact-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    
+                    <a href="https://wa.me/573205382409" class="social-link" target="_blank">
+                        <div class="social-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
                             </svg>
                         </div>
@@ -122,92 +369,14 @@
                 </div>
             </div>
         </div>
+    </section>
 
-        <section class="tech-stack" id="habilidades">
-            <h3>Stack Tecnológico</h3>
-            <div class="tech-grid">
-                <div class="tech-item">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" width="32" height="32" />
-                    <div>Java</div>
-                </div>
-                <div class="tech-item">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" width="32" height="32" />
-                    <div>Python</div>
-                </div>
-                <div class="tech-item">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" width="32" height="32" />
-                    <div>PostgreSQL</div>
-                </div>
-                <div class="tech-item">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg" alt="Arduino" width="32" height="32" />
-                    <div>Arduino</div>
-                </div>
-                <div class="tech-item">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" width="32" height="32" />
-                    <div>HTML/CSS</div>
-                </div>
-                <div class="tech-item">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" width="32" height="32" />
-                    <div>JavaScript</div>
-                </div>
-
-                <div class="tech-item">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" width="32" height="32" />
-                    <div>manejo de sistemas operativos</div>
-                </div>
-
-                <div class="tech-item">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" width="32" height="32" />
-                    <div> control de versiones git</div> 
-                </div>
-
-                <div class="tech-item">
-                    <img src="Spring.png" alt="Git" width="32" height="32" />
-                    <div> spring boot</div> 
-                </div>
-            </div>
-            
-            <div style="margin-top: 3rem;">
-                <h4 style="margin-bottom: 2rem; text-align: center;">Nivel de Habilidades</h4>
-                <div class="skill-bar">
-                    <div class="skill-name">
-                        <span>Backend Development</span>
-                        <span>65%</span>
-                    </div>
-                    <div class="progress">
-                        <div class="progress-fill" style="width: 65%;"></div>
-                    </div>
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-name">
-                        <span>Frontend Development</span>
-                        <span>75%</span>
-                    </div>
-                    <div class="progress">
-                        <div class="progress-fill" style="width: 75%;"></div>
-                    </div>
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-name">
-                        <span>Database Design</span>
-                        <span>65%</span>
-                    </div>
-                    <div class="progress">
-                        <div class="progress-fill" style="width: 65%;"></div>
-                    </div>
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-name">
-                        <span>Problem Solving</span>
-                        <span>90%</span>
-                    </div>
-                    <div class="progress">
-                        <div class="progress-fill" style="width: 90%;"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 SN4YBER. Construido con pasión y mucho café ☕</p>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>

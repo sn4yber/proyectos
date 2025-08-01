@@ -261,5 +261,25 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
+    <script>
+        // Script específico para la página de proyectos
+        document.addEventListener('DOMContentLoaded', function() {
+            // Asegurar que las estadísticas se muestren correctamente
+            const statNumbers = document.querySelectorAll('.stat-number');
+            
+            statNumbers.forEach(stat => {
+                // Restaurar el texto original si se ha corrompido
+                const originalText = stat.getAttribute('data-original') || stat.textContent;
+                if (!stat.getAttribute('data-original')) {
+                    stat.setAttribute('data-original', originalText);
+                }
+                
+                // Si el texto se ha corrompido, restaurarlo
+                if (stat.textContent === 'NaN' || stat.textContent === 'nan') {
+                    stat.textContent = originalText;
+                }
+            });
+        });
+    </script>
 </body>
 </html>
