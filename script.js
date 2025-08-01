@@ -236,23 +236,48 @@ class AnimationManager {
                     const counter = entry.target;
                     const originalText = counter.textContent;
                     
-                    // Verificar si el texto contiene un número válido para animar
-                    const numberMatch = originalText.match(/(\d+)/);
+                    // Verificar si tiene data-count (formato del index.html)
+                    const dataCount = counter.dataset.count;
+                    let target = null;
+                    let shouldAnimate = false;
                     
-                    if (numberMatch) {
-                        const target = parseInt(numberMatch[1]);
+                    if (dataCount) {
+                        // Formato del index.html: usa data-count
+                        target = parseInt(dataCount);
+                        shouldAnimate = !isNaN(target);
+                    } else {
+                        // Formato de proyectos.html: busca números en el texto
+                        const numberMatch = originalText.match(/(\d+)/);
+                        if (numberMatch) {
+                            target = parseInt(numberMatch[1]);
+                            shouldAnimate = !isNaN(target);
+                        }
+                    }
+                    
+                    if (shouldAnimate && target > 0) {
                         let current = 0;
                         const increment = target / 60; // 60 frames para 1 segundo
                         
                         const updateCounter = () => {
                             if (current < target) {
                                 current += increment;
-                                // Mantener el formato original (ej: "4+" se convierte en "4+" cuando llega a 4)
-                                const newText = originalText.replace(/\d+/, Math.ceil(current));
-                                counter.textContent = newText;
+                                
+                                if (dataCount) {
+                                    // Para elementos con data-count, mostrar solo el número
+                                    counter.textContent = Math.ceil(current);
+                                } else {
+                                    // Para elementos sin data-count, mantener el formato original
+                                    const newText = originalText.replace(/\d+/, Math.ceil(current));
+                                    counter.textContent = newText;
+                                }
+                                
                                 requestAnimationFrame(updateCounter);
                             } else {
-                                counter.textContent = originalText;
+                                if (dataCount) {
+                                    counter.textContent = target;
+                                } else {
+                                    counter.textContent = originalText;
+                                }
                             }
                         };
                         
@@ -264,12 +289,13 @@ class AnimationManager {
             });
         }, { threshold: 0.5 });
         
-        // Solo animar contadores que tengan números válidos
+        // Observar todos los contadores
         document.querySelectorAll('.stat-number').forEach(counter => {
+            const dataCount = counter.dataset.count;
             const text = counter.textContent;
-            const hasNumber = /\d+/.test(text);
             
-            if (hasNumber) {
+            // Animar si tiene data-count O si el texto contiene números
+            if (dataCount || /\d+/.test(text)) {
                 counterObserver.observe(counter);
             }
         });
