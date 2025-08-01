@@ -117,11 +117,21 @@ class NavigationManager {
             }
             
             // Ocultar/mostrar navegación en scroll
+            const isMobile = window.innerWidth <= 768;
+            
             if (currentScrollY > lastScrollY && currentScrollY > 200) {
-                this.nav.style.transform = 'translateX(-50%) translateY(-100px)';
+                if (isMobile) {
+                    this.nav.style.transform = 'translateY(-100px)';
+                } else {
+                    this.nav.style.transform = 'translateX(-50%) translateY(-100px)';
+                }
                 this.nav.style.opacity = '0';
             } else {
-                this.nav.style.transform = 'translateX(-50%) translateY(0)';
+                if (isMobile) {
+                    this.nav.style.transform = 'translateY(0)';
+                } else {
+                    this.nav.style.transform = 'translateX(-50%) translateY(0)';
+                }
                 this.nav.style.opacity = '1';
             }
             
@@ -129,6 +139,16 @@ class NavigationManager {
         }, 10);
         
         window.addEventListener('scroll', handleScroll);
+        
+        // Manejar redimensionamiento de ventana
+        window.addEventListener('resize', utils.debounce(() => {
+            const isMobile = window.innerWidth <= 768;
+            if (isMobile) {
+                this.nav.style.transform = 'translateY(0)';
+            } else {
+                this.nav.style.transform = 'translateX(-50%) translateY(0)';
+            }
+        }, 100));
     }
     
     setupMobileMenu() {
