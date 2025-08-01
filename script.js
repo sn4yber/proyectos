@@ -134,11 +134,30 @@ class NavigationManager {
     setupMobileMenu() {
         const toggle = document.querySelector('.nav-toggle');
         const menu = document.querySelector('.nav-menu');
+        const navLinks = document.querySelectorAll('.nav-link');
         
-        if (toggle) {
+        if (toggle && menu) {
             toggle.addEventListener('click', () => {
                 menu.classList.toggle('active');
                 toggle.classList.toggle('active');
+            });
+            
+            // Cerrar menú al hacer clic en un enlace
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (menu.classList.contains('active')) {
+                        menu.classList.remove('active');
+                        toggle.classList.remove('active');
+                    }
+                });
+            });
+            
+            // Cerrar menú al hacer clic fuera
+            document.addEventListener('click', (e) => {
+                if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+                    menu.classList.remove('active');
+                    toggle.classList.remove('active');
+                }
             });
         }
     }
