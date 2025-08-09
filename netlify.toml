@@ -1,20 +1,26 @@
 [build]
-  # Comando para construir el proyecto
+  # Comando para construir el proyecto React en subcarpeta
   command = "cd sn4yber-react-portfolio && npm install && npm run build"
   
   # Carpeta que se despliega (Vite genera 'dist' dentro de sn4yber-react-portfolio)
   publish = "sn4yber-react-portfolio/dist"
-
-  # Base directory para el proyecto
-  base = "sn4yber-react-portfolio"
 
 # Configuración para SPA (Single Page Application)
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+  force = false
 
 # Headers para optimización
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+
+# Headers para archivos estáticos
 [[headers]]
   for = "/static/*"
   [headers.values]
