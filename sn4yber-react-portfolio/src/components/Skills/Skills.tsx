@@ -26,7 +26,7 @@ export const Skills = () => {
     { 
       name: 'TypeScript', 
       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
-      progress: 55,
+      progress: 45,
       status: 'En progreso',
       startDate: 'Julio 2025',
       description: 'Migrando proyectos existentes y aprendiendo tipado avanzado primeras impresiones con typescript'
@@ -42,7 +42,7 @@ export const Skills = () => {
     { 
       name: 'Docker', 
       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg',
-      progress: 45,
+      progress: 50,
       status: 'Explorando',
       startDate: 'Agosto 2025',
       description: 'Containerización de aplicaciones y orquestación básica para microservicios con spring boot y fastapi'
@@ -52,7 +52,7 @@ export const Skills = () => {
 
   const progressBars = [
     { label: 'Problem Solving', value: 90 },
-    { label: 'Frontend Development', value: 75 },
+    { label: 'Frontend Development', value: 80 },
     { label: 'Backend Development', value: 65 },
     { label: 'Database Design', value: 65 },
   ]
