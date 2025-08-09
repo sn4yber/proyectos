@@ -19,25 +19,25 @@ export const Projects = () => {
     },
     {
       id: '02',
-      category: 'Portfolio',
-      title: 'Portfolio Personal',
-      description: 'Un espacio digital que refleja mi identidad como desarrollador, construido con tecnologías modernas y diseño centrado en la experiencia del usuario.',
-      image: '/prfinal.jpg',
-      features: ['React', 'TypeScript', 'Responsive', 'Modern'],
-      technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Vite'],
+      category: 'saas freelance',
+      title: 'sistema de reservas de citas',
+      description: 'Sistema de reservas de citas para servicios profesionales, diseñado para facilitar la gestión de horarios y citas. Permite a los usuarios reservar, modificar y cancelar citas de manera sencilla, con notificaciones automáticas y una interfaz amigable.',
+      image: '/appbr.png',
+      features: ['HTML', 'JavaScript', 'Responsive', 'Modern'],
+      technologies: ['html', 'css', 'javascript ', 'node js ', 'application'],
       links: {
         github: 'https://github.com/sn4yber',
-        demo: '#',
+        demo: 'https://reserverbr.netlify.app/',
       },
     },
     {
       id: '03',
       category: 'IoT Development',
       title: 'Proyectos Arduino',
-      description: 'Diversos proyectos de Internet de las Cosas utilizando Arduino, sensores y actuadores para crear soluciones automatizadas e inteligentes.',
-      image: '/katana.png',
+      description: 'sistema de deteccion de movimiento con implementacion de sensores iot para la automatizacion de un sistema de ocupacion de autobuses en  cartagena se implementaron tambien contadores con pantalla lsd para ver  funcionamiento y ocupacion del mismoo ese proyecto planea ser escalable a algo mas profesional y tecnico.',
+      video: '/resultado.mp4',
       features: ['IoT', 'Arduino', 'Sensores', 'Automatización'],
-      technologies: ['Arduino', 'C++', 'Sensores', 'Actuadores', 'Circuitos'],
+      technologies: ['Arduino', 'pantalla lsd', 'Sensores', 'Actuadores', 'Circuitos'],
       links: {
         github: 'https://github.com/sn4yber',
         demo: '#',
@@ -128,11 +128,24 @@ export const Projects = () => {
                       style={{ transformStyle: "preserve-3d" }}
                     >
                       <div className="glass-morphism rounded-2xl p-6 mb-6">
-                        <img
-                          src={project.image}
-                          alt={project.title}
-                          className="w-full h-64 object-cover rounded-xl"
-                        />
+                        {project.video ? (
+                          <video
+                            src={project.video}
+                            className="w-full h-64 object-cover rounded-xl"
+                            controls
+                            autoPlay
+                            muted
+                            loop
+                          >
+                            Tu navegador no soporta el elemento de video.
+                          </video>
+                        ) : (
+                          <img
+                            src={project.image}
+                            alt={project.title}
+                            className="w-full h-64 object-cover rounded-xl"
+                          />
+                        )}
                       </div>
                       
                       {project.codeImage && (
