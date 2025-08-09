@@ -27,26 +27,42 @@ export const ParticleSystem = () => {
     const createParticle = (x: number, y: number): Particle => ({
       x,
       y,
-      vx: (Math.random() - 0.5) * 4,
+      vx: (Math.random() - 0.5) * 4, // Velocidad más suave (era 8)
       vy: (Math.random() - 0.5) * 4,
-      life: 60,
-      maxLife: 60,
+      life: 80, // Viven menos tiempo (era 120) 
+      maxLife: 80,
     })
 
     const handleMouseMove = (e: MouseEvent) => {
       mouseRef.current = { x: e.clientX, y: e.clientY }
       
-      // Crear partículas en la posición del mouse
-      for (let i = 0; i < 3; i++) {
+      // Crear partículas más sutiles al mover el mouse
+      for (let i = 0; i < 3; i++) { // Menos partículas (era 8)
         particlesRef.current.push(createParticle(
-          e.clientX + (Math.random() - 0.5) * 20,
-          e.clientY + (Math.random() - 0.5) * 20
+          e.clientX + (Math.random() - 0.5) * 30, // Área más pequeña
+          e.clientY + (Math.random() - 0.5) * 30
         ))
       }
     }
 
+    const handleMouseClick = (e: MouseEvent) => {
+      // Explosión más sutil al hacer click
+      for (let i = 0; i < 15; i++) { // Menos partículas (era 30)
+        const angle = (Math.PI * 2 * i) / 30
+        const speed = Math.random() * 15 + 5
+        particlesRef.current.push({
+          x: e.clientX,
+          y: e.clientY,
+          vx: Math.cos(angle) * speed,
+          vy: Math.sin(angle) * speed,
+          life: 180,
+          maxLife: 180,
+        })
+      }
+    }
+
     const animate = () => {
-      ctx.fillStyle = 'rgba(10, 10, 15, 0.1)'
+      ctx.fillStyle = 'rgba(10, 10, 15, 0.1)' // Un poco más de fade para ser menos invasivo
       ctx.fillRect(0, 0, canvas.width, canvas.height)
 
       // Actualizar y dibujar partículas
@@ -56,20 +72,27 @@ export const ParticleSystem = () => {
         particle.life--
 
         const alpha = particle.life / particle.maxLife
-        const size = alpha * 3
+        const size = alpha * 4 // Partículas más pequeñas (era 8)
 
-        // Gradiente dinámico basado en la posición
+        // Gradiente más sutil
         const gradient = ctx.createRadialGradient(
           particle.x, particle.y, 0,
-          particle.x, particle.y, size * 2
+          particle.x, particle.y, size * 2 // Radio más pequeño
         )
-        gradient.addColorStop(0, `rgba(139, 92, 246, ${alpha * 0.8})`)
-        gradient.addColorStop(0.5, `rgba(6, 182, 212, ${alpha * 0.6})`)
-        gradient.addColorStop(1, `rgba(245, 158, 11, ${alpha * 0.2})`)
+        gradient.addColorStop(0, `rgba(139, 92, 246, ${alpha * 0.6})`) // Menos opaco
+        gradient.addColorStop(0.3, `rgba(6, 182, 212, ${alpha * 0.4})`)
+        gradient.addColorStop(0.7, `rgba(245, 158, 11, ${alpha * 0.3})`)
+        gradient.addColorStop(1, `rgba(34, 197, 94, ${alpha * 0.1})`)
 
         ctx.fillStyle = gradient
         ctx.beginPath()
         ctx.arc(particle.x, particle.y, size, 0, Math.PI * 2)
+        ctx.fill()
+
+        // Punto central más sutil
+        ctx.fillStyle = `rgba(255, 255, 255, ${alpha * 0.4})` // Menos brillante
+        ctx.beginPath()
+        ctx.arc(particle.x, particle.y, size * 0.3, 0, Math.PI * 2)
         ctx.fill()
 
         return particle.life > 0
@@ -79,6 +102,7 @@ export const ParticleSystem = () => {
     }
 
     window.addEventListener('mousemove', handleMouseMove)
+    window.addEventListener('click', handleMouseClick) // Agregar click
     animate()
 
     const handleResize = () => {
@@ -90,6 +114,7 @@ export const ParticleSystem = () => {
 
     return () => {
       window.removeEventListener('mousemove', handleMouseMove)
+      window.removeEventListener('click', handleMouseClick)
       window.removeEventListener('resize', handleResize)
     }
   }, [])

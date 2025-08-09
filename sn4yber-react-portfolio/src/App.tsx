@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { Navigation } from './components/Navigation/Navigation'
 import { Home } from './pages/Home'
-import { Projects } from './pages/Projects'
+import { Projects } from './pages'
 import { MatrixRain } from './components/MatrixRain/MatrixRain'
 import { MagneticCursor } from './components/MagneticCursor/MagneticCursor'
 import { ParticleSystem } from './components/ParticleSystem/ParticleSystem'

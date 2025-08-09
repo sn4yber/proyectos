@@ -14,6 +14,7 @@ export default {
         secondary: '#06b6d4',
         accent: '#f59e0b',
         success: '#10b981',
+        border: 'rgba(255, 255, 255, 0.1)',
         background: {
           primary: '#0a0a0f',
           secondary: '#1a1a2e',

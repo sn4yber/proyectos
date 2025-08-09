@@ -3,75 +3,70 @@ import { motion } from 'framer-motion'
 
 export const MagneticCursor = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-  const [cursorVariant, setCursorVariant] = useState('default')
+  const [isHovered, setIsHovered] = useState(false)
 
   useEffect(() => {
-    const mouseMove = (e: MouseEvent) => {
-      setMousePosition({
-        x: e.clientX,
-        y: e.clientY
-      })
+    const updateCursor = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY })
     }
 
-    const mouseEnter = () => setCursorVariant('text')
-    const mouseLeave = () => setCursorVariant('default')
+    const handleMouseEnter = () => setIsHovered(true)
+    const handleMouseLeave = () => setIsHovered(false)
 
-    window.addEventListener('mousemove', mouseMove)
-
-    // Agregar listeners a elementos interactivos
-    const interactiveElements = document.querySelectorAll('button, a, input, textarea')
+    window.addEventListener('mousemove', updateCursor)
+    
+    // Add hover effects to interactive elements
+    const interactiveElements = document.querySelectorAll('a, button, [role="button"]')
     interactiveElements.forEach(el => {
-      el.addEventListener('mouseenter', mouseEnter)
-      el.addEventListener('mouseleave', mouseLeave)
+      el.addEventListener('mouseenter', handleMouseEnter)
+      el.addEventListener('mouseleave', handleMouseLeave)
     })
 
     return () => {
-      window.removeEventListener('mousemove', mouseMove)
+      window.removeEventListener('mousemove', updateCursor)
       interactiveElements.forEach(el => {
-        el.removeEventListener('mouseenter', mouseEnter)
-        el.removeEventListener('mouseleave', mouseLeave)
+        el.removeEventListener('mouseenter', handleMouseEnter)
+        el.removeEventListener('mouseleave', handleMouseLeave)
       })
     }
   }, [])
 
-  const variants = {
-    default: {
-      x: mousePosition.x - 16,
-      y: mousePosition.y - 16,
-      scale: 1,
-    },
-    text: {
-      height: 150,
-      width: 150,
-      x: mousePosition.x - 75,
-      y: mousePosition.y - 75,
-      backgroundColor: 'rgba(139, 92, 246, 0.3)',
-      mixBlendMode: 'difference' as const,
-    }
-  }
-
   return (
     <>
+      {/* Cursor principal más sutil */}
       <motion.div
-        className="fixed top-0 left-0 w-8 h-8 bg-white rounded-full pointer-events-none z-50 mix-blend-difference"
-        variants={variants}
-        animate={cursorVariant}
+        className="fixed top-0 left-0 w-3 h-3 rounded-full pointer-events-none z-50 mix-blend-difference"
+        style={{ 
+          backgroundColor: '#8b5cf6',
+        }}
+        animate={{
+          x: mousePosition.x - 6,
+          y: mousePosition.y - 6,
+          scale: isHovered ? 1.5 : 1,
+          opacity: isHovered ? 0.8 : 0.6
+        }}
         transition={{
-          type: "tween",
-          ease: "backOut",
-          duration: 0.5
+          type: "spring",
+          stiffness: 500,
+          damping: 28,
+          mass: 0.2
         }}
       />
+      
+      {/* Ring exterior sutil */}
       <motion.div
-        className="fixed top-0 left-0 w-2 h-2 bg-primary rounded-full pointer-events-none z-50"
+        className="fixed top-0 left-0 w-6 h-6 rounded-full pointer-events-none z-40 border border-primary/20"
         animate={{
-          x: mousePosition.x - 4,
-          y: mousePosition.y - 4,
+          x: mousePosition.x - 12,
+          y: mousePosition.y - 12,
+          scale: isHovered ? 1.8 : 1,
+          opacity: isHovered ? 0.6 : 0.2
         }}
         transition={{
-          type: "tween",
-          ease: "backOut",
-          duration: 0.1
+          type: "spring",
+          stiffness: 200,
+          damping: 25,
+          mass: 0.5
         }}
       />
     </>

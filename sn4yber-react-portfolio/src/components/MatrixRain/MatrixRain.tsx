@@ -27,18 +27,27 @@ export const MatrixRain = () => {
 
     // Función de dibujo
     const draw = () => {
-      // Fondo semi-transparente para efecto de desvanecimiento
-      ctx.fillStyle = 'rgba(10, 10, 15, 0.04)'
+      // Fondo semi-transparente para efecto de desvanecimiento más sutil
+      ctx.fillStyle = 'rgba(10, 10, 15, 0.15)' // Más transparente
       ctx.fillRect(0, 0, canvas.width, canvas.height)
 
-      ctx.fillStyle = '#0F4'
-      ctx.font = `${fontSize}px monospace`
+      // Colores de tu paleta personalizada - más sutiles
+      const colors = [
+        'rgba(139, 92, 246, 0.4)',  // Primary violeta más sutil
+        'rgba(6, 182, 212, 0.3)',   // Secondary cyan más sutil  
+        'rgba(245, 158, 11, 0.2)',  // Accent amber muy sutil
+        'rgba(255, 255, 255, 0.1)'  // Blanco muy transparente
+      ]
+      ctx.font = `12px monospace` // Texto más pequeño
 
       for (let i = 0; i < drops.length; i++) {
+        // Color de tu paleta personalizada
+        ctx.fillStyle = colors[Math.floor(Math.random() * colors.length)]
+        
         const text = charArray[Math.floor(Math.random() * charArray.length)]
         ctx.fillText(text, i * fontSize, drops[i] * fontSize)
 
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.985) { // Menos frecuencia
           drops[i] = 0
         }
         drops[i]++
@@ -64,7 +73,7 @@ export const MatrixRain = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 pointer-events-none opacity-20 z-0"
+      className="fixed inset-0 pointer-events-none opacity-40 z-0" // Más opaco
       style={{ background: 'transparent' }}
     />
   )
