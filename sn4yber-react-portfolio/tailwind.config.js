@@ -39,6 +39,7 @@ export default {
         'float': 'float 6s ease-in-out infinite',
         'pulse-glow': 'pulse-glow 2s ease-in-out infinite alternate',
         'typing': 'typing 3.5s steps(40, end), blink-caret .75s step-end infinite',
+        'gradient': 'gradient 6s ease infinite',
       },
       keyframes: {
         float: {
@@ -57,6 +58,13 @@ export default {
           'from, to': { borderColor: 'transparent' },
           '50%': { borderColor: '#8b5cf6' },
         },
+        gradient: {
+          '0%, 100%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+        },
+      },
+      backgroundSize: {
+        '300%': '300%',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],

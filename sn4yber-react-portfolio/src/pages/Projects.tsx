@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ExternalLink, Github } from 'lucide-react'
+import { ProjectCard3D } from '@/components/ProjectCard3D/ProjectCard3D'
 
 export const Projects = () => {
   const projects = [
@@ -109,128 +109,11 @@ export const Projects = () => {
 
           <div className="space-y-32">
             {projects.map((project, index) => (
-              <motion.div
+              <ProjectCard3D 
                 key={project.id}
-                initial={{ opacity: 0, y: 100 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
-                viewport={{ once: true }}
-                className={`grid lg:grid-cols-2 gap-16 items-center ${
-                  index % 2 === 1 ? 'lg:grid-flow-dense' : ''
-                }`}
-              >
-                {/* Project Images */}
-                <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
-                  <div className="relative">
-                    <motion.div
-                      whileHover={{ scale: 1.02 }}
-                      className="relative group"
-                    >
-                      <div className="glass-morphism rounded-2xl p-6 mb-6">
-                        <img
-                          src={project.image}
-                          alt={project.title}
-                          className="w-full h-64 object-cover rounded-xl"
-                        />
-                      </div>
-                      
-                      {project.codeImage && (
-                        <motion.div
-                          initial={{ opacity: 0, x: 50 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          transition={{ duration: 0.6, delay: 0.3 }}
-                          viewport={{ once: true }}
-                          className="absolute -bottom-6 -right-6 w-32 h-24 glass-morphism rounded-xl p-2"
-                        >
-                          <img
-                            src={project.codeImage}
-                            alt="Code preview"
-                            className="w-full h-full object-cover rounded-lg"
-                          />
-                        </motion.div>
-                      )}
-                    </motion.div>
-                    
-                    <div className="absolute -top-4 -left-4 w-16 h-16 rounded-full bg-gradient-primary flex items-center justify-center text-white font-bold text-xl">
-                      {project.id}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Project Info */}
-                <div className={index % 2 === 1 ? 'lg:col-start-1' : ''}>
-                  <motion.div
-                    initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8, delay: 0.4 }}
-                    viewport={{ once: true }}
-                    className="space-y-6"
-                  >
-                    <div className="inline-block px-4 py-2 bg-gradient-surface rounded-full text-sm font-medium text-secondary border border-white/10">
-                      {project.category}
-                    </div>
-                    
-                    <h3 className="text-3xl md:text-4xl font-bold text-gradient">
-                      {project.title}
-                    </h3>
-                    
-                    <p className="text-text-secondary leading-relaxed text-lg">
-                      {project.description}
-                    </p>
-                    
-                    <div className="flex flex-wrap gap-2">
-                      {project.features.map((feature, featureIndex) => (
-                        <span
-                          key={featureIndex}
-                          className="px-3 py-1 bg-background-surface rounded-full text-sm text-text-primary border border-white/10"
-                        >
-                          {feature}
-                        </span>
-                      ))}
-                    </div>
-                    
-                    <div>
-                      <h4 className="text-lg font-semibold mb-3 text-text-primary">Tecnologías usadas:</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {project.technologies.map((tech, techIndex) => (
-                          <span
-                            key={techIndex}
-                            className="px-3 py-1 bg-gradient-primary/20 rounded-full text-sm text-primary border border-primary/30"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                    
-                    <div className="flex gap-4">
-                      <motion.a
-                        href={project.links.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="flex items-center gap-2 px-6 py-3 bg-gradient-primary rounded-lg text-white font-medium hover:shadow-glow transition-all duration-300"
-                      >
-                        <Github size={20} />
-                        Ver Código
-                      </motion.a>
-                      
-                      <motion.a
-                        href={project.links.demo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="flex items-center gap-2 px-6 py-3 border border-white/20 rounded-lg text-text-primary font-medium hover:bg-white/5 transition-all duration-300"
-                      >
-                        <ExternalLink size={20} />
-                        Ver Demo
-                      </motion.a>
-                    </div>
-                  </motion.div>
-                </div>
-              </motion.div>
+                project={project}
+                index={index}
+              />
             ))}
           </div>
         </div>
