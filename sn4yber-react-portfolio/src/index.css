@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background-primary text-text-primary font-sans;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .glass-morphism {
+    @apply bg-background-glass backdrop-blur-lg border border-white/10;
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-primary bg-clip-text text-transparent;
+  }
+  
+  .btn-primary {
+    @apply bg-gradient-primary text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:shadow-glow hover:scale-105;
+  }
+  
+  .btn-secondary {
+    @apply border border-white/20 text-text-primary px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:bg-white/5 hover:border-white/30;
+  }
+  
+  .floating-shape {
+    @apply absolute rounded-full blur-xl opacity-20 animate-float;
+  }
+}

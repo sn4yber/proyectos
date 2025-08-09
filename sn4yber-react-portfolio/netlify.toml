@@ -1,0 +1,18 @@
+[build]
+  # Comando para construir el proyecto
+  command = "npm run build"
+  
+  # Carpeta que se despliega (Vite genera 'dist')
+  publish = "dist"
+
+# Configuración para SPA (Single Page Application)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Headers para optimización
+[[headers]]
+  for = "/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
