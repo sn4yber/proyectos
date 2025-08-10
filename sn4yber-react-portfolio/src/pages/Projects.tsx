@@ -34,7 +34,7 @@ export const Projects = () => {
 
 
     {
-      id: '02',
+      id: '03',
       category: 'proyecto comercial',
       title: 'sistema de recomendacion de regalos',
       description: 'Sistema de recomendacion  de regalos que atravez  de preguntas y repuestas hace un analisis de datos de ellas y predice cual es regalo perfecto pra la ocasion , viculo afectivo con la persona  y demas cosas que se pueden tener en cuenta para hacer un regalo perfecto.  , se implemento el analisis de datos con librerias de python como numpy y panda para el analisis de datos y machine learning para la prediccion de los regalos.',
@@ -47,7 +47,7 @@ export const Projects = () => {
       },
     },
     {
-      id: '03',
+      id: '04',
       category: 'IoT Development',
       title: 'Proyectos Arduino',
       description: 'sistema de deteccion de movimiento con implementacion de sensores iot para la automatizacion de un sistema de ocupacion de autobuses en  cartagena se implementaron tambien contadores con pantalla lsd para ver  funcionamiento y ocupacion del mismoo ese proyecto planea ser escalable a algo mas profesional y tecnico.',
