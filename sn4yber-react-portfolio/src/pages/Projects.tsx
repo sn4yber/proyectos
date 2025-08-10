@@ -30,6 +30,22 @@ export const Projects = () => {
         demo: 'https://reserverbr.netlify.app/',
       },
     },
+
+
+
+    {
+      id: '02',
+      category: 'proyecto comercial',
+      title: 'sistema de recomendacion de regalos',
+      description: 'Sistema de recomendacion  de regalos que atravez  de preguntas y repuestas hace un analisis de datos de ellas y predice cual es regalo perfecto pra la ocasion , viculo afectivo con la persona  y demas cosas que se pueden tener en cuenta para hacer un regalo perfecto.  , se implemento el analisis de datos con librerias de python como numpy y panda para el analisis de datos y machine learning para la prediccion de los regalos.',
+      image: '/recomender.png',
+      features: ['HTML', 'JavaScript', 'Responsive', 'Modern' , 'machine learning', 'numpy', 'panda'],
+      technologies: ['html', 'css', 'javascript ', 'python ', 'fastApi'],
+      links: {
+        github: 'https://github.com/sn4yber',
+        demo: '#',
+      },
+    },
     {
       id: '03',
       category: 'IoT Development',
