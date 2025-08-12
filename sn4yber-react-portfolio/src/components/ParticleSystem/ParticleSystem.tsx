@@ -59,7 +59,7 @@ export const ParticleSystem = () => {
 
       // Calcular fade basado en tiempo sin movimiento
       const timeSinceLastMove = Date.now() - lastMoveTimeRef.current
-      const fadeMultiplier = Math.max(0, 1 - (timeSinceLastMove / 2000)) // Se desvanece en 2 segundos
+      const fadeMultiplier = Math.max(0, 1 - (timeSinceLastMove / 1000)) // Se desvanece en 1 segundo
 
       // Dibujar rastro de sable de luz
       if (trailPointsRef.current.length > 1 && fadeMultiplier > 0) {
@@ -96,8 +96,8 @@ export const ParticleSystem = () => {
         }
       }
 
-      // Si no hay movimiento por más de 2 segundos, limpiar el rastro gradualmente
-      if (timeSinceLastMove > 2000) {
+      // Si no hay movimiento por más de 1 segundo, limpiar el rastro gradualmente
+      if (timeSinceLastMove > 1000) {
         trailPointsRef.current = []
       }
 
