@@ -14,6 +14,7 @@ export const ParticleSystem = () => {
   const particlesRef = useRef<Particle[]>([])
   const mouseRef = useRef({ x: 0, y: 0 })
   const trailPointsRef = useRef<Array<{ x: number; y: number }>>([])
+  const lastMoveTimeRef = useRef<number>(Date.now())
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -28,10 +29,11 @@ export const ParticleSystem = () => {
     const handleMouseMove = (e: MouseEvent) => {
       const newPoint = { x: e.clientX, y: e.clientY }
       mouseRef.current = newPoint
+      lastMoveTimeRef.current = Date.now()
       
-      // Mantener solo los últimos 8 puntos para crear el rastro de sable de luz
+      // Mantener solo los últimos 12 puntos para crear el rastro de sable de luz
       trailPointsRef.current.push(newPoint)
-      if (trailPointsRef.current.length > 8) {
+      if (trailPointsRef.current.length > 12) {
         trailPointsRef.current.shift()
       }
     }
@@ -55,39 +57,48 @@ export const ParticleSystem = () => {
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height) // Limpiar completamente el canvas
 
+      // Calcular fade basado en tiempo sin movimiento
+      const timeSinceLastMove = Date.now() - lastMoveTimeRef.current
+      const fadeMultiplier = Math.max(0, 1 - (timeSinceLastMove / 2000)) // Se desvanece en 2 segundos
+
       // Dibujar rastro de sable de luz
-      if (trailPointsRef.current.length > 1) {
+      if (trailPointsRef.current.length > 1 && fadeMultiplier > 0) {
         for (let i = 1; i < trailPointsRef.current.length; i++) {
           const prevPoint = trailPointsRef.current[i - 1]
           const currentPoint = trailPointsRef.current[i]
           
-          const alpha = (i / trailPointsRef.current.length) * 0.8
+          const alpha = (i / trailPointsRef.current.length) * 0.9 * fadeMultiplier
           
-          // Línea principal del sable (4px)
+          // Línea principal del sable más gruesa (8px)
           ctx.strokeStyle = `rgba(0, 191, 255, ${alpha})`
-          ctx.lineWidth = 4
+          ctx.lineWidth = 8
           ctx.lineCap = 'round'
           ctx.beginPath()
           ctx.moveTo(prevPoint.x, prevPoint.y)
           ctx.lineTo(currentPoint.x, currentPoint.y)
           ctx.stroke()
           
-          // Línea interior más brillante (2px)
-          ctx.strokeStyle = `rgba(255, 255, 255, ${alpha * 0.6})`
-          ctx.lineWidth = 2
+          // Línea interior más brillante (5px)
+          ctx.strokeStyle = `rgba(255, 255, 255, ${alpha * 0.7})`
+          ctx.lineWidth = 5
           ctx.beginPath()
           ctx.moveTo(prevPoint.x, prevPoint.y)
           ctx.lineTo(currentPoint.x, currentPoint.y)
           ctx.stroke()
           
-          // Línea central muy brillante (1px)
-          ctx.strokeStyle = `rgba(255, 255, 255, ${alpha * 0.9})`
-          ctx.lineWidth = 1
+          // Línea central muy brillante (2px)
+          ctx.strokeStyle = `rgba(255, 255, 255, ${alpha})`
+          ctx.lineWidth = 2
           ctx.beginPath()
           ctx.moveTo(prevPoint.x, prevPoint.y)
           ctx.lineTo(currentPoint.x, currentPoint.y)
           ctx.stroke()
         }
+      }
+
+      // Si no hay movimiento por más de 2 segundos, limpiar el rastro gradualmente
+      if (timeSinceLastMove > 2000) {
+        trailPointsRef.current = []
       }
 
       // Actualizar y dibujar partículas
