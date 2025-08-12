@@ -33,40 +33,43 @@ export const MagneticCursor = () => {
 
   return (
     <>
-      {/* Cursor principal más sutil */}
+      {/* Cursor principal con efecto neón azul */}
       <motion.div
-        className="fixed top-0 left-0 w-3 h-3 rounded-full pointer-events-none z-50 mix-blend-difference"
+        className="fixed top-0 left-0 w-4 h-4 rounded-full pointer-events-none z-50"
         style={{ 
-          backgroundColor: '#8b5cf6',
+          background: 'radial-gradient(circle, #00bfff 0%, #0080ff 50%, transparent 70%)',
+          boxShadow: '0 0 10px #00bfff, 0 0 20px #00bfff, 0 0 30px #00bfff',
         }}
         animate={{
-          x: mousePosition.x - 6,
-          y: mousePosition.y - 6,
+          x: mousePosition.x - 8,
+          y: mousePosition.y - 8,
           scale: isHovered ? 1.5 : 1,
-          opacity: isHovered ? 0.8 : 0.6
         }}
         transition={{
           type: "spring",
-          stiffness: 500,
-          damping: 28,
-          mass: 0.2
+          stiffness: 800,
+          damping: 35,
+          mass: 0.1
         }}
       />
       
-      {/* Ring exterior sutil */}
+      {/* Resplandor exterior suave */}
       <motion.div
-        className="fixed top-0 left-0 w-6 h-6 rounded-full pointer-events-none z-40 border border-primary/20"
+        className="fixed top-0 left-0 w-8 h-8 rounded-full pointer-events-none z-40"
+        style={{
+          background: 'radial-gradient(circle, rgba(0, 191, 255, 0.3) 0%, rgba(0, 128, 255, 0.1) 50%, transparent 70%)',
+          filter: 'blur(2px)',
+        }}
         animate={{
-          x: mousePosition.x - 12,
-          y: mousePosition.y - 12,
-          scale: isHovered ? 1.8 : 1,
-          opacity: isHovered ? 0.6 : 0.2
+          x: mousePosition.x - 16,
+          y: mousePosition.y - 16,
+          scale: isHovered ? 2 : 1,
         }}
         transition={{
           type: "spring",
-          stiffness: 200,
-          damping: 25,
-          mass: 0.5
+          stiffness: 400,
+          damping: 30,
+          mass: 0.2
         }}
       />
     </>
