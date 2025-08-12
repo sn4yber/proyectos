@@ -61,17 +61,13 @@ export const MagneticCursor = () => {
               height: '2px',
               transformOrigin: '0 50%',
               transform: `rotate(${angle}deg)`,
-              background: `linear-gradient(90deg, 
-                rgba(0, 191, 255, ${0.8 - (index * 0.08)}) 0%, 
-                rgba(0, 191, 255, ${0.6 - (index * 0.06)}) 100%
-              )`,
-              boxShadow: `0 0 4px rgba(0, 191, 255, ${0.6 - (index * 0.06)})`,
+              background: `rgba(0, 191, 255, ${0.7 - (index * 0.07)})`,
               zIndex: 45 - index,
             }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.1 }}
+            transition={{ duration: 0.05 }}
           />
         )
       })}
