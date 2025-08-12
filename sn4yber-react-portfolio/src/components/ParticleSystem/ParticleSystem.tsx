@@ -13,6 +13,7 @@ export const ParticleSystem = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const particlesRef = useRef<Particle[]>([])
   const mouseRef = useRef({ x: 0, y: 0 })
+  const trailPointsRef = useRef<Array<{ x: number; y: number }>>([])
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -24,24 +25,14 @@ export const ParticleSystem = () => {
     canvas.width = window.innerWidth
     canvas.height = window.innerHeight
 
-    const createParticle = (x: number, y: number): Particle => ({
-      x,
-      y,
-      vx: (Math.random() - 0.5) * 4, // Velocidad más suave (era 8)
-      vy: (Math.random() - 0.5) * 4,
-      life: 80, // Viven menos tiempo (era 120) 
-      maxLife: 80,
-    })
-
     const handleMouseMove = (e: MouseEvent) => {
-      mouseRef.current = { x: e.clientX, y: e.clientY }
+      const newPoint = { x: e.clientX, y: e.clientY }
+      mouseRef.current = newPoint
       
-      // Crear partículas más sutiles al mover el mouse
-      for (let i = 0; i < 3; i++) { // Menos partículas (era 8)
-        particlesRef.current.push(createParticle(
-          e.clientX + (Math.random() - 0.5) * 30, // Área más pequeña
-          e.clientY + (Math.random() - 0.5) * 30
-        ))
+      // Mantener solo los últimos 8 puntos para crear el rastro de sable de luz
+      trailPointsRef.current.push(newPoint)
+      if (trailPointsRef.current.length > 8) {
+        trailPointsRef.current.shift()
       }
     }
 
@@ -62,8 +53,42 @@ export const ParticleSystem = () => {
     }
 
     const animate = () => {
-      ctx.fillStyle = 'rgba(10, 10, 15, 0.1)' // Un poco más de fade para ser menos invasivo
-      ctx.fillRect(0, 0, canvas.width, canvas.height)
+      ctx.clearRect(0, 0, canvas.width, canvas.height) // Limpiar completamente el canvas
+
+      // Dibujar rastro de sable de luz
+      if (trailPointsRef.current.length > 1) {
+        for (let i = 1; i < trailPointsRef.current.length; i++) {
+          const prevPoint = trailPointsRef.current[i - 1]
+          const currentPoint = trailPointsRef.current[i]
+          
+          const alpha = (i / trailPointsRef.current.length) * 0.8
+          
+          // Línea principal del sable (4px)
+          ctx.strokeStyle = `rgba(0, 191, 255, ${alpha})`
+          ctx.lineWidth = 4
+          ctx.lineCap = 'round'
+          ctx.beginPath()
+          ctx.moveTo(prevPoint.x, prevPoint.y)
+          ctx.lineTo(currentPoint.x, currentPoint.y)
+          ctx.stroke()
+          
+          // Línea interior más brillante (2px)
+          ctx.strokeStyle = `rgba(255, 255, 255, ${alpha * 0.6})`
+          ctx.lineWidth = 2
+          ctx.beginPath()
+          ctx.moveTo(prevPoint.x, prevPoint.y)
+          ctx.lineTo(currentPoint.x, currentPoint.y)
+          ctx.stroke()
+          
+          // Línea central muy brillante (1px)
+          ctx.strokeStyle = `rgba(255, 255, 255, ${alpha * 0.9})`
+          ctx.lineWidth = 1
+          ctx.beginPath()
+          ctx.moveTo(prevPoint.x, prevPoint.y)
+          ctx.lineTo(currentPoint.x, currentPoint.y)
+          ctx.stroke()
+        }
+      }
 
       // Actualizar y dibujar partículas
       particlesRef.current = particlesRef.current.filter(particle => {
