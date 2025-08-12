@@ -3,7 +3,6 @@ import { motion } from 'framer-motion'
 
 export const MagneticCursor = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-  const [trailPoints, setTrailPoints] = useState<Array<{ x: number; y: number }>>([])
   const [isHovered, setIsHovered] = useState(false)
 
   useEffect(() => {
@@ -11,11 +10,7 @@ export const MagneticCursor = () => {
       const newPoint = { x: e.clientX, y: e.clientY }
       setMousePosition(newPoint)
       
-      // Mantener solo los últimos 10 puntos para crear el rastro
-      setTrailPoints(prev => {
-        const newTrail = [...prev, newPoint]
-        return newTrail.slice(-10)
-      })
+      // Desactivado: No crear rastro en MagneticCursor
     }
 
     const handleMouseEnter = () => setIsHovered(true)
@@ -41,38 +36,7 @@ export const MagneticCursor = () => {
 
   return (
     <>
-      {/* Rastro de sable de luz */}
-      {trailPoints.map((point, index) => {
-        if (index === 0) return null
-        const prevPoint = trailPoints[index - 1]
-        const distance = Math.sqrt(
-          Math.pow(point.x - prevPoint.x, 2) + Math.pow(point.y - prevPoint.y, 2)
-        )
-        const angle = Math.atan2(point.y - prevPoint.y, point.x - prevPoint.x) * 180 / Math.PI
-        
-        return (
-          <motion.div
-            key={`trail-${index}`}
-            className="fixed pointer-events-none"
-            style={{
-              left: prevPoint.x,
-              top: prevPoint.y,
-              width: distance,
-              height: '2px',
-              transformOrigin: '0 50%',
-              transform: `rotate(${angle}deg)`,
-              background: `rgba(0, 191, 255, ${0.7 - (index * 0.07)})`,
-              zIndex: 45 - index,
-            }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.05 }}
-          />
-        )
-      })}
-      
-      {/* Cursor principal sin efectos */}
+      {/* Solo cursor principal sin rastro */}
       <motion.div
         className="fixed top-0 left-0 w-2 h-2 rounded-full pointer-events-none z-50"
         style={{ 
