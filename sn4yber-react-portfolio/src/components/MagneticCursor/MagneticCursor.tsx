@@ -3,13 +3,19 @@ import { motion } from 'framer-motion'
 
 export const MagneticCursor = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-  const [prevPosition, setPrevPosition] = useState({ x: 0, y: 0 })
+  const [trailPoints, setTrailPoints] = useState<Array<{ x: number; y: number }>>([])
   const [isHovered, setIsHovered] = useState(false)
 
   useEffect(() => {
     const updateCursor = (e: MouseEvent) => {
-      setPrevPosition(mousePosition)
-      setMousePosition({ x: e.clientX, y: e.clientY })
+      const newPoint = { x: e.clientX, y: e.clientY }
+      setMousePosition(newPoint)
+      
+      // Mantener solo los últimos 10 puntos para crear el rastro
+      setTrailPoints(prev => {
+        const newTrail = [...prev, newPoint]
+        return newTrail.slice(-10)
+      })
     }
 
     const handleMouseEnter = () => setIsHovered(true)
@@ -31,53 +37,60 @@ export const MagneticCursor = () => {
         el.removeEventListener('mouseleave', handleMouseLeave)
       })
     }
-  }, [])
+  }, [mousePosition])
 
   return (
     <>
-      {/* Línea de rastro con efecto neón */}
-      <motion.div
-        className="fixed pointer-events-none z-40"
-        style={{
-          left: Math.min(mousePosition.x, prevPosition.x),
-          top: Math.min(mousePosition.y, prevPosition.y),
-          width: Math.abs(mousePosition.x - prevPosition.x) || 1,
-          height: Math.abs(mousePosition.y - prevPosition.y) || 1,
-          background: `linear-gradient(
-            ${Math.atan2(mousePosition.y - prevPosition.y, mousePosition.x - prevPosition.x) * 180 / Math.PI}deg,
-            transparent 0%,
-            rgba(0, 191, 255, 0.6) 30%,
-            rgba(0, 191, 255, 0.8) 50%,
-            rgba(0, 191, 255, 0.6) 70%,
-            transparent 100%
-          )`,
-          boxShadow: '0 0 8px rgba(0, 191, 255, 0.6)',
-          filter: 'blur(1px)',
-        }}
-        animate={{
-          opacity: isHovered ? 0.8 : 0.5,
-        }}
-        transition={{
-          opacity: { duration: 0.2 }
-        }}
-      />
+      {/* Rastro de sable de luz */}
+      {trailPoints.map((point, index) => {
+        if (index === 0) return null
+        const prevPoint = trailPoints[index - 1]
+        const distance = Math.sqrt(
+          Math.pow(point.x - prevPoint.x, 2) + Math.pow(point.y - prevPoint.y, 2)
+        )
+        const angle = Math.atan2(point.y - prevPoint.y, point.x - prevPoint.x) * 180 / Math.PI
+        
+        return (
+          <motion.div
+            key={`trail-${index}`}
+            className="fixed pointer-events-none"
+            style={{
+              left: prevPoint.x,
+              top: prevPoint.y,
+              width: distance,
+              height: '2px',
+              transformOrigin: '0 50%',
+              transform: `rotate(${angle}deg)`,
+              background: `linear-gradient(90deg, 
+                rgba(0, 191, 255, ${0.8 - (index * 0.08)}) 0%, 
+                rgba(0, 191, 255, ${0.6 - (index * 0.06)}) 100%
+              )`,
+              boxShadow: `0 0 4px rgba(0, 191, 255, ${0.6 - (index * 0.06)})`,
+              zIndex: 45 - index,
+            }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.1 }}
+          />
+        )
+      })}
       
-      {/* Cursor principal con efecto neón */}
+      {/* Cursor principal sin efectos */}
       <motion.div
-        className="fixed top-0 left-0 w-3 h-3 rounded-full pointer-events-none z-50"
+        className="fixed top-0 left-0 w-2 h-2 rounded-full pointer-events-none z-50"
         style={{ 
           backgroundColor: '#00bfff',
-          boxShadow: '0 0 8px #00bfff, 0 0 12px #00bfff',
         }}
         animate={{
-          x: mousePosition.x - 6,
-          y: mousePosition.y - 6,
-          scale: isHovered ? 1.3 : 1,
+          x: mousePosition.x - 4,
+          y: mousePosition.y - 4,
+          scale: isHovered ? 1.2 : 1,
         }}
         transition={{
           type: "spring",
-          stiffness: 1000,
-          damping: 50,
+          stiffness: 1200,
+          damping: 40,
           mass: 0.1
         }}
       />
