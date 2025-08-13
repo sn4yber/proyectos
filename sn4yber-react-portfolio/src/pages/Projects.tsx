@@ -23,8 +23,8 @@ export const Projects = () => {
       title: 'sistema de reservas de citas',
       description: 'Sistema de reservas de citas para servicios profesionales, diseñado para facilitar la gestión de horarios y citas. Permite a los usuarios reservar, modificar y cancelar citas de manera sencilla, con notificaciones automáticas y una interfaz amigable.',
       image: '/appbr.png',
-      features: ['HTML', 'JavaScript', 'Responsive', 'Modern'],
-      technologies: ['html', 'css', 'javascript ', 'node js ', 'application'],
+      features: ['react', 'JavaScript', 'Responsive', 'Modern' , 'Node js', 'Tailwind css' , 'typeScript'],
+      technologies: ['react', 'tailwind', 'javascript ', 'node js ', 'typescript ' , 'realtimestorage'],
       links: {
         github: 'https://github.com/sn4yber',
         demo: 'https://reserverbr.netlify.app/',

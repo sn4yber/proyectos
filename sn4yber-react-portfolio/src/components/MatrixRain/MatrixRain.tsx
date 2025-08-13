@@ -14,7 +14,7 @@ export const MatrixRain = () => {
     canvas.width = window.innerWidth
     canvas.height = window.innerHeight
 
-    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()_+-=[]{}|;:,.<>?'
+    const chars = 'ABCDEVELOPERFGHIJKLMNOPQRSNAYBER56789@#$%^&*()_+-=[]{}|;:,.<>?'
     const charArray = chars.split('')
     const fontSize = 14
     const columns = canvas.width / fontSize
