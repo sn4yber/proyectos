@@ -2,19 +2,22 @@ import { motion } from 'framer-motion'
 
 export const About = () => {
   const stats = [
-    { number: '90', label: 'Problem Solving' },
-    { number: '75', label: 'Frontend Dev' },
-    { number: '70', label: 'Backend Dev' },
-    { number: '65', label: 'Database Design' },
+    { number: '90', label: 'resolucio de problemas' },
+    { number: '75', label: 'desarrollo frontend' },
+    { number: '70', label: 'desarrollo backend' },
+    { number: '65', label: 'base de datos' },
   ]
 
   const skills = [
-    'Problem Solving',
+    'resolución de problemas',
     'Adaptabilidad',
     'Comunicación',
     'Pensamiento Crítico',
     'Trabajo en Equipo',
     'Innovación',
+    'arquitectaura de software',
+    'Gestión de Proyectos',
+
   ]
 
   return (
