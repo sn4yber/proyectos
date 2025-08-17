@@ -26,7 +26,7 @@ export const Skills = () => {
     { 
       name: 'TypeScript', 
       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
-      progress: 55,
+      progress: 65,
       status: 'En progreso',
       startDate: 'Julio 2025',
       description: 'Migrando proyectos existentes y aprendiendo tipado avanzado primeras impresiones con typescript'
@@ -34,7 +34,7 @@ export const Skills = () => {
     { 
       name: 'React', 
       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
-      progress: 65,
+      progress: 75,
       status: 'Activo',
       startDate: 'Junio 2025',
       description: 'Hooks avanzados, Context API y optimización de rendimiento y primeras experiencias '
