@@ -59,11 +59,25 @@ export const Projects = () => {
         demo: '#',
       },
     },
+
+    {
+      id: '05',
+      category: 'e-commerce de venta de bikinis',
+      title: 'Tienda de Bikinis',
+      description: 'sistema e-commerce de venta de bikinis donde se hace la gestion de productos, carrito de compras y pagos en linea con una interfaz amigable y moderna.',
+      image: '/ecommerce.png',
+      features: ['E-commerce', 'Modern', 'Responsive' ,'ventas en linea ' ,],
+      technologies: ['React', 'Node.js', 'PostgreSQL', 'Tailwind CSS' , 'typeScript' , 'prisma'],
+      links: {
+        github: 'https://github.com/sn4yber',
+        demo: '#',
+      },
+    },
   ]
 
   const stats = [
-    { number: '4+', label: 'Proyectos' },
-    { number: 'Arduino', label: 'IoT' },
+    { number: 'muchos +++', label: 'Proyectos' },
+    { number: 'sass ', label: 'freelance' },
     { number: 'Web', label: 'Development' },
   ]
 
