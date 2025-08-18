@@ -70,7 +70,7 @@ export const Projects = () => {
       technologies: ['React', 'Node.js', 'PostgreSQL', 'Tailwind CSS' , 'typeScript' , 'prisma'],
       links: {
         github: 'https://github.com/sn4yber',
-        demo: '#',
+        demo: 'https://bikinis-shell.netlify.app/',
       },
     },
   ]
