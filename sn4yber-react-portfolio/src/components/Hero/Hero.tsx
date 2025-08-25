@@ -53,7 +53,7 @@ export const Hero = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="text-xl md:text-2xl text-text-secondary mb-6 max-w-3xl mx-auto"
         >
-          Estudiante de Ingeniería de Sistemas | Desarrollador Fullstack en Progreso
+          Estudiante de desarrollo de software | Desarrollador Fullstack con enfoque en Frontend | Freelance
         </motion.p>
 
         {/* Description */}
@@ -64,7 +64,7 @@ export const Hero = () => {
           className="mb-10"
         >
           <p className="text-lg text-text-muted max-w-2xl mx-auto">
-            Transformando ideas en código, creando experiencias digitales que conectan y resuelven problemas reales.
+            Transformando ideas en código, creando experiencias digitales que conectan y resuelven problemas reales.  
           </p>
         </motion.div>
 

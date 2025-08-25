@@ -7,7 +7,7 @@ export const Contact = () => {
       icon: Mail,
       title: 'Email',
       content: 'snayber333@gmail.com',
-      href: 'mailto:snayber333@gmail.com',
+      href: ' snayber333@gmail.com',
     },
     {
       icon: MapPin,
