@@ -6,6 +6,7 @@ export const Skills = () => {
     { name: 'CSS3', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
     { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
     {name : 'react ' ,  icon : 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
+    {name : 'tailwindcss ' ,  icon : 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg' },
   ]
 
   const backendSkills = [
