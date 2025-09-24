@@ -2,7 +2,6 @@ import { memo } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { fetchAbout } from '@/api/fetchAbout'
 import { motion } from 'framer-motion'
-import ElectricBorder from '../ElectricBorder'
 
 interface AboutProps {
   isMobile?: boolean
@@ -39,7 +38,7 @@ export const About = memo(({ isMobile = false }: AboutProps) => {
         </motion.div>
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Text Content */}
-          <ElectricBorder color="#8b5cf6" thickness={2} chaos={1.2} speed={1.5} className="rounded-2xl">
+          <div className="rounded-2xl">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -77,7 +76,7 @@ export const About = memo(({ isMobile = false }: AboutProps) => {
                 </div>
               </div>
             </motion.div>
-          </ElectricBorder>
+          </div>
           {/* Stats */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
@@ -87,7 +86,7 @@ export const About = memo(({ isMobile = false }: AboutProps) => {
             className="grid grid-cols-2 gap-8"
           >
             {stats.map((stat: any, index: number) => (
-              <ElectricBorder color="#8b5cf6" thickness={2} chaos={1.2} speed={1.5} className="rounded-2xl" key={stat.label}>
+              <div className="rounded-2xl" key={stat.label}>
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -108,7 +107,7 @@ export const About = memo(({ isMobile = false }: AboutProps) => {
                     {stat.label}
                   </div>
                 </motion.div>
-              </ElectricBorder>
+              </div>
             ))}
           </motion.div>
         </div>

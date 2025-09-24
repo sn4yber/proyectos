@@ -2,7 +2,6 @@ import { memo } from 'react'
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import { useRef, MouseEvent } from 'react'
 import { ExternalLink, Github } from 'lucide-react'
-import ElectricBorder from '../ElectricBorder'
 
 export interface Project {
   id: string
@@ -78,7 +77,8 @@ export const ProjectCard3D = memo(({ project, index, isMobile = false }: Project
       transition={{ duration: 0.8, delay: index * 0.2 }}
       viewport={{ once: true }}
     >
-      <ElectricBorder color="#8b5cf6" thickness={2} chaos={1.2} speed={1.5} className="rounded-2xl">
+      <div className="rounded-2xl">
+        {/* <ElectricBorder color="#8b5cf6" thickness={2} chaos={1.2} speed={1.5} className="rounded-2xl"> */}
         <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
           <div className="relative">
             <motion.div
@@ -153,7 +153,7 @@ export const ProjectCard3D = memo(({ project, index, isMobile = false }: Project
             </motion.div>
           </div>
         </div>
-      </ElectricBorder>
+      </div>
 
       {/* Project Info mejorada */}
       <div className={index % 2 === 1 ? 'lg:col-start-1' : ''}>
