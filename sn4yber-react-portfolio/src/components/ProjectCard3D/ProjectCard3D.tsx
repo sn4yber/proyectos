@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import { memo } from 'react'
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import { useRef, MouseEvent } from 'react'
 import { ExternalLink, Github } from 'lucide-react'
