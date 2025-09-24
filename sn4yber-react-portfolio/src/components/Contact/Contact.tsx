@@ -1,43 +1,23 @@
 import { motion } from 'framer-motion'
-import { Mail, MapPin, Github, Instagram, MessageCircle, ExternalLink } from 'lucide-react'
+import { ExternalLink } from 'lucide-react'
+import { useQuery } from '@tanstack/react-query'
+import { fetchContact } from '@/api/fetchContact'
 
 interface ContactProps {
   isMobile?: boolean
 }
 
 export const Contact = ({ isMobile = false }: ContactProps) => {
-  const contactInfo = [
-    {
-      icon: Mail,
-      title: 'Email',
-      content: 'snayber333@gmail.com',
-      href: ' snayber333@gmail.com',
-    },
-    {
-      icon: MapPin,
-      title: 'Ubicación',
-      content: 'Cartagena, Colombia',
-    },
-  ]
+  const { data, isLoading, error } = useQuery({
+    queryKey: ['contact'],
+    queryFn: fetchContact
+  })
 
-  const socialLinks = [
-    {
-      name: 'GitHub',
-      icon: Github,
-      href: 'https://github.com/sn4yber',
-    },
-    {
-      name: 'Instagram',
-      icon: Instagram,
-      href: 'https://www.instagram.com/sn4yber_0x/',
-    },
-    {
-      name: 'WhatsApp',
-      icon: MessageCircle,
-      href: 'https://wa.me/573205382409',
-    },
-  ]
+  if (isLoading) return <div className="text-center py-10">Cargando...</div>
+  if (error) return <div className="text-center py-10 text-red-500">Error al cargar datos</div>
+  if (!data) return null
 
+  const { contactInfo, socialLinks } = data
   const enableAnim = !isMobile
 
   return (
@@ -78,7 +58,8 @@ export const Contact = ({ isMobile = false }: ContactProps) => {
                 className="flex items-center gap-6 p-6 glass-morphism rounded-2xl"
               >
                 <div className="w-12 h-12 rounded-xl bg-gradient-primary flex items-center justify-center">
-                  <item.icon size={24} className="text-white" />
+                  {/* Render icon as text fallback */}
+                  <span className="text-white text-lg font-bold">{item.icon}</span>
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold text-text-primary mb-1">{item.title}</h4>
@@ -122,7 +103,7 @@ export const Contact = ({ isMobile = false }: ContactProps) => {
                   className="flex items-center gap-4 p-4 glass-morphism rounded-xl hover:bg-white/10 transition-all duration-300 group"
                 >
                   <div className="w-10 h-10 rounded-lg bg-gradient-surface flex items-center justify-center group-hover:bg-gradient-primary transition-all duration-300">
-                    <link.icon size={20} className="text-text-primary" />
+                    <span className="text-text-primary text-base font-bold">{link.icon}</span>
                   </div>
                   <span className="text-text-primary font-medium">{link.name}</span>
                   <ExternalLink size={16} className="text-text-muted ml-auto group-hover:text-primary transition-colors duration-300" />

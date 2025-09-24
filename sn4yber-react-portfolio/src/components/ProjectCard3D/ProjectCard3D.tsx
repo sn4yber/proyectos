@@ -4,7 +4,7 @@ import { useRef, MouseEvent } from 'react'
 import { ExternalLink, Github } from 'lucide-react'
 import ElectricBorder from '../ElectricBorder'
 
-interface Project {
+export interface Project {
   id: string
   category: string
   title: string
@@ -17,6 +17,7 @@ interface Project {
     github: string
     demo: string
   }
+  video?: string
 }
 
 interface ProjectCard3DProps {
