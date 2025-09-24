@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
+import TextType from '../TextType'
 
 export const Hero = () => {
   const scrollToSection = (sectionId: string) => {
@@ -29,7 +30,7 @@ export const Hero = () => {
         >
           <div className="relative w-full h-full">
             <div className="absolute inset-0 rounded-full bg-gradient-primary animate-pulse-glow"></div>
-            <div className="absolute inset-2 rounded-full bg-background-primary flex items-center justify-center">
+            <div className="absolute inset-2 rounded-full bg-black flex items-center justify-center">
               <span className="text-2xl font-bold text-gradient">SN4</span>
             </div>
           </div>
@@ -44,6 +45,15 @@ export const Hero = () => {
         >
           <span className="block">Snayber</span>
           <span className="block text-gradient">Madrid</span>
+          <TextType
+            text={["Desarrollador Fullstack", "con enfoque Frontend", "bienvenido a mi portafolio"]}
+            typingSpeed={75}
+            pauseDuration={1500}
+            showCursor={true}
+            cursorCharacter="|"
+            as="span"
+            className="block text-gradient mt-2"
+          />
         </motion.h1>
 
         {/* Subtitle */}
@@ -53,7 +63,7 @@ export const Hero = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="text-xl md:text-2xl text-text-secondary mb-6 max-w-3xl mx-auto"
         >
-          Estudiante de desarrollo de software | Desarrollador Fullstack con enfoque en Frontend | Freelance
+      
         </motion.p>
 
         {/* Description */}

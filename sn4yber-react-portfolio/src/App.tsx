@@ -9,7 +9,7 @@ import { ParticleSystem } from './components/ParticleSystem/ParticleSystem'
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-background-primary relative">
+      <div className="min-h-screen relative">
         <MatrixRain />
         <ParticleSystem />
         <MagneticCursor />

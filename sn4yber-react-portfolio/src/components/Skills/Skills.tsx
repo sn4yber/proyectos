@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import ElectricBorder from '../ElectricBorder'
 
 export const Skills = () => {
   const frontendSkills = [
@@ -139,7 +140,7 @@ export const Skills = () => {
                     <motion.div
                       initial={{ width: 0 }}
                       whileInView={{ width: `${skill.progress}%` }}
-                      transition={{ duration: 1.5, delay: delay + 0.5 + index * 0.1, ease: "easeOut" }}
+                      transition={{ duration: 1.5, delay: 0.5 + index * 0.1, ease: "easeOut" }}
                       viewport={{ once: true }}
                       className="h-full bg-gradient-primary rounded-full"
                     />
@@ -170,9 +171,15 @@ export const Skills = () => {
 
         {/* Tech Categories */}
         <div className="grid lg:grid-cols-3 gap-16 mb-20">
-          <TechCategory title="Frontend" skills={frontendSkills} delay={0.2} />
-          <TechCategory title="Backend" skills={backendSkills} delay={0.4} />
-          <TechCategory title="Herramientas" skills={tools} delay={0.6} />
+          <ElectricBorder color="#8b5cf6" thickness={2} chaos={1.2} speed={1.5} className="rounded-2xl">
+            <TechCategory title="Frontend" skills={frontendSkills} delay={0.2} />
+          </ElectricBorder>
+          <ElectricBorder color="#8b5cf6" thickness={2} chaos={1.2} speed={1.5} className="rounded-2xl">
+            <TechCategory title="Backend" skills={backendSkills} delay={0.4} />
+          </ElectricBorder>
+          <ElectricBorder color="#8b5cf6" thickness={2} chaos={1.2} speed={1.5} className="rounded-2xl">
+            <TechCategory title="Herramientas" skills={tools} delay={0.6} />
+          </ElectricBorder>
         </div>
 
         {/* Learning Progress Section */}

@@ -1,6 +1,8 @@
+import React, { memo } from 'react'
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import { useRef, MouseEvent } from 'react'
 import { ExternalLink, Github } from 'lucide-react'
+import ElectricBorder from '../ElectricBorder'
 
 interface Project {
   id: string
@@ -22,7 +24,7 @@ interface ProjectCard3DProps {
   index: number
 }
 
-export const ProjectCard3D = ({ project, index }: ProjectCard3DProps) => {
+export const ProjectCard3D = memo(({ project, index }: ProjectCard3DProps) => {
   const ref = useRef<HTMLDivElement>(null)
 
   const x = useMotionValue(0)
@@ -75,76 +77,93 @@ export const ProjectCard3D = ({ project, index }: ProjectCard3DProps) => {
       transition={{ duration: 0.8, delay: index * 0.2 }}
       viewport={{ once: true }}
     >
-      {/* Project Images con efecto 3D */}
-      <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
-        <div className="relative">
-          <motion.div
-            className="relative group"
-            style={{
-              transform: "translateZ(75px)",
-              transformStyle: "preserve-3d",
-            }}
-            whileHover={{ 
-              scale: 1.05,
-              transition: { duration: 0.2 }
-            }}
-          >
-            <div className="glass-morphism rounded-2xl p-6 mb-6 backdrop-blur-xl">
-              <motion.img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-64 object-cover rounded-xl"
-                style={{
-                  transform: "translateZ(50px)",
-                }}
-              />
-              
-              {/* Overlay con efecto holográfico */}
-              <motion.div 
-                className="absolute inset-6 rounded-xl bg-gradient-to-br from-primary/20 via-transparent to-secondary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                style={{
-                  transform: "translateZ(25px)",
-                }}
-              />
-            </div>
-            
-            {project.codeImage && (
-              <motion.div
-                className="absolute -bottom-6 -right-6 w-32 h-24 glass-morphism rounded-xl p-2"
-                style={{
-                  transform: "translateZ(100px)",
-                }}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                viewport={{ once: true }}
-              >
-                <img
-                  src={project.codeImage}
-                  alt="Code preview"
-                  className="w-full h-full object-cover rounded-lg"
-                />
-              </motion.div>
-            )}
-          </motion.div>
-          
-          {/* Número del proyecto con glow */}
-          <motion.div 
-            className="absolute -top-4 -left-4 w-16 h-16 rounded-full bg-gradient-primary flex items-center justify-center text-white font-bold text-xl shadow-2xl"
-            style={{
-              transform: "translateZ(125px)",
-              boxShadow: "0 0 30px rgba(139, 92, 246, 0.6)",
-            }}
-            whileHover={{ 
-              scale: 1.2,
-              rotate: 360,
-              transition: { duration: 0.6 }
-            }}
-          >
-            {project.id}
-          </motion.div>
+      <ElectricBorder color="#8b5cf6" thickness={2} chaos={1.2} speed={1.5} className="rounded-2xl">
+        <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
+          <div className="relative">
+            <motion.div
+              className="relative group"
+              style={{
+                transform: "translateZ(75px)",
+                transformStyle: "preserve-3d",
+              }}
+              whileHover={{ 
+                scale: 1.05,
+                transition: { duration: 0.2 }
+              }}
+            >
+              <div className="p-6">
+                <div className="relative">
+                  <motion.div
+                    className="relative group"
+                    style={{
+                      transform: "translateZ(75px)",
+                      transformStyle: "preserve-3d",
+                    }}
+                    whileHover={{ 
+                      scale: 1.05,
+                      transition: { duration: 0.2 }
+                    }}
+                  >
+                    <div className="glass-morphism rounded-2xl p-6 mb-6 backdrop-blur-xl">
+                      <motion.img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-64 object-cover rounded-xl"
+                        style={{
+                          transform: "translateZ(50px)",
+                        }}
+                      />
+                      
+                      {/* Overlay con efecto holográfico */}
+                      <motion.div 
+                        className="absolute inset-6 rounded-xl bg-gradient-to-br from-primary/20 via-transparent to-secondary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                        style={{
+                          transform: "translateZ(25px)",
+                        }}
+                      />
+                    </div>
+                    
+                    {project.codeImage && (
+                      <motion.div
+                        className="absolute -bottom-6 -right-6 w-32 h-24 glass-morphism rounded-xl p-2"
+                        style={{
+                          transform: "translateZ(100px)",
+                        }}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.6, delay: 0.3 }}
+                        viewport={{ once: true }}
+                      >
+                        <img
+                          src={project.codeImage}
+                          alt="Code preview"
+                          className="w-full h-full object-cover rounded-lg"
+                        />
+                      </motion.div>
+                    )}
+                  </motion.div>
+                  
+                  {/* Número del proyecto con glow */}
+                  <motion.div 
+                    className="absolute -top-4 -left-4 w-16 h-16 rounded-full bg-gradient-primary flex items-center justify-center text-white font-bold text-xl shadow-2xl"
+                    style={{
+                      transform: "translateZ(125px)",
+                      boxShadow: "0 0 30px rgba(139, 92, 246, 0.6)",
+                    }}
+                    whileHover={{ 
+                      scale: 1.2,
+                      rotate: 360,
+                      transition: { duration: 0.6 }
+                    }}
+                  >
+                    {project.id}
+                  </motion.div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
-      </div>
+      </ElectricBorder>
 
       {/* Project Info mejorada */}
       <div className={index % 2 === 1 ? 'lg:col-start-1' : ''}>
@@ -279,4 +298,4 @@ export const ProjectCard3D = ({ project, index }: ProjectCard3DProps) => {
       </div>
     </motion.div>
   )
-}
+})

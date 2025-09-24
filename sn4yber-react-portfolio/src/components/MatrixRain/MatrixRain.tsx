@@ -31,12 +31,11 @@ export const MatrixRain = () => {
       ctx.fillStyle = 'rgba(10, 10, 15, 0.15)' // Más transparente
       ctx.fillRect(0, 0, canvas.width, canvas.height)
 
-      // Colores de tu paleta personalizada - más sutiles
+      // Colores de tu paleta personalizada - morado fucsia fuerte
       const colors = [
-        'rgba(139, 92, 246, 0.4)',  // Primary violeta más sutil
-        'rgba(6, 182, 212, 0.3)',   // Secondary cyan más sutil  
-        'rgba(245, 158, 11, 0.2)',  // Accent amber muy sutil
-        'rgba(255, 255, 255, 0.1)'  // Blanco muy transparente
+        'rgba(203, 31, 255, 1)',  // Fucsia-morado fuerte
+        'rgba(139, 92, 246, 1)',  // Violeta
+        'rgba(155, 0, 250, 1)'    // Morado intenso
       ]
       ctx.font = `12px monospace` // Texto más pequeño
 
