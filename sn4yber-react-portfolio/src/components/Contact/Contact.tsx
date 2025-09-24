@@ -1,7 +1,11 @@
 import { motion } from 'framer-motion'
 import { Mail, MapPin, Github, Instagram, MessageCircle, ExternalLink } from 'lucide-react'
 
-export const Contact = () => {
+interface ContactProps {
+  isMobile?: boolean
+}
+
+export const Contact = ({ isMobile = false }: ContactProps) => {
   const contactInfo = [
     {
       icon: Mail,
@@ -34,13 +38,15 @@ export const Contact = () => {
     },
   ]
 
+  const enableAnim = !isMobile
+
   return (
     <section id="contacto" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          initial={enableAnim ? { opacity: 0, y: 50 } : false}
+          whileInView={enableAnim ? { opacity: 1, y: 0 } : undefined}
+          transition={enableAnim ? { duration: 0.8 } : {}}
           viewport={{ once: true }}
           className="text-center mb-16"
         >

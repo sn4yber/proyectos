@@ -22,9 +22,10 @@ interface Project {
 interface ProjectCard3DProps {
   project: Project
   index: number
+  isMobile?: boolean
 }
 
-export const ProjectCard3D = memo(({ project, index }: ProjectCard3DProps) => {
+export const ProjectCard3D = memo(({ project, index, isMobile = false }: ProjectCard3DProps) => {
   const ref = useRef<HTMLDivElement>(null)
 
   const x = useMotionValue(0)
@@ -59,16 +60,15 @@ export const ProjectCard3D = memo(({ project, index }: ProjectCard3DProps) => {
     y.set(0)
   }
 
+  // Desactivar animaciones y efectos pesados en móvil
+  const enable3DEffect = !isMobile
+
   return (
     <motion.div
       ref={ref}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        rotateY,
-        rotateX,
-        transformStyle: "preserve-3d",
-      }}
+      onMouseMove={enable3DEffect ? handleMouseMove : undefined}
+      onMouseLeave={enable3DEffect ? handleMouseLeave : undefined}
+      style={enable3DEffect ? { rotateY, rotateX, transformStyle: "preserve-3d" } : {}}
       className={`grid lg:grid-cols-2 gap-16 items-center relative ${
         index % 2 === 1 ? 'lg:grid-flow-dense' : ''
       }`}
@@ -82,37 +82,26 @@ export const ProjectCard3D = memo(({ project, index }: ProjectCard3DProps) => {
           <div className="relative">
             <motion.div
               className="relative group"
-              style={{
-                transform: "translateZ(75px)",
-                transformStyle: "preserve-3d",
-              }}
-              whileHover={{ 
-                scale: 1.05,
-                transition: { duration: 0.2 }
-              }}
+              style={enable3DEffect ? { transform: "translateZ(75px)", transformStyle: "preserve-3d" } : {}}
+              whileHover={enable3DEffect ? { scale: 1.05, transition: { duration: 0.2 } } : {}}
             >
               <div className="p-6">
                 <div className="relative">
                   <motion.div
                     className="relative group"
-                    style={{
-                      transform: "translateZ(75px)",
-                      transformStyle: "preserve-3d",
-                    }}
-                    whileHover={{ 
-                      scale: 1.05,
-                      transition: { duration: 0.2 }
-                    }}
+                    style={enable3DEffect ? { transform: "translateZ(75px)", transformStyle: "preserve-3d" } : {}}
+                    whileHover={enable3DEffect ? { scale: 1.05, transition: { duration: 0.2 } } : {}}
                   >
                     <div className="glass-morphism rounded-2xl p-6 mb-6 backdrop-blur-xl">
-                      <motion.img
-                        src={project.image}
-                        alt={project.title}
-                        className="w-full h-64 object-cover rounded-xl"
-                        style={{
-                          transform: "translateZ(50px)",
-                        }}
-                      />
+                      {project.image && (
+                        <motion.img
+                          src={project.image}
+                          alt={project.title}
+                          className="w-full h-64 object-cover rounded-xl"
+                          style={enable3DEffect ? { transform: "translateZ(50px)" } : {}}
+                          loading="lazy"
+                        />
+                      )}
                       
                       {/* Overlay con efecto holográfico */}
                       <motion.div 

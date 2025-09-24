@@ -83,6 +83,9 @@ export const Projects = () => {
     { number: 'Web', label: 'Development' },
   ]
 
+  // Detectar si es móvil
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768
+
   return (
     <div className="min-h-screen pt-16">
       {/* Hero Section */}
@@ -142,7 +145,12 @@ export const Projects = () => {
           <div className="space-y-32">
             <Suspense fallback={<div className="text-center text-lg py-10">Cargando proyectos...</div>}>
               {projects.map((project, index) => (
-                <ProjectCard3D key={project.id} project={{...project, image: project.image || ''}} index={index} />
+                <ProjectCard3D 
+                  key={project.id} 
+                  project={{...project, image: project.image || ''}} 
+                  index={index} 
+                  isMobile={isMobile} // Prop extra para optimizar
+                />
               ))}
             </Suspense>
           </div>

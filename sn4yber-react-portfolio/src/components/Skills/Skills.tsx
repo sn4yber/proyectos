@@ -1,7 +1,11 @@
 import { motion } from 'framer-motion'
 import ElectricBorder from '../ElectricBorder'
 
-export const Skills = () => {
+interface SkillsProps {
+  isMobile?: boolean
+}
+
+export const Skills = ({ isMobile = false }: SkillsProps) => {
   const frontendSkills = [
     { name: 'HTML5', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
     { name: 'CSS3', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
@@ -55,11 +59,13 @@ export const Skills = () => {
     { label: 'Database Design', value: 65 },
   ]
 
+  const enableAnim = !isMobile
+
   const TechCategory = ({ title, skills, delay = 0 }: { title: string; skills: typeof frontendSkills; delay?: number }) => (
     <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, delay }}
+      initial={enableAnim ? { opacity: 0, y: 50 } : false}
+      whileInView={enableAnim ? { opacity: 1, y: 0 } : undefined}
+      transition={enableAnim ? { duration: 0.8, delay } : {}}
       viewport={{ once: true }}
       className="text-center"
     >
