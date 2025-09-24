@@ -167,15 +167,31 @@ export const Skills = memo(({ isMobile = false }: SkillsProps) => {
 
         {/* Tech Categories */}
         <div className="grid lg:grid-cols-3 gap-16 mb-20">
-          <ElectricBorder color="#8b5cf6" thickness={2} chaos={1.2} speed={1.5} className="rounded-2xl">
-            <MemoTechCategory title="Frontend" skills={memoFrontendSkills} delay={0.2} />
-          </ElectricBorder>
-          <ElectricBorder color="#8b5cf6" thickness={2} chaos={1.2} speed={1.5} className="rounded-2xl">
-            <MemoTechCategory title="Backend" skills={memoBackendSkills} delay={0.4} />
-          </ElectricBorder>
-          <ElectricBorder color="#8b5cf6" thickness={2} chaos={1.2} speed={1.5} className="rounded-2xl">
-            <MemoTechCategory title="Herramientas" skills={memoTools} delay={0.6} />
-          </ElectricBorder>
+          {isMobile ? (
+            <>
+              <div className="rounded-2xl">
+                <MemoTechCategory title="Frontend" skills={memoFrontendSkills} delay={0.2} />
+              </div>
+              <div className="rounded-2xl">
+                <MemoTechCategory title="Backend" skills={memoBackendSkills} delay={0.4} />
+              </div>
+              <div className="rounded-2xl">
+                <MemoTechCategory title="Herramientas" skills={memoTools} delay={0.6} />
+              </div>
+            </>
+          ) : (
+            <>
+              <ElectricBorder color="#8b5cf6" thickness={2} chaos={1.2} speed={1.5} className="rounded-2xl">
+                <MemoTechCategory title="Frontend" skills={memoFrontendSkills} delay={0.2} />
+              </ElectricBorder>
+              <ElectricBorder color="#8b5cf6" thickness={2} chaos={1.2} speed={1.5} className="rounded-2xl">
+                <MemoTechCategory title="Backend" skills={memoBackendSkills} delay={0.4} />
+              </ElectricBorder>
+              <ElectricBorder color="#8b5cf6" thickness={2} chaos={1.2} speed={1.5} className="rounded-2xl">
+                <MemoTechCategory title="Herramientas" skills={memoTools} delay={0.6} />
+              </ElectricBorder>
+            </>
+          )}
         </div>
 
         {/* Learning Progress Section */}
