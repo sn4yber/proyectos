@@ -2,12 +2,13 @@ import { motion } from 'framer-motion'
 import { ExternalLink } from 'lucide-react'
 import { useQuery } from '@tanstack/react-query'
 import { fetchContact } from '@/api/fetchContact'
+import { memo } from 'react'
 
 interface ContactProps {
   isMobile?: boolean
 }
 
-export const Contact = ({ isMobile = false }: ContactProps) => {
+export const Contact = memo(({ isMobile = false }: ContactProps) => {
   const { data, isLoading, error } = useQuery({
     queryKey: ['contact'],
     queryFn: fetchContact
@@ -128,4 +129,4 @@ export const Contact = ({ isMobile = false }: ContactProps) => {
       </div>
     </section>
   )
-}
+})

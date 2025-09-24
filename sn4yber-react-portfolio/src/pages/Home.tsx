@@ -8,16 +8,16 @@ const Contact = lazy(() => import('@/components/Contact/Contact').then(m => ({ d
 export const Home = () => {
   return (
     <main>
-      <Suspense fallback={<div className="text-center text-lg py-10">Cargando sección...</div>}>
+      <Suspense fallback={<div className="animate-pulse text-center text-lg py-10">Cargando sección...</div>}>
         <Hero />
       </Suspense>
-      <Suspense fallback={<div className="text-center text-lg py-10">Cargando sección...</div>}>
+      <Suspense fallback={<div className="animate-pulse text-center text-lg py-10">Cargando sección...</div>}>
         <About />
       </Suspense>
-      <Suspense fallback={<div className="text-center text-lg py-10">Cargando sección...</div>}>
+      <Suspense fallback={<div className="animate-pulse text-center text-lg py-10">Cargando sección...</div>}>
         <Skills />
       </Suspense>
-      <Suspense fallback={<div className="text-center text-lg py-10">Cargando sección...</div>}>
+      <Suspense fallback={<div className="animate-pulse text-center text-lg py-10">Cargando sección...</div>}>
         <Contact />
       </Suspense>
     </main>

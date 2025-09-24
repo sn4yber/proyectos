@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { useQuery } from '@tanstack/react-query'
+import { useMemo, memo, useCallback } from 'react'
 import ElectricBorder from '../ElectricBorder'
 import { fetchSkills } from '@/api/fetchSkills'
 
@@ -7,17 +8,22 @@ interface SkillsProps {
   isMobile?: boolean
 }
 
-export const Skills = ({ isMobile = false }: SkillsProps) => {
+export const Skills = memo(({ isMobile = false }: SkillsProps) => {
   const { data, isLoading, error } = useQuery({
     queryKey: ['skills'],
     queryFn: fetchSkills
   })
 
-  if (isLoading) return <div className="text-center py-10">Cargando...</div>
-  if (error) return <div className="text-center py-10 text-red-500">Error al cargar datos</div>
-  if (!data) return null
+  // Always call hooks outside conditionals
+  const frontendSkills = data?.frontendSkills ?? []
+  const backendSkills = data?.backendSkills ?? []
+  const tools = data?.tools ?? []
+  const learningSkills = data?.learningSkills ?? []
+  const progressBars = data?.progressBars ?? []
 
-  const { frontendSkills, backendSkills, tools, learningSkills, progressBars } = data
+  const memoFrontendSkills = useMemo(() => frontendSkills, [frontendSkills])
+  const memoBackendSkills = useMemo(() => backendSkills, [backendSkills])
+  const memoTools = useMemo(() => tools, [tools])
 
   const enableAnim = !isMobile
 
@@ -41,12 +47,28 @@ export const Skills = ({ isMobile = false }: SkillsProps) => {
             whileHover={{ scale: 1.1, rotate: 5 }}
             className="group cursor-pointer"
           >
-            <div className="w-20 h-20 rounded-2xl glass-morphism flex items-center justify-center p-4 transition-all duration-300 group-hover:shadow-glow">
-              <img 
-                src={skill.icon} 
-                alt={skill.name}
-                className="w-full h-full object-contain filter brightness-110"
-              />
+            <div className="w-20 h-20 rounded-2xl md:group-hover:shadow-glow flex items-center justify-center p-4 transition-all duration-300">
+              {skill.icon.startsWith('<svg') ? (
+                <span
+                  className="w-full h-full object-contain filter brightness-110"
+                  style={{ display: 'inline-block' }}
+                  dangerouslySetInnerHTML={{ __html: skill.icon }}
+                />
+              ) : skill.icon.startsWith('http') || skill.icon.startsWith('https') ? (
+                <img 
+                  src={skill.icon}
+                  alt={skill.name}
+                  loading="lazy"
+                  className="w-full h-full object-contain filter brightness-110"
+                />
+              ) : (
+                <img 
+                  src={skill.icon.replace('.svg', '.webp')} 
+                  alt={skill.name}
+                  loading="lazy"
+                  className="w-full h-full object-contain filter brightness-110"
+                />
+              )}
             </div>
             <p className="mt-3 text-sm font-medium text-text-secondary group-hover:text-text-primary transition-colors duration-300">
               {skill.name}
@@ -79,9 +101,11 @@ export const Skills = ({ isMobile = false }: SkillsProps) => {
             <div className="flex items-start gap-4">
               <div className="w-16 h-16 rounded-xl bg-background-surface flex items-center justify-center p-3 flex-shrink-0">
                 <img 
-                  src={skill.icon} 
+                  src={skill.icon.replace('.svg', '.webp')} 
                   alt={skill.name}
+                  loading="lazy"
                   className="w-full h-full object-contain filter brightness-110"
+                  style={{ background: '#18181b' }}
                 />
               </div>
               <div className="flex-1 text-left">
@@ -121,6 +145,13 @@ export const Skills = ({ isMobile = false }: SkillsProps) => {
     </motion.div>
   )
 
+  const MemoTechCategory = useCallback(TechCategory, [enableAnim])
+  // const MemoLearningProgress = useCallback(LearningProgress, [enableAnim, learningSkills])
+
+  if (isLoading) return <div className="text-center py-10">Cargando...</div>
+  if (error) return <div className="text-center py-10 text-red-500">Error al cargar datos</div>
+  if (!data) return null
+
   return (
     <section id="habilidades" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
@@ -138,20 +169,20 @@ export const Skills = ({ isMobile = false }: SkillsProps) => {
         {/* Tech Categories */}
         <div className="grid lg:grid-cols-3 gap-16 mb-20">
           <ElectricBorder color="#8b5cf6" thickness={2} chaos={1.2} speed={1.5} className="rounded-2xl">
-            <TechCategory title="Frontend" skills={frontendSkills} delay={0.2} />
+            <MemoTechCategory title="Frontend" skills={memoFrontendSkills} delay={0.2} />
           </ElectricBorder>
           <ElectricBorder color="#8b5cf6" thickness={2} chaos={1.2} speed={1.5} className="rounded-2xl">
-            <TechCategory title="Backend" skills={backendSkills} delay={0.4} />
+            <MemoTechCategory title="Backend" skills={memoBackendSkills} delay={0.4} />
           </ElectricBorder>
           <ElectricBorder color="#8b5cf6" thickness={2} chaos={1.2} speed={1.5} className="rounded-2xl">
-            <TechCategory title="Herramientas" skills={tools} delay={0.6} />
+            <MemoTechCategory title="Herramientas" skills={memoTools} delay={0.6} />
           </ElectricBorder>
         </div>
 
         {/* Learning Progress Section */}
-        <div className="mb-20">
-          <LearningProgress delay={0.8} />
-        </div>
+        {/* <div className="mb-20">
+          <MemoLearningProgress delay={0.8} />
+        </div> */}
 
         {/* Progress Bars */}
         <motion.div
@@ -192,4 +223,4 @@ export const Skills = ({ isMobile = false }: SkillsProps) => {
       </div>
     </section>
   )
-}
+})
