@@ -21,14 +21,14 @@ export const fetchSkills = async () => {
       { name: 'Linux', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg' },
     ],
     learningSkills: [
-      { name: 'TypeScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg', progress: 75, status: 'Activo', startDate: 'Julio 2025', description: 'avanazado con la implemencion de tipos y mas robustes en proyectos con nodejs y react' },
-      { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg', progress: 80, status: 'Activo', startDate: 'Junio 2025', description: 'Hooks avanzados , mas manejo de estados con context api y redux , optimizacion de rendimiento y buenas practicas parte aprendi a usar con la yuda del backend el contexto pra implementar varios fronts en unop solo proyecto' },
+      { name: 'TypeScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg', level: 'Intermedio+', status: 'Activo', startDate: 'Julio 2025', description: 'Implementación avanzada de tipos y mayor robustez en proyectos con Node.js y React' },
+      { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg', level: 'Avanzado', status: 'Activo', startDate: 'Junio 2025', description: 'Hooks avanzados, manejo de estados con Context API y Redux, optimización de rendimiento y buenas prácticas. Implementación de múltiples frontends en un solo proyecto integrado con backend' },
     ],
-    progressBars: [
-      { label: 'Problem Solving', value: 90 },
-      { label: 'Frontend Development', value: 80 },
-      { label: 'Backend Development', value: 65 },
-      { label: 'Database Design', value: 65 },
+    competencyLevels: [
+      { label: 'Resolución de Problemas', level: 'Avanzado', description: 'Análisis y solución de problemas complejos' },
+      { label: 'Desarrollo Frontend', level: 'Avanzado+', description: 'Interfaces modernas y responsivas' },
+      { label: 'Desarrollo Backend', level: 'Avanzado', description: 'APIs REST, autenticaciones, frameworks, seguridad y persistencia de datos' },
+      { label: 'Diseño de Base de Datos', level: 'Básico+', description: 'Modelado y consultas SQL' },
     ]
   }
 }

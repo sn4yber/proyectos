@@ -17,7 +17,7 @@ export const Skills = memo(({ isMobile = false }: SkillsProps) => {
   const frontendSkills = data?.frontendSkills ?? []
   const backendSkills = data?.backendSkills ?? []
   const tools = data?.tools ?? []
-  const progressBars = data?.progressBars ?? []
+  const competencyLevels = data?.competencyLevels ?? []
 
   const memoFrontendSkills = useMemo(() => frontendSkills, [frontendSkills])
   const memoBackendSkills = useMemo(() => backendSkills, [backendSkills])
@@ -182,7 +182,7 @@ export const Skills = memo(({ isMobile = false }: SkillsProps) => {
           <MemoLearningProgress delay={0.8} />
         </div> */}
 
-        {/* Progress Bars */}
+        {/* Competency Levels */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -192,28 +192,26 @@ export const Skills = memo(({ isMobile = false }: SkillsProps) => {
         >
           <h3 className="text-2xl font-semibold mb-8 text-center text-gradient">Competencias</h3>
           <div className="space-y-6">
-            {progressBars.map((item, index) => (
+            {competencyLevels.map((item, index) => (
               <motion.div
                 key={item.label}
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 1.2 + index * 0.1 }}
                 viewport={{ once: true }}
-                className="space-y-2"
+                className="glass-morphism p-6 rounded-2xl hover:shadow-glow transition-all duration-300"
               >
-                <div className="flex justify-between items-center">
-                  <span className="text-text-primary font-medium">{item.label}</span>
-                  <span className="text-secondary font-semibold">{item.value}%</span>
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-text-primary font-semibold text-lg">{item.label}</span>
+                  <span className={`px-3 py-1 rounded-full text-sm font-medium ${
+                    item.level === 'Avanzado' || item.level === 'Avanzado+' ? 'bg-green-500/20 text-green-400 border border-green-500/30' :
+                    item.level === 'Intermedio' || item.level === 'Intermedio+' ? 'bg-purple-500/20 text-purple-400 border border-purple-500/30' :
+                    'bg-blue-500/20 text-blue-400 border border-blue-500/30'
+                  }`}>
+                    {item.level}
+                  </span>
                 </div>
-                <div className="h-2 bg-background-surface rounded-full overflow-hidden">
-                  <motion.div
-                    initial={{ width: 0 }}
-                    whileInView={{ width: `${item.value}%` }}
-                    transition={{ duration: 1.5, delay: 1.4 + index * 0.1, ease: "easeOut" }}
-                    viewport={{ once: true }}
-                    className="h-full bg-gradient-primary rounded-full"
-                  />
-                </div>
+                <p className="text-text-secondary">{item.description}</p>
               </motion.div>
             ))}
           </div>

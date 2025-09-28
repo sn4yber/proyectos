@@ -17,7 +17,7 @@ export const About = memo(({ isMobile = false }: AboutProps) => {
   if (error) return <div className="text-center py-10 text-red-500">Error al cargar datos</div>
   if (!data) return null
 
-  const { stats, skills } = data
+  const { skills } = data
   // Desactivar animaciones pesadas en móvil
   const enableAnim = !isMobile
 
@@ -36,79 +36,46 @@ export const About = memo(({ isMobile = false }: AboutProps) => {
             Construyendo el futuro con código
           </h2>
         </motion.div>
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="max-w-4xl mx-auto">
           {/* Text Content */}
-          <div className="rounded-2xl">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="space-y-8"
-            >
-              <div>
-                <h3 className="text-2xl font-semibold mb-4 text-gradient">Mi Historia</h3>
-                <p className="text-text-secondary leading-relaxed">
-                  Soy estudiante de Ingeniería de Sistemas en la Universidad Rafael Núñez con una pasión ardiente por crear soluciones tecnológicas que realmente importen. Mi enfoque va más allá del código: busco entender problemas, conectar con personas y construir experiencias que marquen la diferencia.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-2xl font-semibold mb-4 text-gradient">Mi Filosofía</h3>
-                <p className="text-text-secondary leading-relaxed">
-                  Creo en la programación como una forma de arte donde la creatividad se fusiona con la lógica. Cada proyecto es una oportunidad de aprender, innovar y dejar una huella positiva en el mundo digital.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-2xl font-semibold mb-4 text-gradient">Fortalezas Clave</h3>
-                <div className="flex flex-wrap gap-3">
-                  {skills.map((skill: string, index: number) => (
-                    <motion.span
-                      key={skill}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                      viewport={{ once: true }}
-                      className="px-4 py-2 bg-gradient-surface rounded-full text-sm font-medium text-text-primary border border-white/10"
-                    >
-                      {skill}
-                    </motion.span>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          </div>
-          {/* Stats */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="grid grid-cols-2 gap-8"
+            className="space-y-12"
           >
-            {stats.map((stat: any, index: number) => (
-              <div className="rounded-2xl" key={stat.label}>
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="text-center p-6 glass-morphism rounded-2xl"
-                >
-                  <motion.div
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: 1 }}
-                    transition={{ duration: 0.8, delay: 0.5 + index * 0.1 }}
+            <div className="text-center">
+              <h3 className="text-2xl font-semibold mb-6 text-gradient">Mi Historia</h3>
+              <p className="text-text-secondary leading-relaxed text-lg">
+                Desde pequeño siempre tuve esa necesidad, esa curiosidad innata por entender cómo funcionan las cosas y encontrar formas de mejorarlas. La tecnología no era solo algo que usaba, sino algo que me fascinaba profundamente. Cada problema era un rompecabezas que necesitaba resolver, cada dispositivo una caja de misterios por descubrir. Ahora, como estudiante de Ingeniería de Sistemas en la Universidad Rafael Núñez, he canalizado esa pasión en crear soluciones tecnológicas que realmente importen. Soy deportista de taekwondo, me apasiona la actividad física, y me encanta trabajar en equipo conectando con mis compañeros. Mi enfoque va más allá del código: busco entender problemas, conectar con personas y construir experiencias que marquen la diferencia.
+              </p>
+            </div>
+            
+            <div className="text-center">
+              <h3 className="text-2xl font-semibold mb-6 text-gradient">Mi Filosofía</h3>
+              <p className="text-text-secondary leading-relaxed text-lg">
+                Creo en la programación como una forma de arte donde la creatividad se fusiona con la lógica. Cada proyecto es una oportunidad de aprender, innovar y dejar una huella positiva en el mundo digital.
+              </p>
+            </div>
+            
+            <div className="text-center">
+              <h3 className="text-2xl font-semibold mb-6 text-gradient">Fortalezas Clave</h3>
+              <div className="flex flex-wrap justify-center gap-3 max-w-2xl mx-auto">
+                {skills.map((skill: string, index: number) => (
+                  <motion.span
+                    key={skill}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    className="text-4xl font-bold text-gradient mb-2"
+                    className="px-4 py-2 bg-gradient-surface rounded-full text-sm font-medium text-text-primary border border-white/10 hover:shadow-glow transition-all duration-300"
                   >
-                    {stat.number}%
-                  </motion.div>
-                  <div className="text-text-secondary text-sm font-medium">
-                    {stat.label}
-                  </div>
-                </motion.div>
+                    {skill}
+                  </motion.span>
+                ))}
               </div>
-            ))}
+            </div>
           </motion.div>
         </div>
       </div>
