@@ -9,10 +9,8 @@ export const fetchSkills = async () => {
     ],
     backendSkills: [
       { name: 'Java', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg' },
-      { name: 'Python', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
       { name: 'Node.js', icon: '/Node.js.png' },
       { name: 'Spring Boot', icon: '/Spring.png' },
-      { name: 'FastAPI', icon: '/FastAPI.png' },
       { name: 'TypeScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' }
     ],
     tools: [
