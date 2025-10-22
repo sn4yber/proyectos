@@ -6,16 +6,16 @@ export const fetchProjects = async (): Promise<Project[]> => {
     {
       id: '01',
       category: 'Web Development',
-      title: 'Sistema de Inventario',
-      description: 'Sistema completo para gestión de inventarios desarrollado con tecnologías web modernas. Incluye funcionalidades de registro, actualización y consulta en tiempo real, con una interfaz intuitiva y reportes automáticos.',
-      image: '/inventario.png',
-      codeImage: '/code.png',
-      features: ['Real-time', 'Responsive', 'Java'],
-      technologies: ['Java', 'Spring Boot', 'PostgreSQL', 'HTML/CSS', 'JavaScript'],
+      title: 'LIVO - Sistema de Inventario y Contabilidad',
+      description: 'Sistema completo de gestión empresarial que integra inventario, punto de venta (POS), contabilidad y reportes. Construido con Spring Boot (backend) y React + TypeScript (frontend), diseñado específicamente para pequeñas y medianas empresas que buscan digitalizar y optimizar sus procesos.',
+      image: '/contable.png',
+      features: ['sofware contable y facturacion', 'Responsive , ux y graficas' , 'fullstack application'],
+      technologies: ['Java', 'Spring Boot', 'React ', 'typeScript'],
       links: {
-        github: 'https://github.com/sn4yber',
+        github: 'https://github.com/sn4yber/menchap-app-api',
         demo: '#',
       },
+      status: 'en desarrrollo casi listo',
     },
     {
       id: '02',
@@ -29,46 +29,21 @@ export const fetchProjects = async (): Promise<Project[]> => {
         github: 'https://github.com/sn4yber',
         demo: 'https://reserverbr.netlify.app/',
       },
+      status: 'en producción',
     },
-    {
+     {
       id: '03',
-      category: 'proyecto comercial',
-      title: 'sistema de recomendacion de regalos',
-      description: 'Sistema de recomendacion  de regalos que atravez  de preguntas y repuestas hace un analisis de datos de ellas y predice cual es regalo perfecto pra la ocasion , viculo afectivo con la persona  y demas cosas que se pueden tener en cuenta para hacer un regalo perfecto.  , se implemento el analisis de datos con librerias de python como numpy y panda para el analisis de datos y machine learning para la prediccion de los regalos.',
-      image: '/recomender.png',
-      features: ['data analisis', 'python', 'Responsive', 'Modern' , 'machine learning', 'numpy', 'panda'],
-      technologies: ['html', 'css', 'javascript', 'python', 'fastApi'],
+      category: 'web development',
+      title: 'nebulaTech e-commerce',
+      description: ' NebulaTech E-Commerce es un proyecto colaborativo de tienda virtual desarrollado con arquitectura full-stack moderna. Combina Spring Boot para el backend API REST con React + TypeScript para el frontend, creando una aplicación escalable para gestión completa de productos gaming, usuarios y pedidos en línea..',
+      image: '/tec.png', // Imagen agregada para cumplir con la interfaz Project
+      features: ['react', 'typescript', 'spring boot', 'jwt', 'spring security', 'tailwind css'],
+      technologies: ['react', 'typescript', 'spring boot', 'jwt', 'spring security', 'tailwind css'],
       links: {
-        github: 'https://github.com/sn4yber',
+        github: 'https://github.com/sn4yber/PR-Ecomeerse-carlosDev-comunity',
         demo: '#',
       },
-    },
-    {
-      id: '04',
-      category: 'IoT Development',
-      title: 'Proyectos Arduino',
-      description: 'sistema de deteccion de movimiento con implementacion de sensores iot para la automatizacion de un sistema de ocupacion de autobuses en  cartagena se implementaron tambien contadores con pantalla lsd para ver  funcionamiento y ocupacion del mismoo ese proyecto planea ser escalable a algo mas profesional y tecnico.',
-      image: '/arduino.png', // Imagen agregada para cumplir con la interfaz Project
-      video: '/resultado.mp4',
-      features: ['IoT', 'Arduino', 'Sensores', 'Automatización'],
-      technologies: ['Arduino', 'pantalla lsd', 'Sensores', 'Actuadores', 'Circuitos'],
-      links: {
-        github: 'https://github.com/sn4yber',
-        demo: '#',
-      },
-    },
-    {
-      id: '05',
-      category: 'e-commerce de venta de bikinis',
-      title: 'Tienda de Bikinis',
-      description: 'sistema e-commerce de venta de bikinis donde se hace la gestion de productos, carrito de compras y pagos en linea con una interfaz amigable y moderna.',
-      image: '/ecomerse.png',
-      features: ['E-commerce', 'Modern', 'Responsive' ,'ventas en linea ' ,],
-      technologies: ['React', 'Node.js', 'PostgreSQL', 'Tailwind CSS' , 'typeScript' , 'prisma'],
-      links: {
-        github: 'https://github.com/sn4yber',
-        demo: 'https://bikinis-shell.netlify.app/',
-      },
+      status: 'en desarrollo',
     },
   ]
 }

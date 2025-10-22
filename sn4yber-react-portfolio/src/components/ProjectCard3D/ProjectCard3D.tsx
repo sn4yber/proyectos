@@ -17,6 +17,7 @@ export interface Project {
     demo: string
   }
   video?: string
+  status: string
 }
 
 interface ProjectCard3DProps {
@@ -187,6 +188,28 @@ export const ProjectCard3D = memo(({ project, index, isMobile = false }: Project
               }}
             />
             {project.category}
+          </motion.div>
+          
+          {/* Status con efecto */}
+          <motion.div 
+            className="inline-block px-4 py-2 bg-gradient-to-r from-green-500/20 to-blue-500/20 rounded-full text-sm font-medium text-green-400 border border-green-500/30 relative overflow-hidden"
+            whileHover={{
+              scale: 1.05,
+              boxShadow: "0 0 20px rgba(34, 197, 94, 0.5)",
+            }}
+          >
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-green-400/20 to-transparent"
+              animate={{
+                x: ["-100%", "100%"],
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                repeatType: "loop",
+              }}
+            />
+            {project.status}
           </motion.div>
           
           {/* Título con gradiente animado */}
