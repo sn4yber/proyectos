@@ -8,6 +8,7 @@ export interface Project {
   category: string
   title: string
   description: string
+  characteristics: string
   image: string
   codeImage?: string
   features: string[]
@@ -226,18 +227,35 @@ export const ProjectCard3D = memo(({ project, index, isMobile = false }: Project
             {project.description}
           </p>
           
+          {/* Características detalladas */}
+          <motion.div 
+            className="glass-morphism rounded-xl p-5 border border-primary/40 backdrop-blur-sm bg-background-surface/80"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <h4 className="text-lg font-bold mb-3 text-white flex items-center gap-2">
+              <span className="inline-block w-2 h-2 bg-primary rounded-full animate-pulse"></span>
+              ¿Qué hace este proyecto?
+            </h4>
+            <p className="text-gray-200 text-base leading-relaxed font-normal">
+              {project.characteristics}
+            </p>
+          </motion.div>
+          
           {/* Features con animación stagger */}
           <div className="flex flex-wrap gap-2">
             {project.features.map((feature, featureIndex) => (
               <motion.span
                 key={featureIndex}
-                className="px-3 py-1 bg-background-surface rounded-full text-sm text-text-primary border border-white/10 hover:border-primary/50 transition-colors cursor-default"
+                className="px-3 py-2 bg-background-surface/80 rounded-full text-sm font-medium text-gray-100 border border-white/20 hover:border-primary/50 transition-colors cursor-default"
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.4, delay: 0.6 + featureIndex * 0.1 }}
                 whileHover={{ 
-                  scale: 1.1,
-                  backgroundColor: "rgba(139, 92, 246, 0.1)",
+                  scale: 1.05,
+                  backgroundColor: "rgba(139, 92, 246, 0.2)",
                 }}
                 viewport={{ once: true }}
               >
@@ -248,18 +266,18 @@ export const ProjectCard3D = memo(({ project, index, isMobile = false }: Project
           
           {/* Technologies */}
           <div>
-            <h4 className="text-lg font-semibold mb-3 text-text-primary">Tecnologías usadas:</h4>
+            <h4 className="text-lg font-semibold mb-3 text-white">Tecnologías usadas:</h4>
             <div className="flex flex-wrap gap-2">
               {project.technologies.map((tech, techIndex) => (
                 <motion.span
                   key={techIndex}
-                  className="px-3 py-1 bg-gradient-primary/20 rounded-full text-sm text-primary border border-primary/30 hover:bg-gradient-primary/30 transition-colors cursor-default"
+                  className="px-4 py-2 bg-gradient-primary/30 rounded-full text-sm font-medium text-white border border-primary/50 hover:bg-gradient-primary/40 transition-colors cursor-default"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 0.8 + techIndex * 0.1 }}
                   whileHover={{ 
                     scale: 1.05,
-                    boxShadow: "0 0 15px rgba(139, 92, 246, 0.4)",
+                    boxShadow: "0 0 15px rgba(139, 92, 246, 0.6)",
                   }}
                   viewport={{ once: true }}
                 >
