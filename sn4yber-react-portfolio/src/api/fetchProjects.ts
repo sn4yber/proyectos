@@ -48,5 +48,21 @@ export const fetchProjects = async (): Promise<Project[]> => {
       },
       status: 'finalizado etapa de desarrollo',
     },
+
+     {
+      id: '04',
+      category: 'plataforma de cusos y sala de belleza',
+      title: ' Academia Deidis',
+      description: 'Sistema completo de gestión de inscripciones para talleres y servicios de academia/peluquería. Sistema completo de gestión de inscripciones para cursos y talleres de peluquería y belleza. Plataforma moderna con landing page atractiva y panel administrativo potente para gestionar todo el proceso de matriculación..',
+      characteristics: 'Plataforma web que permite a los usuarios explorar cursos disponibles, inscribirse en talleres de peluquería y belleza, y gestionar sus reservas de servicios. Incluye un panel administrativo para que los administradores puedan agregar nuevos cursos, gestionar inscripciones, y llevar un seguimiento de los pagos. La landing page está diseñada para atraer a nuevos estudiantes con información clara y llamadas a la acción efectivas.',
+      image: '/deidis.png',
+      features: ['Gestión de cursos y talleres', 'Inscripciones en línea', 'Panel administrativo', 'Landing page atractiva', 'Gestión de pagos', 'galeria de capacitaciones y servicios', ],
+      technologies: ['node js', 'typescript', 'React 19', 'Axios', 'tailwind css', 'PostgreSQL(NEON)', 'React Hot Toast', 'express', 'vitest ', 'Vite 7.1'],
+      links: {
+        github: 'https://github.com/sn4yber',
+        demo: 'https://academiadeidis.com/',
+      },
+      status: 'en producción ',
+    },
   ]
 }
