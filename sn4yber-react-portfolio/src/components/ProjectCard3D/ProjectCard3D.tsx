@@ -9,7 +9,7 @@ export interface Project {
   title: string
   description: string
   characteristics: string
-  image: string
+  image?: string
   codeImage?: string
   features: string[]
   technologies: string[]
@@ -95,8 +95,18 @@ export const ProjectCard3D = memo(({ project, index, isMobile = false }: Project
                     style={enable3DEffect ? { transform: "translateZ(75px)", transformStyle: "preserve-3d" } : {}}
                     whileHover={enable3DEffect ? { scale: 1.05, transition: { duration: 0.2 } } : {}}
                   >
-                    <div className="glass-morphism rounded-2xl p-6 mb-6 backdrop-blur-xl">
-                      {project.image && (
+                    <div className={`glass-morphism rounded-2xl p-6 mb-6 backdrop-blur-xl ${project.video ? 'flex justify-center' : ''}`}>
+                      {project.video ? (
+                        <motion.video
+                          src={project.video}
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          className="h-[32rem] w-auto object-contain rounded-xl"
+                          style={enable3DEffect ? { transform: "translateZ(50px)" } : {}}
+                        />
+                      ) : project.image ? (
                         <motion.img
                           src={project.image}
                           alt={project.title}
@@ -104,7 +114,7 @@ export const ProjectCard3D = memo(({ project, index, isMobile = false }: Project
                           style={enable3DEffect ? { transform: "translateZ(50px)" } : {}}
                           loading="lazy"
                         />
-                      )}
+                      ) : null}
                       
                       {/* Overlay con efecto holográfico */}
                       <motion.div 

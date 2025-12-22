@@ -64,5 +64,20 @@ export const fetchProjects = async (): Promise<Project[]> => {
       },
       status: 'en producción ',
     },
+    {
+      id: '05',
+      category: 'Mobile App - Personal Project',
+      title: '🐚 ShellApp',
+      description: 'Una aplicación móvil de bienestar emocional y productividad personal construida con React Native y Expo. Proyecto personal creado con amor para mi prometida Shelsin, diseñado como una herramienta útil y práctica para su día a día, no solo un detalle que se ve y se olvida.',
+      characteristics: 'ShellApp es una aplicación integral de autocuidado que combina planificación diaria, seguimiento emocional y recursos de aprendizaje. Incluye ShellSpace, un hub central con 9 secciones integradas: Entrada (reflexión y preparación del día), Checklist (tareas y organización), Explorar (recursos curados de Arte & Dibujo, Maquillaje Creativo, Manualidades, Color & UI, Curiosidad), Pausa (ejercicios de mindfulness), Progreso (seguimiento de logros), Recompensas (sistema de motivación), Aprender (educación continua), Cierre (reflexión del día con selector de ánimo), y Resumen (análisis semanal). Construida con arquitectura modular siguiendo principios SOLID para mantener un código limpio, escalable y profesional. Cada funcionalidad fue cuidadosamente pensada para brindar organización, apoyo emocional y aprendizaje continuo.',
+      video: '/shellapp.mp4',
+      features: ['Hub ShellSpace con 9 secciones', 'Registro de pensamientos', 'Seguimiento emocional', 'Recursos curados de aprendizaje', 'Sistema de recompensas', 'Análisis semanal', 'Iconografía SVG personalizada', 'UI/UX moderna'],
+      technologies: ['React Native', 'Expo SDK 54.0.0', '@react-navigation/native', 'TypeScript', 'react-native-svg'],
+      links: {
+        github: 'https://github.com/sn4yber',
+        demo: '#',
+      },
+      status: 'en desarrollo activo',
+    },
   ]
 }

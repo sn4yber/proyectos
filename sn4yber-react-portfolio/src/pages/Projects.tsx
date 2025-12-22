@@ -15,6 +15,7 @@ export const Projects = () => {
     { number: 'muchos +++', label: 'Proyectos' },
     { number: 'sass ', label: 'freelance' },
     { number: 'Web', label: 'Development' },
+    { number : 'mobile', label: 'apps' },
   ]
 
   // Detectar si es móvil
