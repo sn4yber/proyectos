@@ -72,7 +72,7 @@ export const MatrixRain = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 pointer-events-none opacity-40 z-0" // Más opaco
+      className="fixed inset-0 pointer-events-none opacity-25 -z-10"
       style={{ background: 'transparent' }}
     />
   )

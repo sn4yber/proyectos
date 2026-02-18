@@ -9,15 +9,17 @@ import { ParticleSystem } from './components/ParticleSystem/ParticleSystem'
 function App() {
   return (
     <Router>
-      <div className="min-h-screen relative">
+      <div className="relative min-h-screen overflow-x-hidden">
         <MatrixRain />
         <ParticleSystem />
         <MagneticCursor />
-        <Navigation />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/proyectos" element={<Projects />} />
-        </Routes>
+        <div className="relative z-20">
+          <Navigation />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/proyectos" element={<Projects />} />
+          </Routes>
+        </div>
       </div>
     </Router>
   )

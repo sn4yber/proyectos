@@ -1,6 +1,5 @@
 import { memo } from 'react'
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
-import { useRef, MouseEvent } from 'react'
+import { motion } from 'framer-motion'
 import { ExternalLink, Github } from 'lucide-react'
 
 export interface Project {
@@ -24,271 +23,126 @@ export interface Project {
 interface ProjectCard3DProps {
   project: Project
   index: number
-  isMobile?: boolean
 }
 
-export const ProjectCard3D = memo(({ project, index, isMobile = false }: ProjectCard3DProps) => {
-  const ref = useRef<HTMLDivElement>(null)
-
-  const x = useMotionValue(0)
-  const y = useMotionValue(0)
-
-  const mouseXSpring = useSpring(x)
-  const mouseYSpring = useSpring(y)
-
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["17.5deg", "-17.5deg"])
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-17.5deg", "17.5deg"])
-
-  const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
-    if (!ref.current) return
-
-    const rect = ref.current.getBoundingClientRect()
-
-    const width = rect.width
-    const height = rect.height
-
-    const mouseX = e.clientX - rect.left
-    const mouseY = e.clientY - rect.top
-
-    const xPct = mouseX / width - 0.5
-    const yPct = mouseY / height - 0.5
-
-    x.set(xPct)
-    y.set(yPct)
-  }
-
-  const handleMouseLeave = () => {
-    x.set(0)
-    y.set(0)
-  }
-
-  // Desactivar animaciones y efectos pesados en móvil
-  const enable3DEffect = !isMobile
+export const ProjectCard3D = memo(({ project, index }: ProjectCard3DProps) => {
+  const previewSrc = project.video || project.image
+  const topFeatures = project.features.slice(0, 3)
+  const topTechnologies = project.technologies.slice(0, 5)
 
   return (
     <motion.div
-      ref={ref}
-      onMouseMove={enable3DEffect ? handleMouseMove : undefined}
-      onMouseLeave={enable3DEffect ? handleMouseLeave : undefined}
-      style={enable3DEffect ? { rotateY, rotateX, transformStyle: "preserve-3d" } : {}}
-      className={`grid lg:grid-cols-2 gap-16 items-center relative ${
+      className={`grid items-stretch gap-8 lg:grid-cols-2 ${
         index % 2 === 1 ? 'lg:grid-flow-dense' : ''
       }`}
-      initial={{ opacity: 0, y: 100 }}
+      initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, delay: index * 0.2 }}
+      transition={{ duration: 0.6, delay: index * 0.08 }}
       viewport={{ once: true }}
     >
-      <div className="rounded-2xl">
-        {/* <ElectricBorder color="#8b5cf6" thickness={2} chaos={1.2} speed={1.5} className="rounded-2xl"> */}
-        <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
-          <div className="relative">
-            <motion.div
-              className="relative group"
-              style={enable3DEffect ? { transform: "translateZ(75px)", transformStyle: "preserve-3d" } : {}}
-              whileHover={enable3DEffect ? { scale: 1.05, transition: { duration: 0.2 } } : {}}
-            >
-              <div className="p-6">
-                <div className="relative">
-                  <motion.div
-                    className="relative group"
-                    style={enable3DEffect ? { transform: "translateZ(75px)", transformStyle: "preserve-3d" } : {}}
-                    whileHover={enable3DEffect ? { scale: 1.05, transition: { duration: 0.2 } } : {}}
-                  >
-                    <div className={`glass-morphism rounded-2xl p-6 mb-6 backdrop-blur-xl ${project.video ? 'flex justify-center' : ''}`}>
-                      {project.video ? (
-                        <motion.video
-                          src={project.video}
-                          autoPlay
-                          loop
-                          muted
-                          playsInline
-                          className="h-[32rem] w-auto object-contain rounded-xl"
-                          style={enable3DEffect ? { transform: "translateZ(50px)" } : {}}
-                        />
-                      ) : project.image ? (
-                        <motion.img
-                          src={project.image}
-                          alt={project.title}
-                          className="w-full h-64 object-cover rounded-xl"
-                          style={enable3DEffect ? { transform: "translateZ(50px)" } : {}}
-                          loading="lazy"
-                        />
-                      ) : null}
-                      
-                      {/* Overlay con efecto holográfico */}
-                      <motion.div 
-                        className="absolute inset-6 rounded-xl bg-gradient-to-br from-primary/20 via-transparent to-secondary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                        style={{
-                          transform: "translateZ(25px)",
-                        }}
-                      />
-                    </div>
-                    
-                    {project.codeImage && (
-                      <motion.div
-                        className="absolute -bottom-6 -right-6 w-32 h-24 glass-morphism rounded-xl p-2"
-                        style={{
-                          transform: "translateZ(100px)",
-                        }}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.6, delay: 0.3 }}
-                        viewport={{ once: true }}
-                      >
-                        <img
-                          src={project.codeImage}
-                          alt="Code preview"
-                          className="w-full h-full object-cover rounded-lg"
-                        />
-                      </motion.div>
-                    )}
-                  </motion.div>
-                  
-                  {/* Número del proyecto con glow */}
-                  <motion.div 
-                    className="absolute -top-4 -left-4 w-16 h-16 rounded-full bg-gradient-primary flex items-center justify-center text-white font-bold text-xl shadow-2xl"
-                    style={{
-                      transform: "translateZ(125px)",
-                      boxShadow: "0 0 30px rgba(139, 92, 246, 0.6)",
-                    }}
-                    whileHover={{ 
-                      scale: 1.2,
-                      rotate: 360,
-                      transition: { duration: 0.6 }
-                    }}
-                  >
-                    {project.id}
-                  </motion.div>
-                </div>
-              </div>
-            </motion.div>
+      <motion.div
+        className={`relative flex items-center glass-morphism rounded-2xl p-3 sm:p-4 ${
+          index % 2 === 1 ? 'lg:col-start-2' : ''
+        }`}
+        whileHover={{ y: -3 }}
+        transition={{ duration: 0.24 }}
+      >
+        <div className="relative w-full overflow-hidden rounded-xl border border-white/15 bg-black/30 backdrop-blur-md">
+          {previewSrc ? (
+            project.video ? (
+              <video
+                src={project.video}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="h-[260px] w-full bg-black/40 object-contain sm:h-[300px] md:h-[340px]"
+              />
+            ) : (
+              <img
+                src={project.image}
+                alt={project.title}
+                className="h-[260px] w-full object-cover sm:h-[300px] md:h-[340px]"
+                loading="lazy"
+              />
+            )
+          ) : (
+            <div className="h-[260px] w-full bg-gradient-surface sm:h-[300px] md:h-[340px]" />
+          )}
+
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+
+          <div className="absolute left-3 top-3 inline-flex items-center rounded-full border border-white/20 bg-black/45 px-3 py-1 text-xs font-semibold text-text-primary backdrop-blur-md">
+            Proyecto {project.id}
           </div>
         </div>
-      </div>
 
-      {/* Project Info mejorada */}
+        {project.codeImage && (
+          <div className="absolute -bottom-3 -right-3 hidden h-20 w-28 overflow-hidden rounded-lg border border-white/20 bg-black/50 p-1 shadow-glass md:block">
+            <img src={project.codeImage} alt="Code preview" className="h-full w-full rounded-md object-cover" />
+          </div>
+        )}
+      </motion.div>
+
       <div className={index % 2 === 1 ? 'lg:col-start-1' : ''}>
         <motion.div
-          className="space-y-6"
-          style={{
-            transform: "translateZ(50px)",
-          }}
-          initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+          className="glass-morphism h-full rounded-2xl p-6 sm:p-8"
+          initial={{ opacity: 0, x: index % 2 === 0 ? -24 : 24 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          transition={{ duration: 0.6, delay: 0.12 }}
           viewport={{ once: true }}
         >
-          {/* Category con efecto neon */}
-          <motion.div 
-            className="inline-block px-4 py-2 bg-gradient-surface rounded-full text-sm font-medium text-secondary border border-secondary/30 relative overflow-hidden"
-            whileHover={{
-              scale: 1.05,
-              boxShadow: "0 0 20px rgba(6, 182, 212, 0.5)",
-            }}
-          >
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-transparent via-secondary/20 to-transparent"
-              animate={{
-                x: ["-100%", "100%"],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                repeatType: "loop",
-              }}
-            />
-            {project.category}
-          </motion.div>
-          
-          {/* Status con efecto */}
-          <motion.div 
-            className="inline-block px-4 py-2 bg-gradient-to-r from-green-500/20 to-blue-500/20 rounded-full text-sm font-medium text-green-400 border border-green-500/30 relative overflow-hidden"
-            whileHover={{
-              scale: 1.05,
-              boxShadow: "0 0 20px rgba(34, 197, 94, 0.5)",
-            }}
-          >
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-transparent via-green-400/20 to-transparent"
-              animate={{
-                x: ["-100%", "100%"],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                repeatType: "loop",
-              }}
-            />
-            {project.status}
-          </motion.div>
-          
-          {/* Título con gradiente animado */}
-          <motion.h3 
-            className="text-3xl md:text-4xl font-bold text-gradient bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-primary bg-300% animate-gradient"
-            whileHover={{
-              scale: 1.02,
-            }}
-          >
+          <div className="mb-4 flex flex-wrap items-center gap-2">
+            <span className="rounded-full border border-white/20 bg-white/5 px-3 py-1 text-xs font-medium text-text-primary">
+              {project.category}
+            </span>
+            <span className="rounded-full border border-primary/50 bg-primary/20 px-3 py-1 text-xs font-medium text-text-primary">
+              {project.status}
+            </span>
+          </div>
+
+          <motion.h3 className="mb-3 text-2xl font-bold text-text-primary sm:text-3xl" whileHover={{ scale: 1.01 }}>
             {project.title}
           </motion.h3>
-          
-          <p className="text-text-secondary leading-relaxed text-lg">
+
+          <p className="mb-5 text-base leading-relaxed text-text-secondary">
             {project.description}
           </p>
-          
-          {/* Características detalladas */}
-          <motion.div 
-            className="glass-morphism rounded-xl p-5 border border-primary/40 backdrop-blur-sm bg-background-surface/80"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            viewport={{ once: true }}
-          >
-            <h4 className="text-lg font-bold mb-3 text-white flex items-center gap-2">
-              <span className="inline-block w-2 h-2 bg-primary rounded-full animate-pulse"></span>
-              ¿Qué hace este proyecto?
-            </h4>
-            <p className="text-gray-200 text-base leading-relaxed font-normal">
+
+          <div className="mb-5 rounded-xl border border-white/15 bg-white/5 p-4 backdrop-blur-md">
+            <h4 className="mb-2 text-sm font-semibold uppercase tracking-wide text-text-primary">Resumen</h4>
+            <p className="text-sm leading-relaxed text-text-secondary">
               {project.characteristics}
             </p>
-          </motion.div>
-          
-          {/* Features con animación stagger */}
-          <div className="flex flex-wrap gap-2">
-            {project.features.map((feature, featureIndex) => (
+          </div>
+
+          <div className="mb-5 flex flex-wrap gap-2">
+            {topFeatures.map((feature, featureIndex) => (
               <motion.span
                 key={featureIndex}
-                className="px-3 py-2 bg-background-surface/80 rounded-full text-sm font-medium text-gray-100 border border-white/20 hover:border-primary/50 transition-colors cursor-default"
+                className="rounded-full border border-white/20 bg-white/5 px-3 py-1 text-xs font-medium text-text-primary"
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: 0.6 + featureIndex * 0.1 }}
-                whileHover={{ 
-                  scale: 1.05,
-                  backgroundColor: "rgba(139, 92, 246, 0.2)",
-                }}
+                transition={{ duration: 0.25, delay: featureIndex * 0.06 }}
+                whileHover={{ scale: 1.03 }}
                 viewport={{ once: true }}
               >
                 {feature}
               </motion.span>
             ))}
           </div>
-          
-          {/* Technologies */}
-          <div>
-            <h4 className="text-lg font-semibold mb-3 text-white">Tecnologías usadas:</h4>
+
+          <div className="mb-6">
+            <h4 className="mb-3 text-sm font-semibold uppercase tracking-wide text-text-primary">Tecnologías</h4>
             <div className="flex flex-wrap gap-2">
-              {project.technologies.map((tech, techIndex) => (
+              {topTechnologies.map((tech, techIndex) => (
                 <motion.span
                   key={techIndex}
-                  className="px-4 py-2 bg-gradient-primary/30 rounded-full text-sm font-medium text-white border border-primary/50 hover:bg-gradient-primary/40 transition-colors cursor-default"
+                  className="rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-medium text-text-primary"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 0.8 + techIndex * 0.1 }}
-                  whileHover={{ 
-                    scale: 1.05,
-                    boxShadow: "0 0 15px rgba(139, 92, 246, 0.6)",
-                  }}
+                  transition={{ duration: 0.3, delay: techIndex * 0.06 }}
+                  whileHover={{ scale: 1.03 }}
                   viewport={{ once: true }}
                 >
                   {tech}
@@ -296,43 +150,30 @@ export const ProjectCard3D = memo(({ project, index, isMobile = false }: Project
               ))}
             </div>
           </div>
-          
-          {/* Botones con efectos avanzados */}
-          <div className="flex gap-4">
+
+          <div className="flex flex-wrap gap-3">
             <motion.a
               href={project.links.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-2 px-6 py-3 bg-gradient-primary rounded-lg text-white font-medium relative overflow-hidden"
-              whileHover={{ 
-                scale: 1.05,
-                boxShadow: "0 0 30px rgba(139, 92, 246, 0.6)",
-              }}
+              className="btn-primary inline-flex items-center gap-2"
+              whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.95 }}
             >
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                initial={{ x: "-100%" }}
-                whileHover={{ x: "100%" }}
-                transition={{ duration: 0.6 }}
-              />
-              <Github size={20} className="relative z-10" />
-              <span className="relative z-10">Ver Código</span>
+              <Github size={18} />
+              Código
             </motion.a>
-            
+
             <motion.a
               href={project.links.demo}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-2 px-6 py-3 border border-white/20 rounded-lg text-text-primary font-medium hover:bg-white/5 relative overflow-hidden"
-              whileHover={{ 
-                scale: 1.05,
-                borderColor: "rgba(139, 92, 246, 0.5)",
-              }}
+              className="btn-secondary inline-flex items-center gap-2"
+              whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.95 }}
             >
-              <ExternalLink size={20} />
-              Ver Demo
+              <ExternalLink size={18} />
+              Demo
             </motion.a>
           </div>
         </motion.div>
