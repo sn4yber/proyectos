@@ -3,6 +3,8 @@ import { Project } from '@/components/ProjectCard3D/ProjectCard3D'
 export const fetchProjects = async (): Promise<Project[]> => {
   // Simulación de fetch a una API (puedes reemplazar por fetch real)
   return [
+
+    
     {
       id: '01',
       category: 'Web Development',
@@ -97,5 +99,21 @@ export const fetchProjects = async (): Promise<Project[]> => {
       status: 'en produccion activa',
       
     },
-  ]
+    {
+      id: '06',
+      category: 'Landing page web',
+      title: ' Landing page de alpha team',
+      description: 'Landing page de alpha team academia de  artes marciales mixtas 100% responsiva y con animaciones fluidas pagian informativa',
+      characteristics: 'Landing page de alpha team',
+      image: '/cap.jpeg',
+      features: ['Landing page de alpha team'],
+      technologies: ['React', 'Tailwind CSS', 'typeScript' ,'vite', 'gsap'],
+      links: {
+        github: 'https://github.com/sn4yber',
+        demo: 'https://alphateamctg.netlify.app/',
+      },
+      status: 'en produccion activa',
+    
+  },
+]
 }
